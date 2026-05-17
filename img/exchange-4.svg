@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Microscope clinical training">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#25314c"/>
+      <stop offset="1" stop-color="#151515"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <rect x="130" y="96" width="540" height="346" rx="16" fill="#ffffff" opacity=".95"/>
+  <path d="M234 308h128l62-96h82" fill="none" stroke="#2a6fa8" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="526" cy="212" r="48" fill="#c8a882"/>
+  <circle cx="526" cy="212" r="22" fill="#ffffff"/>
+  <rect x="212" y="344" width="254" height="18" rx="9" fill="#d7d7d7"/>
+  <rect x="212" y="378" width="188" height="12" rx="6" fill="#d7d7d7"/>
+  <path d="M244 484c92-54 220-54 312 0" fill="none" stroke="#ffffff" stroke-width="24" stroke-linecap="round" opacity=".82"/>
+  <circle cx="400" cy="464" r="42" fill="#ffffff"/>
+</svg>
