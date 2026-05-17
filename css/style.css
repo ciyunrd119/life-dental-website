@@ -1403,7 +1403,7 @@ a{color:inherit;text-decoration:none;}
 
 /* ─── FOOTER ─── */
 footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
-.ft-top{max-width:1240px;margin:0 auto;padding:72px 48px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;}
+.ft-top{max-width:1240px;margin:0 auto;padding:72px 48px;display:grid;grid-template-columns:1.4fr .8fr 1.1fr 1.1fr;gap:48px;}
 .ft-brand .logo-en{color:rgba(255,255,255,.85);}
 .ft-brand .logo-zh{color:rgba(200,168,130,.65);}
 .ft-brand p{font-size:16px;color:rgba(255,255,255,.35);margin-top:20px;line-height:1.9;letter-spacing:.03em;}
@@ -1413,6 +1413,7 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
 .ft-col .ft-fb-btn{display:inline-flex;align-items:center;justify-content:center;margin-top:12px;padding:8px 14px;border:1px solid rgba(255,255,255,.28);color:rgba(255,255,255,.62);background:transparent;min-width:150px;font-size:14px;}
 .ft-col .ft-fb-btn:hover{border-color:rgba(255,255,255,.6);color:#fff;}
 .ft-col p{font-size:16px;color:rgba(255,255,255,.38);letter-spacing:.03em;line-height:1.9;}
+.ft-col p:nth-of-type(2){white-space:nowrap;}
 .ft-bottom{border-top:1px solid rgba(255,255,255,.05);max-width:1240px;margin:0 auto;padding:20px 48px;display:flex;justify-content:space-between;align-items:center;font-size:16px;color:rgba(255,255,255,.2);letter-spacing:.06em;}
 
 /* ─── FLOATING ─── */
