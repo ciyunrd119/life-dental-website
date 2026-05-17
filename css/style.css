@@ -1587,6 +1587,9 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
   .clinics-grid{grid-template-columns:1fr;}
   .cta-band-inner{flex-direction:column;text-align:center;}
   .cta-btns{justify-content:center;}
+  .doctor-copy{padding:44px 32px;}
+  .doctor-tags{gap:6px;margin-bottom:30px;}
+  .dtag{font-size:14px;letter-spacing:.04em;padding:4px 10px;}
   .ft-top{grid-template-columns:1fr 1fr;gap:32px;}
   .ft-bottom{flex-direction:column;gap:8px;text-align:center;}
   .sec{padding:40px 24px;}
@@ -1659,6 +1662,10 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
   }
   .svc-arrow,
   .svc-nav{display:none;}
+  .doctor-copy{padding-top:36px;padding-bottom:36px;}
+  .doctor-title{margin-bottom:26px;}
+  .doctor-divider{margin-bottom:26px;}
+  .doctor-bio{margin-bottom:26px;}
   .ft-top{grid-template-columns:1fr;}
   .equip-grid{grid-template-columns:repeat(2,1fr);}
   .cta-btns{flex-direction:column;}
