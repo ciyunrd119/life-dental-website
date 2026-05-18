@@ -102,9 +102,12 @@
     width: 100%; height: 100%;
     display: flex; align-items: center; justify-content: center;
   }
-  /* Abstract dental crown illustration */
-  .crown-illustration {
-    width: 320px; height: 400px; position: relative;
+  .hero-image-area img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
   }
   /* ── SECTION COMMON ── */
   section { padding: var(--section-gap) 80px; }
@@ -722,7 +725,7 @@
 <!-- HERO -->
 <section class="hero" style="padding:0;">
   <div class="hero-left">
-    <div class="hero-eyebrow">療程項目 — 美學修復</div>
+    <div class="hero-eyebrow">療程項目</div>
     <h1 class="hero-title">
       全瓷冠
       <em>All Ceramic Crown</em>
@@ -730,7 +733,7 @@
     <p class="hero-subtitle">還原牙齒的自然光澤與完美形態</p>
     <p class="hero-desc">
       全瓷冠以高透光陶瓷製作，完美模擬天然牙的光學特性，無金屬黑線疑慮，
-      是兼顧美觀與功能的頂級修復選擇。從數位掃描到精密製作，
+      是最適合前牙區的假牙材質。從數位掃描到精密製作，
       每一顆都是為您量身打造的藝術品。
     </p>
     <div class="hero-stats">
@@ -750,57 +753,7 @@
   </div>
   <div class="hero-right">
     <div class="hero-image-area">
-      <!-- Elegant dental crown SVG illustration -->
-      <svg viewBox="0 0 280 340" xmlns="http://www.w3.org/2000/svg" class="crown-illustration">
-        <defs>
-          <linearGradient id="toothGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#F8F6F2"/>
-            <stop offset="60%" stop-color="#EDE9E0"/>
-            <stop offset="100%" stop-color="#D8D2C6"/>
-          </linearGradient>
-          <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#D4B896"/>
-            <stop offset="100%" stop-color="#B89A6A"/>
-          </linearGradient>
-          <linearGradient id="sageBg" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#EFF4F2"/>
-            <stop offset="100%" stop-color="#C4D5CE"/>
-          </linearGradient>
-        </defs>
-        <!-- Background circle -->
-        <circle cx="140" cy="160" r="130" fill="url(#sageBg)" opacity="0.5"/>
-        <!-- Decorative rings -->
-        <circle cx="140" cy="160" r="115" fill="none" stroke="#7A9488" stroke-width="0.5" opacity="0.3"/>
-        <circle cx="140" cy="160" r="100" fill="none" stroke="#7A9488" stroke-width="0.5" opacity="0.2"/>
-        <!-- Main tooth crown shape -->
-        <g transform="translate(140, 160)">
-          <!-- Crown body -->
-          <path d="M-45 20 Q-50 -20 -35 -55 Q-20 -80 0 -85 Q20 -80 35 -55 Q50 -20 45 20 Q35 60 20 80 Q10 90 0 90 Q-10 90 -20 80 Q-35 60 -45 20Z"
-                fill="url(#toothGrad)" stroke="#D8D2C6" stroke-width="0.5"/>
-          <!-- Crown highlight -->
-          <path d="M-20 -50 Q-10 -70 0 -75 Q10 -70 20 -50 Q15 -30 0 -25 Q-15 -30 -20 -50Z"
-                fill="white" opacity="0.5"/>
-          <!-- Crown cusps at top -->
-          <path d="M-40 -40 Q-45 -65 -30 -75 Q-20 -80 -15 -65 Q-25 -55 -20 -40Z"
-                fill="url(#toothGrad)" stroke="#D8D2C6" stroke-width="0.5"/>
-          <path d="M40 -40 Q45 -65 30 -75 Q20 -80 15 -65 Q25 -55 20 -40Z"
-                fill="url(#toothGrad)" stroke="#D8D2C6" stroke-width="0.5"/>
-          <!-- Gum line -->
-          <path d="M-50 22 Q-30 30 0 28 Q30 30 50 22" fill="none" stroke="#C4D5CE" stroke-width="1.5"/>
-          <!-- Root suggestion -->
-          <path d="M-15 85 Q-18 110 -10 130" fill="none" stroke="#D8D2C6" stroke-width="1" opacity="0.5"/>
-          <path d="M15 85 Q18 110 10 130" fill="none" stroke="#D8D2C6" stroke-width="1" opacity="0.5"/>
-          <!-- Gold accent line -->
-          <path d="M-50 22 Q0 32 50 22" fill="none" stroke="url(#goldGrad)" stroke-width="1.5"/>
-        </g>
-        <!-- Small decorative elements -->
-        <circle cx="40" cy="80" r="3" fill="#B89A6A" opacity="0.4"/>
-        <circle cx="240" cy="240" r="5" fill="#7A9488" opacity="0.3"/>
-        <circle cx="60" cy="260" r="4" fill="#B89A6A" opacity="0.3"/>
-        <!-- Label -->
-        <text x="140" y="305" text-anchor="middle" font-family="'Cormorant Garamond', serif"
-              font-size="14" font-style="italic" fill="#7A9488" opacity="0.8">All Ceramic Crown</text>
-      </svg>
+      <img src="img/treatment/all_ceramic_crown_01.jpg" alt="全瓷冠療程形象照">
     </div>
   </div>
 </section>
@@ -813,8 +766,8 @@
 
   <div class="what-grid">
     <div class="what-text reveal">
-      <p>全瓷冠（All Ceramic Crown）是以全陶瓷材質製作的牙冠修復體，完全不含金屬成分。相較於傳統金屬烤瓷冠，全瓷冠的透光性更接近天然牙齒的釉質，在光線照射下能呈現自然的半透明質感，從任何角度看都無法分辨修復與真牙的差異。</p>
-      <p>全瓷冠適用於前牙美觀修復、後牙功能重建、色澤嚴重異常的牙齒，以及對金屬過敏的患者。現代氧化鋯（Zirconia）材質的全瓷冠強度已可媲美金屬，能承受臼齒的咬合力，兼顧美觀與功能。</p>
+      <p>全瓷冠（All Ceramic Crown）是以全陶瓷材質製作的牙冠修復體，完全不含金屬成分，不怕金屬過敏或刺激牙肉。相較於傳統金屬烤瓷冠，全瓷冠的透光性更接近天然牙齒的釉質，在光線照射下能呈現自然的半透明質感，從任何角度看都難以分辨修復與真牙的差異。</p>
+      <p>若您有輕微齒列不整或齒型不佳的狀況，也可以利用全瓷冠來進行修正齒型，打造更完美的微笑黃金曲線。</p>
       <div class="what-features">
         <div class="feature-item reveal">
           <div class="feature-icon">✦</div>
@@ -824,12 +777,12 @@
         <div class="feature-item reveal">
           <div class="feature-icon">◈</div>
           <div class="feature-title">無金屬過敏</div>
-          <div class="feature-desc">生物相容性佳，適合對金屬敏感的患者</div>
+          <div class="feature-desc">生物相容性佳，不怕未來牙齦發黑變色</div>
         </div>
         <div class="feature-item reveal">
           <div class="feature-icon">⬡</div>
           <div class="feature-title">高強度耐用</div>
-          <div class="feature-desc">氧化鋯材質強度高，可承受正常咬合力</div>
+          <div class="feature-desc">陶瓷材質強度高，可承受正常咬合力</div>
         </div>
         <div class="feature-item reveal">
           <div class="feature-icon">◎</div>
@@ -898,7 +851,7 @@
 <section class="process">
   <div class="section-tag reveal">療程流程</div>
   <h2 class="section-heading reveal">從初診到<em>完美微笑</em></h2>
-  <p class="section-intro reveal">我們採用數位化全流程，從術前模擬到精密製作，確保每個步驟精準無誤，通常約需 2–3 次回診即可完成。</p>
+  <p class="section-intro reveal">生活牙醫診所採用數位化流程，從術前模擬到精密製作，確保每個步驟精準至公釐且無誤。</p>
 
   <div class="process-timeline reveal">
     <div class="process-line"></div>
@@ -917,7 +870,7 @@
           <div class="step-icon">📐</div>
         </div>
         <div class="step-title">數位掃描</div>
-        <div class="step-desc">3D 口腔掃描取模，搭配 DSD 微笑設計，預覽修復後的效果</div>
+        <div class="step-desc">3D 口腔掃描取模，適時搭配 DSD 微笑設計，預覽修復後的效果</div>
       </div>
       <div class="process-step">
         <div class="step-circle">
@@ -933,7 +886,7 @@
           <div class="step-icon">⚙️</div>
         </div>
         <div class="step-title">精密製作</div>
-        <div class="step-desc">與頂級技師合作，CAD/CAM 電腦輔助製作，精度可達 0.01mm</div>
+        <div class="step-desc">與資深技師合作，CAD/CAM 電腦輔助製作，精度可達 0.01mm</div>
       </div>
       <div class="process-step">
         <div class="step-circle">
@@ -1116,14 +1069,14 @@
 <!-- ADVANTAGE -->
 <section class="advantage">
   <div class="section-tag reveal">生活牙醫的優勢</div>
-  <h2 class="section-heading reveal">選擇我們的<em>六個理由</em></h2>
+  <h2 class="section-heading reveal">選擇生活牙醫的<em>六個理由</em></h2>
   <p class="section-intro reveal">多年來我們持續精進，只為給您最安心、最精緻的修復體驗</p>
 
   <div class="advantage-grid reveal">
     <div class="adv-card">
       <div class="adv-number">01</div>
       <div class="adv-title">美學專科醫師</div>
-      <div class="adv-desc">醫師擁有美國美學牙科學會（AACD）認證，接受國際頂級美學修復訓練，精通全瓷冠與複合貼片等高端修復技術。</div>
+      <div class="adv-desc">醫師擁有多項美學及假牙贋復牙醫學會認證，接受國際贋復訓練，精通全瓷冠與全瓷貼片等美學修復技術。</div>
     </div>
     <div class="adv-card">
       <div class="adv-number">02</div>
@@ -1133,22 +1086,22 @@
     <div class="adv-card">
       <div class="adv-number">03</div>
       <div class="adv-title">頂級技師合作</div>
-      <div class="adv-desc">與國際認證頂級技工所合作，每顆全瓷冠均由資深技師手工上色調整，確保色澤層次自然，媲美真牙光澤。</div>
+      <div class="adv-desc">與國家認證技工所合作，每顆全瓷冠均由資深技師手工上色調整，確保色澤層次自然，媲美真牙光澤。</div>
     </div>
     <div class="adv-card">
       <div class="adv-number">04</div>
       <div class="adv-title">先模擬後治療</div>
-      <div class="adv-desc">DSD + 臨時冠試戴雙重確認，讓您在正式製作前即可充分感受效果，確保修復結果與期待完全一致。</div>
+      <div class="adv-desc">DSD + 臨時假牙試戴雙重確認，讓您在正式製作前即可充分感受效果，確保修復結果與期待完全一致。</div>
     </div>
     <div class="adv-card">
       <div class="adv-number">05</div>
-      <div class="adv-title">溫馨舒適環境</div>
-      <div class="adv-desc">寬敞私密的診療空間、音樂放鬆系統，搭配舒適的治療體驗設計，讓每次就診都成為享受，而非壓力。</div>
+      <div class="adv-title">豐富實際案例</div>
+      <div class="adv-desc">生活牙醫在台中南投深耕20餘年，累積經驗豐富，有眾多成功案例照提供參考，看牙加倍安心。</div>
     </div>
     <div class="adv-card">
       <div class="adv-number">06</div>
       <div class="adv-title">完善售後保固</div>
-      <div class="adv-desc">全瓷冠完成後提供完整的使用說明與追蹤計畫，定期回診檢查，並提供材質保固服務，讓您長期安心使用。</div>
+      <div class="adv-desc">全瓷冠完成後提供完整的使用說明與追蹤計畫，定期回診檢查，並提供假牙２年保固服務，讓您長期安心使用。</div>
     </div>
   </div>
 </section>
@@ -1162,7 +1115,6 @@
   <div class="cases-grid">
     <div class="case-card reveal">
       <div class="case-image">
-        <div class="case-badge">前後對比</div>
         <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
           <!-- Before side -->
           <rect x="0" y="0" width="149" height="200" fill="#EDE9E0"/>
@@ -1199,7 +1151,6 @@
 
     <div class="case-card reveal">
       <div class="case-image">
-        <div class="case-badge">DSD 微笑設計</div>
         <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
           <rect x="0" y="0" width="300" height="200" fill="#F2EAD8"/>
           <!-- Smile arc suggestion -->
@@ -1231,7 +1182,6 @@
 
     <div class="case-card reveal">
       <div class="case-image">
-        <div class="case-badge">功能美觀並重</div>
         <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
           <rect x="0" y="0" width="300" height="200" fill="#EFF4F2"/>
           <!-- Full mouth reconstruction suggestion -->
@@ -1295,10 +1245,9 @@
         </svg>
       </div>
       <div class="know-card-body">
-        <span class="know-tag ceramic">材質解析</span>
         <h3 class="know-card-title">氧化鋯 vs. e.max：哪一種全瓷冠最適合你？</h3>
         <p class="know-card-excerpt">全瓷冠並非只有一種，市面上最主流的兩大系統——氧化鋯（Zirconia）與 e.max（鋰二矽酸鹽），在強度、透光性與適用位置上各有優勢。</p>
-        <div class="know-card-meta">林宜庭 醫師 ・ 2025.03.18 ・ 閱讀約 5 分鐘</div>
+        <div class="know-card-meta">2025.03.18 ・ 閱讀約 5 分鐘</div>
       </div>
     </article>
 
@@ -1321,10 +1270,9 @@
         </svg>
       </div>
       <div class="know-card-body">
-        <span class="know-tag care">術後保養</span>
         <h3 class="know-card-title">全瓷冠完成後，這 5 件事請一定要知道</h3>
         <p class="know-card-excerpt">剛戴上全瓷冠的頭幾天，牙齒可能有輕微敏感或異物感，這是正常的適應期反應。正確清潔習慣與飲食調整，能讓修復成果長久維持。</p>
-        <div class="know-card-meta">陳怡君 醫師 ・ 2025.01.22 ・ 閱讀約 4 分鐘</div>
+        <div class="know-card-meta">2025.01.22 ・ 閱讀約 4 分鐘</div>
       </div>
     </article>
 
@@ -1342,10 +1290,9 @@
         </svg>
       </div>
       <div class="know-card-body">
-        <span class="know-tag faq">常見問題</span>
         <h3 class="know-card-title">全瓷冠 FAQ：醫師回答 8 個你最想問的問題</h3>
         <p class="know-card-excerpt">「全瓷冠會不會很容易裂掉？」「做全瓷冠需要磨很多牙嗎？」「做完之後可以吃滷肉飯嗎？」整理診間最常被問到的疑問。</p>
-        <div class="know-card-meta">林宜庭 醫師 ・ 2024.11.05 ・ 閱讀約 6 分鐘</div>
+        <div class="know-card-meta">2024.11.05 ・ 閱讀約 6 分鐘</div>
       </div>
     </article>
   </div>
@@ -1360,8 +1307,6 @@
   <div class="cta-right">
     <a href="tel:+886-3-000-0000" class="cta-btn-primary">立即預約諮詢</a>
     <a href="#" class="cta-btn-secondary">查看更多案例</a>
-    <div class="cta-info">週一至週五 09:00 — 21:00 ／ 週六 09:00 — 17:00</div>
-    <div class="cta-info">新竹市東區光復路一段 ｜ 03-000-0000</div>
   </div>
 </section>
 
