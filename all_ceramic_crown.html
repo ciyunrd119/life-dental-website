@@ -84,7 +84,8 @@
     border-left: 2px solid var(--gold-light); padding-left: 20px;
   }
   .hero-stats {
-    display: flex; gap: 40px;
+    display: flex; flex-direction: row; gap: 40px;
+    border: 0; overflow: visible;
   }
   .stat-item { text-align: center; }
   .stat-num {
@@ -440,6 +441,15 @@
   @media (max-width: 640px) {
     section { padding: 60px 24px; }
     .hero-left { padding: 48px 24px; }
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      width: 100%;
+    }
+    .stat-num { font-size: 34px; }
+    .stat-num sup { font-size: 14px; }
+    .stat-label { font-size: 13px; letter-spacing: 0.04em; }
     .advantage-grid { grid-template-columns: 1fr; }
     .process-steps { grid-template-columns: 1fr 1fr; }
     .what-features { grid-template-columns: 1fr; }
