@@ -541,6 +541,68 @@
     .know-small { flex: 1 1 100%; }
   }
 
+  .ceramic-source-page .knowledge-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    align-items: stretch;
+  }
+  .ceramic-source-page .know-card {
+    background: var(--warm-white);
+    overflow: hidden;
+    cursor: pointer;
+    transition: box-shadow 0.3s, transform 0.3s;
+    display: flex;
+    flex-direction: column;
+  }
+  .ceramic-source-page .know-card:hover {
+    box-shadow: 0 8px 40px rgba(44,44,42,0.08);
+    transform: translateY(-3px);
+  }
+  .ceramic-source-page .know-card-img {
+    aspect-ratio: 600 / 400;
+    background: var(--sage-pale);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .ceramic-source-page .know-card-img svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  .ceramic-source-page .know-card-body {
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  .ceramic-source-page .know-card-title {
+    font-family: var(--font-serif);
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--charcoal);
+    line-height: 1.38;
+    margin-bottom: 12px;
+  }
+  .ceramic-source-page .know-card-excerpt {
+    margin-bottom: 20px;
+  }
+  .ceramic-source-page .know-card-meta {
+    margin-top: auto;
+    font-size: 14px;
+    color: var(--warm-gray);
+    letter-spacing: 0.06em;
+    line-height: 1.7;
+  }
+  @media (max-width: 1024px) {
+    .ceramic-source-page .knowledge-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 640px) {
+    .ceramic-source-page .knowledge-grid { grid-template-columns: 1fr; }
+  }
+
   .ceramic-source-page p,
   .ceramic-source-page .hero-desc,
   .ceramic-source-page .section-intro,
@@ -549,6 +611,7 @@
   .ceramic-source-page .dsd-step-desc,
   .ceramic-source-page .adv-desc,
   .ceramic-source-page .case-desc,
+  .ceramic-source-page .know-card-excerpt,
   .ceramic-source-page .know-featured-excerpt,
   .ceramic-source-page .know-small-excerpt,
   .ceramic-source-page .cta-desc {
@@ -1244,84 +1307,79 @@
   <p class="section-intro reveal">從材質原理到術後保養，我們整理了最實用的知識，幫助您做出最適合自己的決定。</p>
 
   <div class="knowledge-grid">
-    <!-- Featured Article -->
-    <div class="know-featured reveal">
-      <div class="know-featured-img">
-        <svg viewBox="0 0 560 260" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-          <rect width="560" height="260" fill="#EFF4F2"/>
-          <g transform="translate(280,120)">
-            <rect x="-130" y="-55" width="260" height="35" rx="4" fill="white" opacity="0.75"/>
-            <text x="-110" y="-32" font-family="'Noto Sans TC', sans-serif" font-size="14" fill="#7A9488" opacity="0.9">氧化鋯底層（Zirconia Core）</text>
-            <rect x="-130" y="-18" width="260" height="40" rx="0" fill="#F5F2EC" opacity="0.7"/>
-            <text x="-110" y="8" font-family="'Noto Sans TC', sans-serif" font-size="14" fill="#B89A6A" opacity="0.9">透明陶瓷飾面（Ceramic Veneer）</text>
-            <rect x="-130" y="24" width="260" height="30" rx="0" fill="#EDE9E0" opacity="0.6"/>
-            <text x="-110" y="44" font-family="'Noto Sans TC', sans-serif" font-size="14" fill="#6B6860" opacity="0.9">表面釉質層（Glaze Layer）</text>
-            <rect x="-110" y="-51" width="70" height="7" rx="3" fill="white" opacity="0.5"/>
+    <article class="know-card reveal">
+      <div class="know-card-img" aria-hidden="true">
+        <svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg" width="600" height="400">
+          <rect width="600" height="400" fill="#EFF4F2"/>
+          <g transform="translate(300,185)">
+            <rect x="-150" y="-72" width="300" height="44" rx="5" fill="white" opacity="0.75"/>
+            <text x="-126" y="-43" font-family="'Noto Sans TC', sans-serif" font-size="17" fill="#7A9488" opacity="0.9">氧化鋯底層（Zirconia Core）</text>
+            <rect x="-150" y="-23" width="300" height="52" rx="2" fill="#F5F2EC" opacity="0.78"/>
+            <text x="-126" y="10" font-family="'Noto Sans TC', sans-serif" font-size="17" fill="#B89A6A" opacity="0.95">透明陶瓷飾面（Ceramic Veneer）</text>
+            <rect x="-150" y="34" width="300" height="40" rx="2" fill="#EDE9E0" opacity="0.65"/>
+            <text x="-126" y="60" font-family="'Noto Sans TC', sans-serif" font-size="17" fill="#6B6860" opacity="0.9">表面釉質層（Glaze Layer）</text>
+            <rect x="-126" y="-66" width="80" height="8" rx="4" fill="white" opacity="0.5"/>
           </g>
-          <line x1="160" y1="30" x2="280" y2="75" stroke="#B89A6A" stroke-width="0.5" stroke-dasharray="3,4" opacity="0.4"/>
-          <line x1="400" y1="30" x2="280" y2="75" stroke="#B89A6A" stroke-width="0.5" stroke-dasharray="3,4" opacity="0.4"/>
-          <circle cx="280" cy="75" r="4" fill="#B89A6A" opacity="0.3"/>
-          <text x="280" y="225" text-anchor="middle" font-family="'Cormorant Garamond', serif" font-style="italic" font-size="14" fill="#7A9488" opacity="0.7">全瓷冠的三層結構示意</text>
+          <line x1="156" y1="72" x2="300" y2="112" stroke="#B89A6A" stroke-width="1" stroke-dasharray="4,5" opacity="0.45"/>
+          <line x1="444" y1="72" x2="300" y2="112" stroke="#B89A6A" stroke-width="1" stroke-dasharray="4,5" opacity="0.45"/>
+          <circle cx="300" cy="112" r="6" fill="#B89A6A" opacity="0.3"/>
+          <text x="300" y="340" text-anchor="middle" font-family="'Cormorant Garamond', serif" font-style="italic" font-size="18" fill="#7A9488" opacity="0.78">全瓷冠的三層結構示意</text>
         </svg>
       </div>
-      <div class="know-featured-body">
+      <div class="know-card-body">
         <span class="know-tag ceramic">材質解析</span>
-        <h3 class="know-featured-title">氧化鋯 vs. e.max：<br>哪一種全瓷冠最適合你？</h3>
-        <p class="know-featured-excerpt">全瓷冠並非只有一種，市面上最主流的兩大系統——氧化鋯（Zirconia）與 e.max（鋰二矽酸鹽），在強度、透光性與適用位置上各有優勢。前者以超高強度著稱，可用於承受咬合力較大的臼齒；後者透光性極佳，常被選用於對美觀要求最高的前牙修復。了解兩者差異，才能與醫師共同做出最適合自己的選擇。</p>
-        <div class="know-meta">
-          <span>林宜庭 醫師</span>
-          <span class="know-meta-dot"></span>
-          <span>閱讀時間約 5 分鐘</span>
-          <span class="know-meta-dot"></span>
-          <span>2025.03.18</span>
-          <span style="flex:1;"></span>
-          <a href="#" class="know-read-more">閱讀全文</a>
-        </div>
+        <h3 class="know-card-title">氧化鋯 vs. e.max：哪一種全瓷冠最適合你？</h3>
+        <p class="know-card-excerpt">全瓷冠並非只有一種，市面上最主流的兩大系統——氧化鋯（Zirconia）與 e.max（鋰二矽酸鹽），在強度、透光性與適用位置上各有優勢。</p>
+        <div class="know-card-meta">林宜庭 醫師 ・ 2025.03.18 ・ 閱讀約 5 分鐘</div>
       </div>
-    </div>
+    </article>
 
-    <!-- Side Articles -->
-    <div class="know-side">
-      <div class="know-small reveal">
-        <div style="flex:1;">
-          <span class="know-tag care" style="font-size:14px;padding:3px 8px;margin-bottom:10px;display:inline-block;">術後保養</span>
-          <div class="know-small-title">全瓷冠完成後，這 5 件事請一定要知道</div>
-          <div class="know-small-excerpt">剛戴上全瓷冠的頭幾天，牙齒可能有輕微敏感或異物感，這是正常的適應期反應。正確的清潔習慣與飲食調整，能讓全瓷冠使用壽命延長至 15 年以上。我們整理了術後最關鍵的五個注意事項，讓您的修復成果長久維持。</div>
-          <div class="know-small-meta">陳怡君 醫師 ・ 2025.01.22 ・ 閱讀約 4 分鐘</div>
-        </div>
-        <div class="know-small-img" style="background:var(--gold-pale);">
-          <svg viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg" width="72" height="72">
-            <rect width="72" height="72" fill="#F2EAD8"/>
-            <rect x="30" y="12" width="10" height="32" rx="5" fill="#B89A6A" opacity="0.5"/>
-            <rect x="28" y="8" width="14" height="10" rx="3" fill="#D4B896" opacity="0.6"/>
-            <rect x="28" y="8" width="4" height="10" rx="1" fill="#B89A6A" opacity="0.4"/>
-            <rect x="32" y="8" width="4" height="10" rx="1" fill="#B89A6A" opacity="0.4"/>
-            <rect x="36" y="8" width="4" height="10" rx="1" fill="#B89A6A" opacity="0.4"/>
-            <circle cx="50" cy="24" r="2" fill="#B89A6A" opacity="0.4"/>
-            <circle cx="20" cy="32" r="1.5" fill="#B89A6A" opacity="0.3"/>
-            <text x="36" y="62" text-anchor="middle" font-family="'Noto Sans TC', sans-serif" font-size="14" fill="#7A9488" opacity="0.7">保養指南</text>
-          </svg>
-        </div>
+    <article class="know-card reveal">
+      <div class="know-card-img" aria-hidden="true">
+        <svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg" width="600" height="400">
+          <rect width="600" height="400" fill="#F2EAD8"/>
+          <circle cx="300" cy="185" r="104" fill="#fff" opacity="0.42"/>
+          <g transform="translate(300,180)">
+            <rect x="-34" y="-102" width="68" height="208" rx="34" fill="#D4B896" opacity="0.58"/>
+            <rect x="-44" y="-132" width="88" height="58" rx="18" fill="#FDFCFA" stroke="#B89A6A" stroke-width="2" opacity="0.95"/>
+            <rect x="-32" y="-124" width="14" height="42" rx="5" fill="#B89A6A" opacity="0.35"/>
+            <rect x="-8" y="-124" width="14" height="42" rx="5" fill="#B89A6A" opacity="0.35"/>
+            <rect x="16" y="-124" width="14" height="42" rx="5" fill="#B89A6A" opacity="0.35"/>
+            <path d="M-88 64 Q0 105 88 64" fill="none" stroke="#7A9488" stroke-width="4" stroke-linecap="round" opacity="0.55"/>
+          </g>
+          <circle cx="426" cy="124" r="9" fill="#B89A6A" opacity="0.35"/>
+          <circle cx="168" cy="255" r="6" fill="#7A9488" opacity="0.28"/>
+          <text x="300" y="340" text-anchor="middle" font-family="'Cormorant Garamond', serif" font-style="italic" font-size="18" fill="#7A9488" opacity="0.78">全瓷冠術後保養指南</text>
+        </svg>
       </div>
+      <div class="know-card-body">
+        <span class="know-tag care">術後保養</span>
+        <h3 class="know-card-title">全瓷冠完成後，這 5 件事請一定要知道</h3>
+        <p class="know-card-excerpt">剛戴上全瓷冠的頭幾天，牙齒可能有輕微敏感或異物感，這是正常的適應期反應。正確清潔習慣與飲食調整，能讓修復成果長久維持。</p>
+        <div class="know-card-meta">陳怡君 醫師 ・ 2025.01.22 ・ 閱讀約 4 分鐘</div>
+      </div>
+    </article>
 
-      <div class="know-small reveal">
-        <div style="flex:1;">
-          <span class="know-tag faq" style="font-size:14px;padding:3px 8px;margin-bottom:10px;display:inline-block;">常見問題</span>
-          <div class="know-small-title">全瓷冠 FAQ：醫師回答 8 個你最想問的問題</div>
-          <div class="know-small-excerpt">「全瓷冠會不會很容易裂掉？」「做全瓷冠需要磨很多牙嗎？」「做完之後可以吃滷肉飯嗎？」這些是診間最常被問到的問題。林醫師親自整理 8 大常見疑問，給你最直接、最實在的解答。</div>
-          <div class="know-small-meta">林宜庭 醫師 ・ 2024.11.05 ・ 閱讀約 6 分鐘</div>
-        </div>
-        <div class="know-small-img" style="background:#EEF0F8;">
-          <svg viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg" width="72" height="72">
-            <rect width="72" height="72" fill="#EEF0F8"/>
-            <circle cx="36" cy="32" r="14" fill="none" stroke="#6270A8" stroke-width="2" opacity="0.4"/>
-            <text x="36" y="38" text-anchor="middle" font-family="'Cormorant Garamond', serif" font-size="22" font-style="italic" fill="#6270A8" opacity="0.6">?</text>
-            <circle cx="36" cy="52" r="2" fill="#6270A8" opacity="0.4"/>
-            <text x="36" y="65" text-anchor="middle" font-family="'Noto Sans TC', sans-serif" font-size="14" fill="#6270A8" opacity="0.6">常見問題</text>
-          </svg>
-        </div>
+    <article class="know-card reveal">
+      <div class="know-card-img" aria-hidden="true">
+        <svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg" width="600" height="400">
+          <rect width="600" height="400" fill="#EEF0F8"/>
+          <circle cx="300" cy="180" r="108" fill="white" opacity="0.55"/>
+          <circle cx="300" cy="174" r="74" fill="none" stroke="#6270A8" stroke-width="6" opacity="0.42"/>
+          <text x="300" y="204" text-anchor="middle" font-family="'Cormorant Garamond', serif" font-size="112" font-style="italic" fill="#6270A8" opacity="0.58">?</text>
+          <circle cx="300" cy="278" r="7" fill="#6270A8" opacity="0.45"/>
+          <line x1="186" y1="76" x2="246" y2="116" stroke="#B89A6A" stroke-width="1" stroke-dasharray="4,5" opacity="0.45"/>
+          <line x1="414" y1="76" x2="354" y2="116" stroke="#B89A6A" stroke-width="1" stroke-dasharray="4,5" opacity="0.45"/>
+          <text x="300" y="340" text-anchor="middle" font-family="'Cormorant Garamond', serif" font-style="italic" font-size="18" fill="#6270A8" opacity="0.72">全瓷冠常見問題</text>
+        </svg>
       </div>
-    </div>
+      <div class="know-card-body">
+        <span class="know-tag faq">常見問題</span>
+        <h3 class="know-card-title">全瓷冠 FAQ：醫師回答 8 個你最想問的問題</h3>
+        <p class="know-card-excerpt">「全瓷冠會不會很容易裂掉？」「做全瓷冠需要磨很多牙嗎？」「做完之後可以吃滷肉飯嗎？」整理診間最常被問到的疑問。</p>
+        <div class="know-card-meta">林宜庭 醫師 ・ 2024.11.05 ・ 閱讀約 6 分鐘</div>
+      </div>
+    </article>
   </div>
 </section>
 
