@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <link rel="stylesheet" href="css/style.css">
 <style>
 
@@ -120,7 +121,7 @@
   .section-tag::before { content: ''; display: block; width: 24px; height: 0.5px; background: var(--gold); }
   .section-heading {
     font-family: var(--font-serif); font-size: clamp(36px, 4vw, 52px);
-    font-weight: 600; color: var(--charcoal); line-height: 1.2; margin-bottom: 16px;
+    font-weight: 500; color: var(--charcoal); line-height: 1.2; margin-bottom: 16px;
   }
   .section-heading em { font-style: italic; color: var(--gold); }
   .section-intro { font-size: 15px; color: var(--warm-gray); max-width: 600px; line-height: 1.9; }
@@ -150,10 +151,10 @@
   .feature-item {
     padding: 20px;
     background: var(--cream);
-    border-top: 2px solid var(--gold-pale);
+    border: 1px solid #F2EAD8;
   }
   .feature-icon {
-    font-size: 22px; margin-bottom: 12px;
+    display: none;
   }
   .feature-title { font-weight: 500; font-size: 20px; color: var(--charcoal); margin-bottom: 6px; }
   .feature-desc { font-size: 14px; color: var(--warm-gray); line-height: 1.7; }
@@ -185,6 +186,7 @@
   .process-steps {
     display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; position: relative;
   }
+  .process-dots { display: none; }
   .process-step {
     display: flex; flex-direction: column; align-items: center;
     text-align: center; padding: 0 12px;
@@ -318,7 +320,8 @@
   /* ── CASES ── */
   .cases { background: var(--warm-white); }
   .cases-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 56px;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    width: 80%; margin: 56px auto 0;
   }
   .case-card { background: var(--cream); overflow: hidden; }
   .case-image {
@@ -340,6 +343,31 @@
   .case-type { font-size: 14px; letter-spacing: 0.15em; color: var(--gold); margin-bottom: 8px; }
   .case-title { font-weight: 500; font-size: 16px; color: var(--charcoal); margin-bottom: 8px; }
   .case-desc { font-size: 14px; color: var(--warm-gray); line-height: 1.7; }
+  .case-more-wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 44px;
+  }
+  .case-more-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 16px 34px;
+    border-radius: 0;
+    background: #B89A6A;
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    transition: background 0.25s, transform 0.25s;
+  }
+  .case-more-btn:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+  }
+  .case-more-btn i { font-size: 17px; }
 
   /* ── FAQ ── */
   .faq-section { background: var(--cream); }
@@ -518,7 +546,66 @@
     .stat-num sup { font-size: 14px; }
     .stat-label { font-size: 13px; letter-spacing: 0.04em; }
     .advantage-grid { grid-template-columns: 1fr; }
-    .process-steps { grid-template-columns: 1fr 1fr; }
+    .process-timeline {
+      margin-left: -24px;
+      margin-right: -24px;
+      overflow: hidden;
+    }
+    .process-steps {
+      display: flex;
+      grid-template-columns: none;
+      gap: 0;
+      overflow-x: auto;
+      padding: 0 24px 18px;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .process-steps::-webkit-scrollbar { display: none; }
+    .process-step {
+      flex: 0 0 calc(100vw - 48px);
+      max-width: none;
+      padding: 28px 20px;
+      background: transparent;
+      border-top: 0;
+      scroll-snap-align: start;
+    }
+    .process-step::before {
+      content: '';
+      display: inline-flex;
+      align-self: center;
+      margin-bottom: 18px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: #B89A6A;
+      text-transform: uppercase;
+    }
+    .process-step:nth-child(1)::before { content: 'STEP 01'; }
+    .process-step:nth-child(2)::before { content: 'STEP 02'; }
+    .process-step:nth-child(3)::before { content: 'STEP 03'; }
+    .process-step:nth-child(4)::before { content: 'STEP 04'; }
+    .process-step:nth-child(5)::before { content: 'STEP 05'; }
+    .process-dots {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      padding-top: 10px;
+    }
+    .process-dot {
+      width: 10px;
+      height: 10px;
+      border: 0;
+      border-radius: 50%;
+      background: var(--gold-pale);
+      cursor: pointer;
+      padding: 0;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .process-dot.is-active {
+      background: var(--gold);
+      transform: scale(1.08);
+    }
     .what-features { grid-template-columns: 1fr; }
   }
 
@@ -821,16 +908,16 @@
     </p>
     <div class="hero-stats">
       <div class="stat-item">
-        <span class="stat-num">15<sup>+</sup></span>
+        <span class="stat-num">25<sup>+</sup></span>
         <div class="stat-label">年臨床經驗</div>
       </div>
       <div class="stat-item">
-        <span class="stat-num">2000<sup>+</sup></span>
+        <span class="stat-num">7000<sup>+</sup></span>
         <div class="stat-label">成功修復案例</div>
       </div>
       <div class="stat-item">
-        <span class="stat-num">98%</span>
-        <div class="stat-label">客戶滿意度</div>
+        <span class="stat-num">2</span>
+        <div class="stat-label">年安心保固</div>
       </div>
     </div>
   </div>
@@ -848,10 +935,10 @@
 
   <div class="what-grid">
     <div class="what-copy reveal">
-      <p class="section-intro reveal">全瓷冠是不含任何金屬的陶瓷牙套，透光性高，外觀與真牙幾乎無異，是現代美學牙科的首選修復方案。</p>
+      <p class="section-intro reveal">全瓷冠是<b>不含任何金屬</b>的陶瓷牙套，透光性高，外觀與真牙幾乎無異，是現代美學牙科的前牙假牙首選修復方案。</p>
       <div class="what-text">
         <p>全瓷冠（All Ceramic Crown）是以全陶瓷材質製作的牙冠修復體，完全不含金屬成分，不怕金屬過敏或刺激牙肉。相較於傳統金屬烤瓷冠，全瓷冠的透光性更接近天然牙齒的釉質，在光線照射下能呈現自然的半透明質感，從任何角度看都難以分辨修復與真牙的差異。</p>
-        <p>若您有輕微齒列不整或齒型不佳的狀況，也可以利用全瓷冠來進行修正齒型，打造更完美的微笑黃金曲線。</p>
+        <p>若您有<b>輕微齒列不整</b>或<b>齒型不佳</b>的狀況，也可以利用全瓷冠來進行修正齒型，打造更完美的微笑黃金曲線。</p>
       </div>
     </div>
     <div class="what-visual reveal">
@@ -865,7 +952,7 @@
       </div>
       <div class="feature-item reveal">
         <div class="feature-icon">◈</div>
-        <div class="feature-title">無金屬過敏</div>
+        <div class="feature-title">無金屬成分</div>
         <div class="feature-desc">生物相容性佳，不怕未來牙齦發黑變色</div>
       </div>
       <div class="feature-item reveal">
@@ -886,7 +973,7 @@
 <section class="process">
   <div class="section-tag reveal">療程流程</div>
   <h2 class="section-heading reveal">從初診到<em>完美微笑</em></h2>
-  <p class="section-intro reveal">生活牙醫診所採用數位化流程，從術前模擬到精密製作，確保每個步驟精準至公釐且無誤。</p>
+  <p class="section-intro reveal">生活牙醫診所採用數位化流程，從術前模擬到精密製作，確保每個步驟精準至公釐。</p>
 
   <div class="process-timeline reveal">
     <div class="process-line"></div>
@@ -904,16 +991,16 @@
           <div class="step-num">02</div>
           <div class="step-icon">📐</div>
         </div>
-        <div class="step-title">數位掃描</div>
-        <div class="step-desc">3D 口腔掃描取模，適時搭配 DSD 微笑設計，預覽修復後的效果</div>
+        <div class="step-title">收集資料</div>
+        <div class="step-desc">利用數位口腔儀或傳統取模，選擇假牙材質及顏色，將資料送給牙技師</div>
       </div>
       <div class="process-step">
         <div class="step-circle">
           <div class="step-num">03</div>
           <div class="step-icon">✂️</div>
         </div>
-        <div class="step-title">牙齒預備</div>
-        <div class="step-desc">精準磨除必要的牙齒結構，配戴臨時冠保護牙齒，等待製作期間</div>
+        <div class="step-title">牙齒修型</div>
+        <div class="step-desc">精準磨除必要的齒質，配戴臨時牙齒保護牙齒並修復臨時美觀</div>
       </div>
       <div class="process-step">
         <div class="step-circle">
@@ -932,6 +1019,13 @@
         <div class="step-desc">試戴確認咬合與色澤，調整至完美後永久黏著，完成您的新微笑</div>
       </div>
     </div>
+    <div class="process-dots" aria-label="療程流程切換">
+      <button class="process-dot is-active" type="button" aria-label="查看流程 1"></button>
+      <button class="process-dot" type="button" aria-label="查看流程 2"></button>
+      <button class="process-dot" type="button" aria-label="查看流程 3"></button>
+      <button class="process-dot" type="button" aria-label="查看流程 4"></button>
+      <button class="process-dot" type="button" aria-label="查看流程 5"></button>
+    </div>
   </div>
 </section>
 
@@ -947,22 +1041,22 @@
         <tr>
           <th style="text-align:left; width:22%">比較項目</th>
           <th>金屬烤瓷冠</th>
-          <th class="highlight">全瓷冠（氧化鋯）<span class="th-badge">推薦</span></th>
-          <th>全瓷冠（e.max）</th>
+          <th class="highlight">全瓷冠<span class="th-badge">推薦</span></th>
+          <th>全鋯冠</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td>美觀透光性</td>
           <td><span class="cross">●</span> 牙齦易黑線</td>
-          <td class="col-all"><span class="check">◎</span> 自然透光</td>
-          <td><span class="check">◎</span> 最佳透光</td>
+          <td class="col-all"><span class="check">◎</span> 最佳透光</td>
+          <td><span class="check">◎</span> 稍微透光</td>
         </tr>
         <tr>
           <td>強度耐用度</td>
-          <td><span class="check">◎</span> 高</td>
-          <td class="col-all"><span class="check">◎</span> 高（前後牙適用）</td>
-          <td><span class="partial">△</span> 中（前牙為主）</td>
+          <td><span class="check">△</span> 中</td>
+          <td class="col-all"><span class="check">△</span> 中</td>
+          <td><span class="partial">◎</span> 特高（後牙為主）</td>
         </tr>
         <tr>
           <td>生物相容性</td>
@@ -979,15 +1073,10 @@
         <tr>
           <td>適用位置</td>
           <td>前後牙</td>
-          <td class="col-all">前後牙（全適用）</td>
-          <td>前牙、小臼齒</td>
+          <td class="col-all">前牙最佳</td>
+          <td>後牙最佳</td>
         </tr>
-        <tr>
-          <td>使用年限</td>
-          <td>10–15 年</td>
-          <td class="col-all">15–20 年以上</td>
-          <td>10–15 年</td>
-        </tr>
+        
       </tbody>
     </table>
   </div>
@@ -997,7 +1086,7 @@
 <section class="dsd">
   <div class="section-tag reveal">數位微笑設計</div>
   <h2 class="section-heading reveal">DSD — 先看到<em>再決定</em></h2>
-  <p class="section-intro reveal">Digital Smile Design 讓您在任何治療開始前，先透過數位技術預覽最終效果，真正做到「所見即所得」。</p>
+  <p class="section-intro reveal">Digital Smile Design 讓您在治療開始前，先透過數位技術預覽最終效果，真正做到「所見即所得」。</p>
 
   <div class="dsd-grid">
     <div class="dsd-text">
@@ -1029,7 +1118,7 @@
           <div class="dsd-step-num">04</div>
           <div class="dsd-step-content">
             <div class="dsd-step-title">臨時冠試戴確認</div>
-            <div class="dsd-step-desc">實體臨時冠讓您在日常生活中真實感受，確認功能與美觀均滿意後定稿</div>
+            <div class="dsd-step-desc">實體臨時假牙讓您在日常生活中真實感受，確認功能與美觀均滿意後定稿</div>
           </div>
         </div>
       </div>
@@ -1174,6 +1263,12 @@
       </div>
     </div>
   </div>
+  <div class="case-more-wrap reveal">
+    <a href="#" class="case-more-btn">
+      <i class="fa-regular fa-camera" aria-hidden="true"></i>
+      <span>觀看更多實際案例</span>
+    </a>
+  </div>
 </section>
 
 <!-- FAQ -->
@@ -1183,21 +1278,21 @@
   <p class="section-intro reveal">整理諮詢時最常被問到的問題，協助您在治療前更清楚了解流程、費用與照護方式。</p>
 
   <div class="faq-list reveal">
-    <div class="faq-item">
-      <button class="faq-question" type="button" aria-expanded="false">牙柱（牙釘）的功用是什麼？一定要做嗎？</button>
-      <div class="faq-answer">牙柱主要用來增加牙齒核心結構的支撐，常見於根管治療後齒質剩餘較少的牙齒。是否需要製作會依剩餘齒質、咬合力量與修復範圍評估，並不是每一顆全瓷冠都一定需要牙柱。</div>
+    <div class="faq-item is-open">
+      <button class="faq-question" type="button" aria-expanded="true">牙柱（牙釘）的功用是什麼？一定要做嗎？</button>
+      <div class="faq-answer">牙柱主要用來增加牙齒核心結構的支撐，常見於根管治療後齒質剩餘較少的牙齒。是否需要製作會依剩餘齒質、咬合力量與修復範圍評估，雖然不是每一顆全瓷冠都一定需要牙柱，但為了提供足夠的支撐力，九成狀況都需要製作牙柱（牙釘）。</div>
     </div>
     <div class="faq-item">
       <button class="faq-question" type="button" aria-expanded="false">全瓷冠的價錢大概多少？</button>
-      <div class="faq-answer">全瓷冠費用會依材質、牙齒位置、製作難度、是否需要臨時假牙或其他前置治療而不同。建議先由醫師檢查口腔狀況與需求後，再提供適合您的材質選擇與完整報價。</div>
+      <div class="faq-answer">全瓷冠費用會依材質、牙齒位置、製作難度、或其他前置治療而不同。建議先由醫師檢查口腔狀況與需求後，再提供適合您的材質選擇與完整報價。</div>
     </div>
     <div class="faq-item">
       <button class="faq-question" type="button" aria-expanded="false">生活牙醫提供假牙保固多久？</button>
-      <div class="faq-answer">生活牙醫提供假牙 2 年保固，完成後也會說明使用與清潔方式，並建議定期回診追蹤，讓修復體維持穩定與長久使用。</div>
+      <div class="faq-answer">生活牙醫提供假牙 2 年保固，完成後也會說明使用與清潔方式，並建議定期回診追蹤，讓假牙維持穩定與長久使用。</div>
     </div>
     <div class="faq-item">
       <button class="faq-question" type="button" aria-expanded="false">每間牙醫的全瓷冠有什麼差異？</button>
-      <div class="faq-answer">差異通常來自醫師的修磨與黏著技術、數位掃描與設計流程、技工所製作品質、陶瓷材質選擇，以及顏色與形態調整的細緻度。好的全瓷冠不只看材質，也看整體診斷、設計與製作流程。</div>
+      <div class="faq-answer">差異通常來自醫師的修磨與黏著技術、數位掃描與設計流程、技工所製作品質、陶瓷材質選擇，以及顏色與形態調整的細緻度。好的全瓷冠不只看材質，也看整體診斷、設計與製作流程。建議選擇能證明瓷塊來源、有實際案例供參考、提供術後保固的醫療院所來製作，療程更有保證。</div>
     </div>
     <div class="faq-item">
       <button class="faq-question" type="button" aria-expanded="false">製作全瓷冠要修磨很多齒質嗎？</button>
@@ -1235,7 +1330,7 @@
       <div class="know-card-body">
         <h3 class="know-card-title">氧化鋯 vs. e.max：哪一種全瓷冠最適合你？</h3>
         <p class="know-card-excerpt">全瓷冠並非只有一種，市面上最主流的兩大系統——氧化鋯（Zirconia）與 e.max（鋰二矽酸鹽），在強度、透光性與適用位置上各有優勢。</p>
-        <div class="know-card-meta">2025.03.18 ・ 閱讀約 5 分鐘</div>
+        <div class="know-card-meta">2026.03.18 ・ 閱讀約 5 分鐘</div>
       </div>
     </article>
 
@@ -1290,7 +1385,7 @@
 <section class="cta-section" id="cta" style="padding:100px 80px;">
   <div>
     <h2 class="cta-title">開始您的<em>微笑蛻變</em>之旅</h2>
-    <p class="cta-desc">預約免費初診諮詢，由醫師親自評估您的狀況，為您規劃最適合的全瓷冠修復方案。無需承擔任何壓力，帶著您的疑問來，我們一起找到最好的解答。</p>
+    <p class="cta-desc">預約初診諮詢，由醫師親自評估您的狀況，為您規劃最適合的全瓷冠修復方案。無需承擔任何壓力，帶著您的疑問來，我們一起找到最好的解答。</p>
   </div>
   <div class="cta-right">
     <a href="tel:+886-3-000-0000" class="cta-btn-primary">立即預約諮詢</a>
@@ -1317,6 +1412,40 @@
   document.querySelectorAll('.process-step').forEach((el, i) => {
     el.style.animationDelay = `${i * 0.12}s`;
   });
+
+  const processSteps = document.querySelector('.process-steps');
+  const processDots = Array.from(document.querySelectorAll('.process-dot'));
+  const processCards = Array.from(document.querySelectorAll('.process-step'));
+
+  function setActiveProcessDot(index) {
+    processDots.forEach((dot, dotIndex) => {
+      dot.classList.toggle('is-active', dotIndex === index);
+    });
+  }
+
+  if (processSteps && processDots.length && processCards.length) {
+    processDots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        processCards[index].scrollIntoView({
+          behavior: 'smooth',
+          block: 'nearest',
+          inline: 'start'
+        });
+        setActiveProcessDot(index);
+      });
+    });
+
+    processSteps.addEventListener('scroll', () => {
+      const stepWidth = processCards[1]
+        ? processCards[1].offsetLeft - processCards[0].offsetLeft
+        : processCards[0].getBoundingClientRect().width;
+      const activeIndex = Math.max(0, Math.min(
+        processCards.length - 1,
+        Math.round(processSteps.scrollLeft / stepWidth)
+      ));
+      setActiveProcessDot(activeIndex);
+    }, { passive: true });
+  }
 
   document.querySelectorAll('.faq-question').forEach((button) => {
     button.addEventListener('click', () => {
@@ -1348,13 +1477,13 @@
       <a href="#">顯微根管</a>
     </div>
     <div class="ft-col">
-      <h4>台中旗艦店</h4>
+      <h4>台中旗艦店｜生活牙醫</h4>
       <p>📞 04-2254-6060</p>
       <p>📍 台中市南屯區公益路二段525號</p>
       <a href="https://www.facebook.com/ilovegracelife/" target="_blank" rel="noopener noreferrer" class="ft-fb-btn">Facebook 粉絲團</a>
     </div>
     <div class="ft-col">
-      <h4>南投竹山店</h4>
+      <h4>南投竹山店｜生活牙醫</h4>
       <p>📞 049-2660-260</p>
       <p>📍 南投縣竹山鎮前山路一段99號</p>
       <a href="https://www.facebook.com/gracelifenantou/" target="_blank" rel="noopener noreferrer" class="ft-fb-btn">Facebook 粉絲團</a>
