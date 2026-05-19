@@ -1407,12 +1407,13 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
 .ft-brand .logo-en{color:rgba(255,255,255,.85);}
 .ft-brand .logo-zh{color:rgba(200,168,130,.65);}
 .ft-brand p{font-size:16px;color:rgba(255,255,255,.35);margin-top:20px;line-height:1.9;letter-spacing:.03em;}
-.ft-col h4{font-size:16px;letter-spacing:.25em;color:rgba(255,255,255,.4);text-transform:uppercase;margin-bottom:18px;font-weight:500;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,.06);}
+.ft-col h4{font-size:16px;letter-spacing:.25em;color:rgba(255,255,255,.4);text-transform:uppercase;margin-bottom:18px;font-weight:500;padding-bottom:12px;border-bottom:none;}
 .ft-col a{display:block;color:rgba(255,255,255,.38);font-size:16px;letter-spacing:.04em;padding:5px 0;transition:color .2s;}
 .ft-col a:hover{color:rgba(255,255,255,.8);}
 .ft-col .ft-fb-btn{display:inline-flex;align-items:center;justify-content:center;margin-top:12px;padding:8px 14px;border:1px solid rgba(255,255,255,.28);color:rgba(255,255,255,.62);background:transparent;min-width:150px;font-size:14px;}
 .ft-col .ft-fb-btn:hover{border-color:rgba(255,255,255,.6);color:#fff;}
 .ft-col p{font-size:16px;color:rgba(255,255,255,.38);letter-spacing:.03em;line-height:1.9;}
+.ft-phone-number{font-size:18px;}
 .ft-col p:nth-of-type(2){white-space:nowrap;}
 .ft-bottom{border-top:1px solid rgba(255,255,255,.05);max-width:1240px;margin:0 auto;padding:20px 48px;display:flex;justify-content:space-between;align-items:center;font-size:16px;color:rgba(255,255,255,.2);letter-spacing:.06em;}
 
