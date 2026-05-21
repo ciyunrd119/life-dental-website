@@ -55,7 +55,7 @@ document.querySelectorAll('.news-row[data-href]').forEach(row => {
 (function(){
   const carousel = document.querySelector('.clinic-env-carousel');
   const track = document.querySelector('.clinic-env-track');
-  if (!track) return;
+  if (!carousel || !track) return;
   const prevBtn = document.querySelector('.clinic-env-prev');
   const nextBtn = document.querySelector('.clinic-env-next');
   const dots = Array.from(document.querySelectorAll('.clinic-env-dots button'));
@@ -63,6 +63,7 @@ document.querySelectorAll('.news-row[data-href]').forEach(row => {
   const originalCount = track.querySelectorAll('.clinic-env-card:not([aria-hidden="true"])').length;
   let current = 0;
   let timer;
+  let isInView = false;
 
   function getGap(){
     return parseFloat(getComputedStyle(track).gap) || 0;
@@ -115,13 +116,19 @@ document.querySelectorAll('.news-row[data-href]').forEach(row => {
     moveTo(current);
   }
 
-  function restart(){
+  function stop(){
     clearInterval(timer);
+    timer = null;
+  }
+
+  function restart(){
+    if (!isInView) return;
+    stop();
     timer = window.setInterval(next, 2000);
   }
 
   window.addEventListener('resize', () => moveTo(current, false));
-  carousel.addEventListener('mouseenter', () => clearInterval(timer));
+  carousel.addEventListener('mouseenter', stop);
   carousel.addEventListener('mouseleave', restart);
   if (prevBtn) {
     prevBtn.addEventListener('click', () => {
@@ -144,7 +151,31 @@ document.querySelectorAll('.news-row[data-href]').forEach(row => {
   });
 
   moveTo(0, false);
-  restart();
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      const entry = entries[0];
+      isInView = entry.isIntersecting;
+      if (isInView) {
+        restart();
+      } else {
+        stop();
+      }
+    }, { threshold: 0.25 });
+    observer.observe(carousel);
+  } else {
+    const checkVisibility = () => {
+      const rect = carousel.getBoundingClientRect();
+      isInView = rect.top < window.innerHeight && rect.bottom > 0;
+      if (isInView) {
+        restart();
+      } else {
+        stop();
+      }
+    };
+    window.addEventListener('scroll', checkVisibility, { passive: true });
+    window.addEventListener('resize', checkVisibility);
+    checkVisibility();
+  }
 })();
 
 /* ── Services carousel (6 per page desktop, 2 tablet, 1 mobile) ── */
