@@ -2510,7 +2510,10 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
     }
     .doctor-page .doctor-grid {
       grid-template-columns: 1fr;
-      max-width: 420px;
+      width: calc(100% - 24px);
+      max-width: 380px;
+      margin-left: auto;
+      margin-right: auto;
       gap: 28px;
     }
     .doctor-page .doctor-card { border-radius: 20px; }
