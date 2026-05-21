@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 27.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 110 110" style="enable-background:new 0 0 110 110;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;}
+	.st1{fill:none;stroke:#FFFFFF;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st2{fill:#FFFFFF;}
+	.st3{fill:none;stroke:#B89A6A;stroke-width:0.4561;stroke-miterlimit:10;}
+	.st4{fill:#B89A6A;}
+	.st5{fill:none;stroke:#B89A6A;stroke-width:3;stroke-miterlimit:10;}
+	.st6{fill:none;stroke:#B89A6A;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st7{fill:#FFFFFF;stroke:#B89A6A;stroke-width:3;stroke-miterlimit:10;}
+	.st8{fill:#FFFFFF;stroke:#FFFFFF;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st9{fill:none;stroke:#FFFFFF;stroke-width:3;stroke-miterlimit:10;}
+</style>
+<circle class="st2" cx="21.53" cy="69.9" r="3.19"/>
+<circle class="st2" cx="83.53" cy="46.45" r="4.47"/>
+<g>
+	<path class="st1" d="M34.53,67.9c0.05,0.16,0.1,0.32,0.13,0.49c1.17,5.99,1.3,5.81,0.22,12.25c-1.21,7.18-0.97,17.5,5.25,21.74
+		c5.95,4.05,7.97-1.52,7.47-4.46c-0.49-2.85-1.78-3.64-1.52-12.75c0.06-2.09,1.71-9.84,8.36-9.84s8.36,7.59,8.47,9.33
+		c0.38,5.7-0.31,7.18-0.88,13.26s4.75,7.21,8.16,3.04c3.42-4.18,6.01-14.27,4.18-20.88c-1.27-4.58-0.77-8.03,1.33-12.17
+		C61.97,67.9,48.25,67.9,34.53,67.9z"/>
+	<polyline class="st1" points="41.59,67.39 45.04,54.38 64.43,54.38 68.41,67.66 	"/>
+</g>
+<g>
+	<g>
+		<path class="st9" d="M63.42,23.86L29.39,54.18c-1.47,1.31-3.74,1.18-5.05-0.29l0,0c-1.31-1.47-1.18-3.74,0.29-5.05l34.32-30.57"/>
+		<path class="st9" d="M66.68,26.43L56.6,14.56c-3.09-3.64-2.64-9.15,1-12.24l7.98-6.78c3.64-3.09,9.15-2.64,12.24,1L87.89,8.41
+			c3.09,3.64,2.64,9.15-1,12.24l-7.98,6.78C75.28,30.52,69.77,30.07,66.68,26.43z"/>
+	</g>
+	<line class="st9" x1="52.6" y1="23.68" x2="49.68" y2="35.96"/>
+	<line class="st9" x1="43.15" y1="32.17" x2="40.23" y2="44.46"/>
+	<line class="st9" x1="33.9" y1="40.29" x2="30.98" y2="52.58"/>
+</g>
+<circle class="st0" cx="55" cy="55" r="55"/>
+</svg>

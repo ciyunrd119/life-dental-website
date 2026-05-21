@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 27.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 110 110" style="enable-background:new 0 0 110 110;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;}
+	.st1{fill:none;stroke:#FFFFFF;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st2{fill:#FFFFFF;}
+	.st3{fill:none;stroke:#B89A6A;stroke-width:0.4561;stroke-miterlimit:10;}
+	.st4{fill:#B89A6A;}
+	.st5{fill:none;stroke:#B89A6A;stroke-width:3;stroke-miterlimit:10;}
+	.st6{fill:none;stroke:#B89A6A;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st7{fill:#FFFFFF;stroke:#B89A6A;stroke-width:3;stroke-miterlimit:10;}
+	.st8{fill:#FFFFFF;stroke:#FFFFFF;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st9{fill:none;stroke:#FFFFFF;stroke-width:3;stroke-miterlimit:10;}
+</style>
+<circle class="st0" cx="55" cy="55" r="55"/>
+<path class="st1" d="M92.28,79.53H21.14c-0.55,0-1-0.45-1-1V24.37c0-0.55,0.45-1,1-1h71.15c0.55,0,1,0.45,1,1v54.15
+	C93.28,79.08,92.83,79.53,92.28,79.53z"/>
+<g>
+	<g>
+		<polyline class="st1" points="42.67,81.37 42.67,85.07 37.87,89.13 		"/>
+		<polyline class="st1" points="70.75,81.37 70.75,85.07 75.55,89.13 		"/>
+	</g>
+	<line class="st1" x1="29.19" y1="89.13" x2="84.23" y2="89.13"/>
+</g>
+<circle class="st2" cx="63.74" cy="39.35" r="3.05"/>
+<line class="st1" x1="60.69" y1="50.71" x2="83.96" y2="50.71"/>
+<line class="st1" x1="60.69" y1="56.07" x2="83.96" y2="56.07"/>
+<line class="st1" x1="60.69" y1="61.61" x2="83.96" y2="61.61"/>
+<path class="st1" d="M30.11,51.35c-0.05-0.26-0.14-0.51-0.26-0.74c-0.62-1.19-2.62-5.32-2.32-8.95c0.36-4.29,1.79-6.25,5.54-6.07
+	c3.75,0.18,4.46,2.32,10,0.54s8.17,1.45,8.66,3.35c0.65,2.56,0.68,6.44-1.85,10.77c-1.37,2.35-1.78,4.13-1.1,6.59
+	c0.86,3.11-0.36,7.86-1.96,9.82c-1.61,1.96-4.11,1.43-3.84-1.43c0.27-2.86,0.59-3.56,0.41-6.23c-0.05-0.82-0.86-4.39-3.99-4.39
+	s-3.9,3.65-3.93,4.63c-0.12,4.29,0.49,4.66,0.72,6c0.24,1.38-0.72,4-3.51,2.1c-2.93-1.99-3.04-6.84-2.47-10.22
+	C30.72,54.08,30.66,54.16,30.11,51.35z"/>
+</svg>
