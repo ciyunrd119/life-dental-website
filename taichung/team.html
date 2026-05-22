@@ -42,7 +42,7 @@
         <div class="dropdown-menu">
           <a href="clinic.html">診所資訊</a>
           <a href="team.html">醫師陣容</a>
-          <a href="#">醫療設備</a>
+          <a href="medical-equipment.html">醫療設備</a>
           <a href="#">植牙美學中心</a>
           <a href="#">網路掛號</a>
         </div>
@@ -332,6 +332,31 @@
   }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  document.querySelectorAll('.doctor-card').forEach((card) => {
+    const cardLink = card.querySelector('.doctor-arrow');
+    const targets = card.querySelectorAll('.doctor-photo, .doctor-heading h3');
+
+    targets.forEach((target) => {
+      target.setAttribute('role', 'link');
+      target.setAttribute('tabindex', '0');
+
+      const goToDoctorLink = () => {
+        const href = cardLink?.getAttribute('href');
+        if (href) {
+          window.location.href = cardLink.href;
+        }
+      };
+
+      target.addEventListener('click', goToDoctorLink);
+      target.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          goToDoctorLink();
+        }
+      });
+    });
+  });
 </script>
 
 <footer>

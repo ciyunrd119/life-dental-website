@@ -1531,6 +1531,69 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
 .clinic-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px;}
 .clinic-actions .btn-blue,.clinic-actions .btn-fb{justify-content:center;}
 
+/* ─── MEDICAL EQUIPMENT PAGE ─── */
+.equipment-page{background:#fff;}
+.equipment-hero{background:#f6f6f6;padding:46px 48px 42px;}
+.equipment-hero-inner{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:minmax(0,.9fr) minmax(420px,1.1fr);gap:46px;align-items:center;}
+.equipment-hero-copy h1{font-family:'Noto Serif TC',serif;font-size:clamp(34px,4vw,52px);font-weight:400;color:var(--dark);letter-spacing:.04em;line-height:1.24;margin-bottom:18px;}
+.equipment-hero-copy h1 span{display:block;margin-top:4px;}
+.equipment-hero-copy p{font-size:18px;color:var(--text);line-height:2;letter-spacing:.04em;max-width:680px;}
+.equipment-hero-media{position:relative;min-height:360px;overflow:hidden;border:1px solid var(--border);background:#fff;}
+.equipment-hero-media img{width:100%;height:100%;min-height:360px;object-fit:cover;}
+.equipment-hero-media::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.08),rgba(42,111,168,.18));pointer-events:none;}
+.equipment-list-head h2{font-family:'Cormorant Garamond','Noto Serif TC',serif;font-size:clamp(30px,3vw,42px);font-weight:500;color:#2C2C2A;line-height:1.28;letter-spacing:0;margin-bottom:16px;}
+.equipment-list-sec{position:relative;padding:76px 48px 86px;background:#FAF8F4;overflow:hidden;}
+.equipment-list-sec::before{content:'EQUIPMENT';position:absolute;right:-18px;top:6px;font-family:'Cormorant Garamond',serif;font-size:clamp(82px,13vw,180px);font-weight:300;line-height:1;color:rgba(168,136,90,.08);letter-spacing:.02em;pointer-events:none;}
+.equipment-list-inner{position:relative;max-width:1240px;margin:0 auto;}
+.equipment-list-head .sec-label{color:var(--gold-dark);}
+.equipment-list-head .sec-label::before{background:var(--gold-dark);}
+.equipment-list-head h2{color:var(--dark);margin-bottom:30px;}
+.equipment-card-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;}
+.equipment-detail-card{display:grid;grid-template-columns:190px minmax(0,1fr);min-height:190px;background:#fff;border:1px solid rgba(168,136,90,.16);border-radius:8px;overflow:hidden;box-shadow:0 12px 30px rgba(0,0,0,.08);transition:box-shadow .25s;}
+.equipment-detail-card:hover{box-shadow:0 16px 38px rgba(0,0,0,.12);}
+.equipment-detail-card img{width:100%;height:100%;object-fit:cover;background:#eee;}
+.equipment-detail-card div{padding:24px 24px 26px;display:flex;flex-direction:column;align-items:flex-start;}
+.equipment-detail-card h3{font-size:20px;line-height:1.45;color:var(--dark);font-weight:600;letter-spacing:.04em;margin-bottom:10px;}
+.equipment-detail-card p{font-size:15px;line-height:1.85;color:var(--text);letter-spacing:.03em;}
+.equipment-more-btn{display:inline-flex;align-items:center;justify-content:center;align-self:flex-end;margin-top:auto;padding:8px 18px;border-radius:999px;background:#fff;border:1px solid var(--gold-dark);color:var(--gold-dark);font-size:14px;font-weight:500;letter-spacing:.12em;transition:background .2s,color .2s,border-color .2s;}
+.equipment-more-btn:hover{background:rgba(168,136,90,.08);border-color:var(--gold-dark);color:var(--gold-dark);}
+.equipment-page .cta-section{
+  background:
+    linear-gradient(rgba(255,255,255,0.62), rgba(255,255,255,0.62)),
+    url('../img/treatment/cta.jpg') center / cover fixed;
+  padding:100px 80px;
+  display:grid;
+  grid-template-columns:1.5fr 1fr;
+  gap:80px;
+  align-items:center;
+}
+.equipment-page .cta-title{
+  font-family:'Cormorant Garamond','Noto Serif TC',serif;
+  font-size:clamp(40px,5vw,64px);
+  font-weight:500;
+  color:var(--charcoal);
+  line-height:1.15;
+  margin-bottom:20px;
+}
+.equipment-page .cta-title em{display:block;font-style:italic;color:var(--gold);}
+.equipment-page .cta-desc{font-size:15px;color:var(--text);line-height:1.8;max-width:700px;}
+.equipment-page .cta-right{display:flex;flex-direction:column;gap:16px;align-items:flex-start;}
+.equipment-page .cta-btn-primary,
+.equipment-page .cta-btn-secondary{
+  font-size:18px;
+  font-weight:400;
+  letter-spacing:.12em;
+  padding:18px 40px;
+  border-radius:50px;
+  text-decoration:none;
+  display:inline-block;
+  transition:background .3s,color .3s,border-color .3s;
+}
+.equipment-page .cta-btn-primary{background:var(--gold);color:#fff;border:none;}
+.equipment-page .cta-btn-primary:hover{background:var(--gold-dark);}
+.equipment-page .cta-btn-secondary{background:rgba(255,255,255,.32);color:var(--charcoal);border:.5px solid rgba(44,44,42,.24);}
+.equipment-page .cta-btn-secondary:hover{color:var(--gold);border-color:var(--gold);background:rgba(255,255,255,.6);}
+
 /* ─── TREATMENT PAGE: ALL-ON-4 ─── */
 .ao4-hero{background:var(--ivory);padding:70px 48px 64px;}
 .ao4-hero-inner{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(360px,.95fr);gap:54px;align-items:center;}
@@ -1610,7 +1673,7 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
   .news-sec,.equip-sec,.cta-band{padding:40px 24px;}
   .cases-head{flex-direction:column;align-items:flex-start;gap:16px;}
   .hero{height:auto;min-height:100svh;}
-  .clinic-hero,.clinic-hours-sec,.clinic-content,.clinic-env-sec,.clinic-review-sec,.clinic-map-sec,.clinic-booking-cta,.ao4-hero,.ao4-intro,.ao4-split-sec,.ao4-process-sec,.ao4-note-sec,.ao4-reasons-sec,.ao4-cta{padding-left:24px;padding-right:24px;}
+  .clinic-hero,.clinic-hours-sec,.clinic-content,.clinic-env-sec,.clinic-review-sec,.clinic-map-sec,.clinic-booking-cta,.equipment-hero,.equipment-list-sec,.ao4-hero,.ao4-intro,.ao4-split-sec,.ao4-process-sec,.ao4-note-sec,.ao4-reasons-sec,.ao4-cta{padding-left:24px;padding-right:24px;}
   .clinic-hero-inner{grid-template-columns:1fr;}
   .clinic-hero-inner > div:first-child{order:1;}
   .clinic-hero-media{order:2;}
@@ -1643,6 +1706,10 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
   .clinic-booking-cta{background-attachment:scroll;}
   .clinic-booking-cta-inner{display:block;}
   .clinic-booking-btn{margin-top:22px;}
+  .equipment-hero-inner{grid-template-columns:1fr;gap:28px;}
+  .equipment-hero-media,.equipment-hero-media img{min-height:280px;}
+  .equipment-card-grid{grid-template-columns:1fr;}
+  .equipment-page .cta-section{grid-template-columns:1fr;gap:40px;padding:70px 40px;background-attachment:scroll;}
   .ao4-intro-inner,.ao4-split-inner,.ao4-note-inner{grid-template-columns:1fr;gap:24px;}
   .ao4-check-list{grid-template-columns:1fr;}
   .ao4-cta{display:block;}
@@ -1711,6 +1778,17 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
   .clinic-review-sec{padding-top:34px;padding-bottom:36px;}
   .clinic-review-score strong{font-size:48px;}
   .clinic-review-card{padding:18px 16px;}
+  .equipment-hero{padding-top:30px;padding-bottom:32px;}
+  .equipment-hero-media,.equipment-hero-media img{min-height:220px;}
+  .equipment-list-sec{padding-top:42px;padding-bottom:46px;}
+  .equipment-detail-card{grid-template-columns:1fr;min-height:0;}
+  .equipment-detail-card img{aspect-ratio:4 / 3;height:auto;}
+  .equipment-detail-card div{padding:20px 18px 22px;min-height:210px;}
+  .equipment-detail-card h3{font-size:19px;}
+  .equipment-page .cta-section{padding:54px 24px;}
+  .equipment-page .cta-right{width:100%;}
+  .equipment-page .cta-btn-primary,
+  .equipment-page .cta-btn-secondary{width:100%;text-align:center;}
   .ao4-hero{padding-top:44px;padding-bottom:42px;}
   .ao4-hero h1{font-size:38px;}
   .ao4-hero p,.ao4-intro p,.ao4-split-copy p,.ao4-note-inner p,.ao4-cta p{font-size:16px;line-height:1.9;}
@@ -2211,6 +2289,7 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
     background: #8F9294;
     border-radius: 0;
     overflow: hidden;
+    cursor: pointer;
   }
 
   .doctor-page .doctor-photo img {
@@ -2238,6 +2317,7 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
     letter-spacing: .04em;
     color: #333333;
     white-space: nowrap;
+    cursor: pointer;
   }
 
   .doctor-page .doctor-heading h3 span {
@@ -2562,6 +2642,11 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
     padding: 64px 48px;
     grid-template-columns: minmax(0, 1.35fr) minmax(260px, .65fr);
     gap: 42px;
+  }
+
+  .doctor-profile-page .doctor-profile-cta .cta-right {
+    align-items: center;
+    justify-content: center;
   }
 
   .doctor-profile-page .doctor-profile-primary:hover,
@@ -2915,6 +3000,10 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
     .doctor-profile-page .doctor-profile-cta {
       padding: 50px 24px;
       gap: 24px;
+    }
+    .doctor-profile-page .doctor-profile-cta .cta-right {
+      align-items: center;
+      width: 100%;
     }
   }
 
