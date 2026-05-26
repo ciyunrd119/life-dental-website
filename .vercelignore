@@ -1,0 +1,16 @@
+.git
+.gitignore
+.DS_Store
+**/.DS_Store
+
+# Design source files are not needed in the public deployment bundle.
+*.ai
+*.psd
+**/*.ai
+**/*.psd
+
+# Local/editor files.
+.vscode
+.idea
+*.swp
+
