@@ -51,6 +51,32 @@ document.querySelectorAll('.news-row[data-href]').forEach(row => {
   });
 });
 
+/* ── Knowledge category filters ── */
+(function(){
+  const tabs = Array.from(document.querySelectorAll('.knowledge-filter-tab'));
+  const cards = Array.from(document.querySelectorAll('.knowledge-card[data-knowledge-category]'));
+  if (!tabs.length || !cards.length) return;
+
+  function applyFilter(filter){
+    tabs.forEach(tab => {
+      const isActive = tab.dataset.knowledgeFilter === filter;
+      tab.classList.toggle('is-active', isActive);
+      tab.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+    });
+
+    cards.forEach(card => {
+      const categories = (card.dataset.knowledgeCategory || '').split(/\s+/);
+      const shouldShow = filter === 'all' || categories.includes(filter);
+      card.classList.toggle('is-hidden', !shouldShow);
+    });
+  }
+
+  tabs.forEach(tab => {
+    tab.setAttribute('aria-pressed', tab.classList.contains('is-active') ? 'true' : 'false');
+    tab.addEventListener('click', () => applyFilter(tab.dataset.knowledgeFilter || 'all'));
+  });
+})();
+
 /* ── Clinic environment carousel ── */
 (function(){
   const carousel = document.querySelector('.clinic-env-carousel');

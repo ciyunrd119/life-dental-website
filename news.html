@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>最新消息｜生活牙醫診所</title>
+<meta name="description" content="生活牙醫診所整理院所公告、門診異動、活動資訊與療程新訊，協助您掌握最新消息。">
+<link rel="icon" href="img/favicon.ico" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+<script src="js/main.js" defer></script>
+</head>
+<body class="news-list-page">
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <img src="img/logo.png" alt="生活牙醫診所" class="logo-img">
+    </a>
+
+    <button class="hamburger" id="hamburger" aria-label="開啟選單">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav id="main-nav">
+      <div class="nav-dropdown">
+        <a href="#">關於我們 <span class="dropdown-arrow">▼</span></a>
+        <div class="dropdown-menu">
+          <a href="#">集團理念</a>
+          <a href="news.html">最新消息</a>
+        </div>
+      </div>
+
+      <div class="nav-dropdown">
+        <a href="taichung/index.html">台中旗艦店 <span class="dropdown-arrow">▼</span></a>
+        <div class="dropdown-menu">
+          <a href="taichung/index.html">診所資訊</a>
+          <a href="taichung/team.html">醫師陣容</a>
+          <a href="taichung/medical-equipment.html">醫療設備</a>
+          <a href="#">植牙美學中心</a>
+          <a href="#">網路掛號</a>
+        </div>
+      </div>
+
+      <div class="nav-dropdown">
+        <a href="#">南投竹山店 <span class="dropdown-arrow">▼</span></a>
+        <div class="dropdown-menu">
+          <a href="#">診所資訊</a>
+          <a href="#">醫師陣容</a>
+          <a href="#">醫療設備</a>
+          <a href="#">數位植牙中心</a>
+          <a href="#">網路掛號</a>
+        </div>
+      </div>
+
+      <div class="nav-dropdown">
+        <a href="#">療程項目 <span class="dropdown-arrow">▼</span></a>
+        <div class="mega-menu">
+          <div class="mega-col">
+            <span class="mega-col-title">All-on-4</span>
+            <a href="services/all-on-4.html">All-On-4 一日全口重建</a>
+            <a href="#">All-On-X 顴骨植牙</a>
+          </div>
+          <div class="mega-col">
+            <span class="mega-col-title">假牙</span>
+            <a href="services/all-ceramic-crown.html">全瓷冠</a>
+            <a href="#">全瓷貼片</a>
+            <a href="#">全鋯冠</a>
+          </div>
+          <div class="mega-col">
+            <span class="mega-col-title">數位植牙</span>
+            <a href="#">導引式植牙</a>
+            <a href="#">植牙附加手術</a>
+          </div>
+          <div class="mega-col">
+            <span class="mega-col-title">齒顎矯正</span>
+            <a href="#">自鎖式矯正</a>
+            <a href="#">隱適美隱形矯正</a>
+          </div>
+          <div class="mega-col">
+            <span class="mega-col-title">美學牙醫</span>
+            <a href="#">牙齒美白</a>
+            <a href="#">牙齦美容術</a>
+            <a href="#">DSD數位微笑設計</a>
+          </div>
+          <div class="mega-col">
+            <span class="mega-col-title">其他項目</span>
+            <a href="#">牙周治療</a>
+            <a href="#">顯微根管</a>
+            <a href="#">兒童牙科</a>
+            <a href="#">一般牙科保健</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-dropdown">
+        <a href="#">案例分享 <span class="dropdown-arrow">▼</span></a>
+        <div class="dropdown-menu">
+          <a href="services/all-on-4.html">All-on-4 一日全口重建</a>
+          <a href="cases/all-ceramic-crown.html">全瓷冠｜貼片</a>
+          <a href="#">數位植牙</a>
+          <a href="#">牙齒矯正</a>
+          <a href="#">美學牙醫</a>
+        </div>
+      </div>
+
+      <a href="knowledge.html">牙醫知識</a>
+      <a href="https://line.me/ti/p/%40dhh1667m" class="header-cta" target="_blank" rel="noopener noreferrer">預約諮詢</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="page-breadcrumb" aria-label="網頁分層">
+    <div class="page-breadcrumb-inner">
+      <a href="index.html">Home</a>
+      <span>-</span>
+      <span>最新消息</span>
+    </div>
+  </section>
+
+  <section class="news-list-hero">
+    <div class="news-list-hero-inner">
+      <div class="news-list-hero-copy">
+        <div class="news-list-eyebrow">Latest News</div>
+        <h1>
+          最新消息
+          <em>Latest News</em>
+        </h1>
+        <p class="news-list-subtitle">掌握生活牙醫的即時院所動態</p>
+        <p>整理門診公告、醫師班表、活動資訊與院所服務更新，讓您在預約與回診前掌握最即時的生活牙醫消息。</p>
+      </div>
+      <div class="news-list-hero-media">
+        <img src="img/treatment/shutterstock_123375616.jpg" alt="生活牙醫診所最新消息形象照">
+      </div>
+    </div>
+  </section>
+
+  <section class="news-list-section" aria-label="最新消息列表">
+    <div class="news-list-head">
+      <div>
+        <span>Latest News</span>
+        <h2>最新消息</h2>
+      </div>
+    </div>
+
+    <div class="news-card-grid">
+      <a href="offday.html" class="news-card">
+        <figure class="news-card-media">
+          <img src="img/treatment/all_ceramic_crown/compare.jpg" alt="生活牙醫五月休診公告示意">
+        </figure>
+        <div class="news-card-body">
+          <h3>5 月休診公告及診所調整事項說明</h3>
+          <time datetime="2026-05-25">2026.05.25</time>
+        </div>
+      </a>
+
+      <a href="#" class="news-card">
+        <figure class="news-card-media">
+          <img src="img/case-implant.png" alt="台中生活牙醫午診掛號服務示意">
+        </figure>
+        <div class="news-card-body">
+          <h3>台中生活牙醫 6 月起提供午診現場掛號服務</h3>
+          <time datetime="2026-05-18">2026.05.18</time>
+        </div>
+      </a>
+
+      <a href="#" class="news-card">
+        <figure class="news-card-media">
+          <img src="img/case-all-on-4.png" alt="醫師加入生活牙醫團隊公告示意">
+        </figure>
+        <div class="news-card-body">
+          <h3>歡迎歐陽國才醫師加入竹山生活牙醫團隊</h3>
+          <time datetime="2026-05-12">2026.05.12</time>
+        </div>
+      </a>
+
+      <a href="#" class="news-card">
+        <figure class="news-card-media">
+          <img src="img/case-invisalign.png" alt="端午連假門診異動公告示意">
+        </figure>
+        <div class="news-card-body">
+          <h3>端午連假門診時間調整公告</h3>
+          <time datetime="2026-05-06">2026.05.06</time>
+        </div>
+      </a>
+
+      <a href="#" class="news-card">
+        <figure class="news-card-media">
+          <img src="img/treatment/shutterstock_123375616.jpg" alt="線上預約服務更新示意">
+        </figure>
+        <div class="news-card-body">
+          <h3>LINE 線上預約流程更新，回診安排更便利</h3>
+          <time datetime="2026-04-29">2026.04.29</time>
+        </div>
+      </a>
+
+      <a href="#" class="news-card">
+        <figure class="news-card-media">
+          <img src="img/equipment/tc/eq_micro.jpg" alt="醫療設備定期保養公告示意">
+        </figure>
+        <div class="news-card-body">
+          <h3>台中旗艦店醫療設備定期保養公告</h3>
+          <time datetime="2026-04-23">2026.04.23</time>
+        </div>
+      </a>
+
+      <a href="#" class="news-card">
+        <figure class="news-card-media">
+          <img src="img/case-periodontal.png" alt="竹山店假日門診預約提醒示意">
+        </figure>
+        <div class="news-card-body">
+          <h3>竹山店假日門診採預約優先制</h3>
+          <time datetime="2026-04-16">2026.04.16</time>
+        </div>
+      </a>
+
+      <a href="#" class="news-card">
+        <figure class="news-card-media">
+          <img src="img/case-veneer.png" alt="美學諮詢時段開放公告示意">
+        </figure>
+        <div class="news-card-body">
+          <h3>美學牙科諮詢時段開放預約</h3>
+          <time datetime="2026-04-10">2026.04.10</time>
+        </div>
+      </a>
+
+      <a href="#" class="news-card">
+        <figure class="news-card-media">
+          <img src="img/equipment/tc/eq_ct.jpg" alt="數位檢查服務公告示意">
+        </figure>
+        <div class="news-card-body">
+          <h3>數位影像檢查服務預約須知</h3>
+          <time datetime="2026-04-02">2026.04.02</time>
+        </div>
+      </a>
+
+      <a href="#" class="news-card">
+        <figure class="news-card-media">
+          <img src="img/treatment/all_ceramic_crown/01.jpg" alt="清明連假門診公告示意">
+        </figure>
+        <div class="news-card-body">
+          <h3>清明連假門診與預約異動公告</h3>
+          <time datetime="2026-03-26">2026.03.26</time>
+        </div>
+      </a>
+
+      <a href="#" class="news-card">
+        <figure class="news-card-media">
+          <img src="img/equipment/tc/eq_3shape.jpg" alt="數位口掃服務公告示意">
+        </figure>
+        <div class="news-card-body">
+          <h3>台中院區新增數位口掃評估時段</h3>
+          <time datetime="2026-03-19">2026.03.19</time>
+        </div>
+      </a>
+
+      <a href="#" class="news-card">
+        <figure class="news-card-media">
+          <img src="img/clinic/tc/intro1.jpg" alt="親子看診服務公告示意">
+        </figure>
+        <div class="news-card-body">
+          <h3>兒童牙科親子看診時段開放預約</h3>
+          <time datetime="2026-03-12">2026.03.12</time>
+        </div>
+      </a>
+
+      <a href="#" class="news-card">
+        <figure class="news-card-media">
+          <img src="img/case-crown.png" alt="療程諮詢服務公告示意">
+        </figure>
+        <div class="news-card-body">
+          <h3>春季療程諮詢服務開放登記</h3>
+          <time datetime="2026-03-05">2026.03.05</time>
+        </div>
+      </a>
+
+      <a href="#" class="news-card">
+        <figure class="news-card-media">
+          <img src="img/equipment/tc/eq_prf.jpg" alt="術後追蹤服務公告示意">
+        </figure>
+        <div class="news-card-body">
+          <h3>術後追蹤提醒服務正式上線</h3>
+          <time datetime="2026-02-25">2026.02.25</time>
+        </div>
+      </a>
+
+      <a href="#" class="news-card">
+        <figure class="news-card-media">
+          <img src="img/treatment/all_ceramic_crown/02.jpg" alt="美學中心預約公告示意">
+        </figure>
+        <div class="news-card-body">
+          <h3>美學牙醫中心週末諮詢名額公告</h3>
+          <time datetime="2026-02-18">2026.02.18</time>
+        </div>
+      </a>
+
+      <a href="#" class="news-card">
+        <figure class="news-card-media">
+          <img src="img/equipment/tc/eq_bonemed.jpg" alt="植牙諮詢公告示意">
+        </figure>
+        <div class="news-card-body">
+          <h3>數位植牙初診評估採預約制</h3>
+          <time datetime="2026-02-11">2026.02.11</time>
+        </div>
+      </a>
+
+      <a href="#" class="news-card">
+        <figure class="news-card-media">
+          <img src="img/tc-env-03.png" alt="定期回診提醒公告示意">
+        </figure>
+        <div class="news-card-body">
+          <h3>定期回診提醒簡訊服務調整說明</h3>
+          <time datetime="2026-02-04">2026.02.04</time>
+        </div>
+      </a>
+
+      <a href="#" class="news-card">
+        <figure class="news-card-media">
+          <img src="img/equipment/tc/eq_xray.jpg" alt="春節門診公告示意">
+        </figure>
+        <div class="news-card-body">
+          <h3>春節期間門診時間與急診聯繫方式</h3>
+          <time datetime="2026-01-28">2026.01.28</time>
+        </div>
+      </a>
+
+      <a href="#" class="news-card">
+        <figure class="news-card-media">
+          <img src="img/clinic/tc/env06.jpg" alt="診間環境更新公告示意">
+        </figure>
+        <div class="news-card-body">
+          <h3>台中院區診間環境更新完成公告</h3>
+          <time datetime="2026-01-21">2026.01.21</time>
+        </div>
+      </a>
+
+      <a href="#" class="news-card">
+        <figure class="news-card-media">
+          <img src="img/clinic/a01.jpg" alt="初診預約公告示意">
+        </figure>
+        <div class="news-card-body">
+          <h3>初診預約資料填寫注意事項</h3>
+          <time datetime="2026-01-14">2026.01.14</time>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section class="news-list-cta">
+    <div>
+      <span>Need Advice?</span>
+      <h2>想了解更多院所資訊？</h2>
+      <p>若您想確認門診時間、預約方式或最新活動細節，歡迎透過 LINE 與我們聯繫，由專人協助您安排。</p>
+    </div>
+    <a href="https://line.me/ti/p/%40dhh1667m" target="_blank" rel="noopener noreferrer">預約諮詢</a>
+  </section>
+</main>
+
+<footer>
+  <div class="ft-top">
+    <div class="ft-brand">
+      <a href="index.html" class="logo">
+        <span class="logo-en">Grace Life</span>
+        <span class="logo-zh">生活牙醫診所</span>
+      </a>
+      <p>隱身台中・南投的微笑綠洲，整合多位傑出專科醫師，以最高醫療水準提供植牙、矯正、美學牙科等全方位服務。</p>
+    </div>
+    <div class="ft-col">
+      <h4>療程項目</h4>
+      <a href="services/all-on-4.html">All-on-4 全口重建</a>
+      <a href="#">人工植牙</a>
+      <a href="services/all-ceramic-crown.html">全瓷冠・貼片</a>
+      <a href="#">隱適美矯正</a>
+      <a href="#">冷光美白</a>
+      <a href="#">牙周治療</a>
+      <a href="#">顯微根管</a>
+    </div>
+    <div class="ft-col">
+      <h4>台中旗艦店｜生活牙醫</h4>
+      <p>📞 04-2254-6060</p>
+      <p>📍 台中市南屯區公益路二段525號</p>
+      <a href="https://www.facebook.com/ilovegracelife/" target="_blank" rel="noopener noreferrer" class="ft-fb-btn">Facebook 粉絲團</a>
+    </div>
+    <div class="ft-col">
+      <h4>南投竹山店｜生活牙醫</h4>
+      <p>📞 049-2660-260</p>
+      <p>📍 南投縣竹山鎮前山路一段99號</p>
+      <a href="https://www.facebook.com/gracelifenantou/" target="_blank" rel="noopener noreferrer" class="ft-fb-btn">Facebook 粉絲團</a>
+    </div>
+  </div>
+  <div class="footer-divider">
+    <div class="ft-bottom">
+      <span>© 2025 生活牙醫診所 Grace Life Dental Clinic. All rights reserved.</span>
+      <span>隱私政策 · 服務條款</span>
+    </div>
+  </div>
+</footer>
+
+<div class="float-wrap">
+  <button class="fl-top" id="flTop" aria-label="回到頂端">↑</button>
+  <a href="https://line.me/ti/p/%40dhh1667m" class="fl-line" target="_blank" rel="noopener noreferrer" aria-label="LINE 聯絡我們">
+    <img src="img/line.png" alt="">
+  </a>
+</div>
+
+</body>
+</html>
