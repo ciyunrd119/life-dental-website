@@ -204,80 +204,6 @@ document.querySelectorAll('.news-row[data-href]').forEach(row => {
   }
 })();
 
-/* ── Services carousel (6 per page desktop, 2 tablet, 1 mobile) ── */
-(function(){
-  const track    = document.getElementById('svcTrack');
-  const dotsWrap = document.getElementById('svcDots');
-  const prevBtn  = document.getElementById('svcPrev');
-  const nextBtn  = document.getElementById('svcNext');
-  if (!track || !dotsWrap || !prevBtn || !nextBtn) return;
-
-  const cards    = Array.from(track.querySelectorAll('.svc-card'));
-  const total    = cards.length;
-  let cur = 0;
-
-  function isMobileGrid() {
-    return window.innerWidth <= 600;
-  }
-
-  function perView() {
-    if (window.innerWidth < 600) return 1;
-    if (window.innerWidth < 900) return 2;
-    return 6;
-  }
-
-  function cardW() {
-    const c = track.querySelector('.svc-card');
-    if (!c) return 0;
-    const style = getComputedStyle(c);
-    return c.getBoundingClientRect().width + parseFloat(style.marginLeft) + parseFloat(style.marginRight);
-  }
-
-  function pages() { return Math.ceil(total / perView()); }
-
-  function buildDots() {
-    dotsWrap.innerHTML = '';
-    if (isMobileGrid()) return;
-    for (let i = 0; i < pages(); i++) {
-      const b = document.createElement('button');
-      b.className = 'svc-dot' + (i === cur ? ' active' : '');
-      b.setAttribute('aria-label', `第 ${i+1} 頁`);
-      b.addEventListener('click', () => goTo(i));
-      dotsWrap.appendChild(b);
-    }
-  }
-
-  function goTo(idx) {
-    if (isMobileGrid()) {
-      cur = 0;
-      track.style.transform = 'none';
-      prevBtn.disabled = true;
-      nextBtn.disabled = true;
-      return;
-    }
-    cur = Math.max(0, Math.min(idx, pages() - 1));
-    track.style.transform = `translateX(-${cur * perView() * cardW()}px)`;
-    dotsWrap.querySelectorAll('.svc-dot').forEach((d, i) => d.classList.toggle('active', i === cur));
-    prevBtn.disabled = cur <= 0;
-    nextBtn.disabled = cur >= pages() - 1;
-  }
-
-  prevBtn.addEventListener('click', () => goTo(cur - 1));
-  nextBtn.addEventListener('click', () => goTo(cur + 1));
-
-  // Touch swipe
-  let sx = 0;
-  track.addEventListener('touchstart', e => { sx = e.touches[0].clientX; }, { passive: true });
-  track.addEventListener('touchend', e => {
-    const dx = e.changedTouches[0].clientX - sx;
-    if (Math.abs(dx) > 50) dx < 0 ? goTo(cur + 1) : goTo(cur - 1);
-  });
-
-  window.addEventListener('resize', () => { buildDots(); goTo(0); });
-  buildDots();
-  goTo(0);
-})();
-
 /* ── Google reviews carousel ── */
 (function(){
   const track = document.getElementById('googleReviewsTrack');
@@ -407,85 +333,85 @@ document.querySelectorAll('.news-row[data-href]').forEach(row => {
   restart();
 })();
 
-/* ── Cases fullbleed carousel ── */
+/* ── Partner carousel ── */
 (function(){
-  const track   = document.getElementById('casesTrack');
-  const dotsWrap= document.getElementById('cDots');
-  const prevBtn = document.getElementById('cPrev');
-  const nextBtn = document.getElementById('cNext');
-  const counter = document.getElementById('casesCounter');
-  if (!track || !dotsWrap || !prevBtn || !nextBtn) return;
+  const track = document.getElementById('partnerTrack');
+  const dotsWrap = document.getElementById('partnerDots');
+  if (!track || !dotsWrap) return;
 
-  const slides  = Array.from(track.querySelectorAll('.case-slide'));
-  const total   = slides.length;
+  const logos = Array.from(track.querySelectorAll('.partner-logo'));
+  const total = logos.length;
   let cur = 0;
   let timer;
 
-  function buildDots(){
+  function perPage() {
+    return window.innerWidth < 600 ? 2 : 4;
+  }
+
+  function pages() {
+    return Math.ceil(total / perPage());
+  }
+
+  function stepW() {
+    const first = logos[0];
+    if (!first) return 0;
+    const style = getComputedStyle(track);
+    return first.getBoundingClientRect().width + parseFloat(style.columnGap || style.gap || 0);
+  }
+
+  function buildDots() {
     dotsWrap.innerHTML = '';
-    slides.forEach((_, i) => {
-      const b = document.createElement('button');
-      b.className = 'c-dot' + (i === cur ? ' active' : '');
-      b.setAttribute('aria-label', `第${i+1}張`);
-      b.addEventListener('click', () => {
-        goTo(i);
-        restart();
-      });
-      dotsWrap.appendChild(b);
-    });
+    for (let i = 0; i < pages(); i++) {
+      const dot = document.createElement('button');
+      dot.className = 'partner-dot' + (i === cur ? ' active' : '');
+      dot.setAttribute('aria-label', `合作夥伴第 ${i + 1} 頁`);
+      dot.addEventListener('click', () => goTo(i));
+      dotsWrap.appendChild(dot);
+    }
   }
 
-  function goTo(idx){
-    cur = Math.max(0, Math.min(idx, total - 1));
-    track.style.transform = `translateX(-${cur * 100}%)`;
-    dotsWrap.querySelectorAll('.c-dot').forEach((d,i) => d.classList.toggle('active', i === cur));
-    if (counter) counter.textContent = `${cur + 1} / ${total}`;
-    prevBtn.disabled = cur <= 0;
-    nextBtn.disabled = cur >= total - 1;
+  function goTo(idx) {
+    cur = Math.max(0, Math.min(idx, pages() - 1));
+    track.style.transform = `translateX(-${cur * perPage() * stepW()}px)`;
+    dotsWrap.querySelectorAll('.partner-dot').forEach((dot, i) => dot.classList.toggle('active', i === cur));
   }
 
-  function next(){
-    goTo(cur >= total - 1 ? 0 : cur + 1);
+  function next() {
+    goTo(cur >= pages() - 1 ? 0 : cur + 1);
   }
 
-  function restart(){
+  function start() {
     clearInterval(timer);
-    timer = setInterval(next, 5000);
+    timer = setInterval(next, 3200);
   }
 
-  prevBtn.addEventListener('click', () => {
-    goTo(cur - 1);
-    restart();
-  });
-  nextBtn.addEventListener('click', () => {
-    next();
-    restart();
-  });
+  function stop() {
+    clearInterval(timer);
+  }
 
-  // Touch swipe
   let sx = 0;
   track.addEventListener('touchstart', e => { sx = e.touches[0].clientX; }, { passive: true });
-  track.addEventListener('touchend',   e => {
-    const dx = e.changedTouches[0].clientX - sx;
-    if (Math.abs(dx) > 50) {
-      dx < 0 ? next() : goTo(cur - 1);
-      restart();
-    }
+  track.addEventListener('touchend', e => {
+      const dx = e.changedTouches[0].clientX - sx;
+      if (Math.abs(dx) > 50) dx < 0 ? goTo(cur + 1) : goTo(cur - 1);
+      start();
   });
 
-  // Keyboard
-  document.addEventListener('keydown', e => {
-    if (e.key === 'ArrowLeft') {
-      goTo(cur - 1);
-      restart();
-    }
-    if (e.key === 'ArrowRight') {
-      next();
-      restart();
-    }
+  window.addEventListener('resize', () => {
+    cur = Math.min(cur, pages() - 1);
+    buildDots();
+    goTo(cur);
   });
+
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => entry.isIntersecting ? start() : stop());
+    }, { threshold: .35 });
+    observer.observe(track.closest('.partner-sec') || track);
+  } else {
+    start();
+  }
 
   buildDots();
   goTo(0);
-  restart();
 })();
