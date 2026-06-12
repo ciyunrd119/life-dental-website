@@ -51,6 +51,96 @@ document.querySelectorAll('.news-row[data-href]').forEach(row => {
   });
 });
 
+/* ── Article social share ── */
+(function(){
+  const shareLinks = Array.from(document.querySelectorAll('[data-share-channel]'));
+  const copyButton = document.querySelector('[data-copy-link]');
+  if (!shareLinks.length && !copyButton) return;
+
+  const pageUrl = window.location.href.split('#')[0];
+  const encodedUrl = encodeURIComponent(pageUrl);
+
+  shareLinks.forEach(link => {
+    const channel = link.dataset.shareChannel;
+    if (channel === 'line') {
+      link.href = `https://social-plugins.line.me/lineit/share?url=${encodedUrl}`;
+    }
+    if (channel === 'facebook') {
+      link.href = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
+    }
+  });
+
+  if (!copyButton) return;
+
+  const label = copyButton.querySelector('span');
+  const originalText = label ? label.textContent : '';
+
+  function showCopied(){
+    copyButton.classList.add('is-copied');
+    if (label) label.textContent = '已複製';
+    window.setTimeout(() => {
+      copyButton.classList.remove('is-copied');
+      if (label) label.textContent = originalText;
+    }, 1800);
+  }
+
+  async function copyPageUrl(){
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(pageUrl);
+        return;
+      } catch (error) {
+        // Fall back for browsers that expose Clipboard API but block it by permission.
+      }
+    }
+
+    const textarea = document.createElement('textarea');
+    textarea.value = pageUrl;
+    textarea.setAttribute('readonly', '');
+    textarea.style.position = 'fixed';
+    textarea.style.top = '-9999px';
+    textarea.style.left = '-9999px';
+    document.body.appendChild(textarea);
+    textarea.focus();
+    textarea.select();
+    textarea.setSelectionRange(0, textarea.value.length);
+    const copied = document.execCommand('copy');
+    textarea.remove();
+    if (!copied) throw new Error('Copy command failed');
+  }
+
+  copyButton.addEventListener('click', async () => {
+    try {
+      await copyPageUrl();
+      showCopied();
+    } catch (error) {
+      if (label) label.textContent = '複製失敗';
+      window.setTimeout(() => {
+        if (label) label.textContent = originalText;
+      }, 1800);
+    }
+  });
+})();
+
+/* ── Services reveal ── */
+(function(){
+  const btn = document.getElementById('servicesMoreBtn');
+  const grid = document.getElementById('servicesMoreGrid');
+  if (!btn || !grid) return;
+
+  btn.addEventListener('click', () => {
+    grid.removeAttribute('hidden');
+    grid.classList.add('is-open');
+    btn.setAttribute('aria-expanded', 'true');
+    grid.closest('.services-sec')?.classList.add('is-services-expanded');
+    const wrap = btn.closest('.services-more-wrap');
+    if (wrap) {
+      wrap.hidden = true;
+      wrap.style.display = 'none';
+    }
+  });
+})();
+
 /* ── Knowledge category filters ── */
 (function(){
   const tabs = Array.from(document.querySelectorAll('.knowledge-filter-tab'));
