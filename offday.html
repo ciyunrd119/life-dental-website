@@ -143,8 +143,12 @@
       <div class="know-article-content">
         <section class="know-lead-box">
           <div class="news-offday-image-grid">
-            <img src="img/offday-taichung.jpg" alt="生活牙醫台中旗艦店 2026 年 5 月休診公告" class="news-offday-image">
-            <img src="img/offday-zhushan.jpg" alt="生活牙醫南投竹山店 2026 年 5 月休診公告" class="news-offday-image">
+            <button type="button" class="news-offday-image-button" data-lightbox-src="img/offday-taichung.jpg" data-lightbox-alt="生活牙醫台中旗艦店 2026 年 5 月休診公告">
+              <img src="img/offday-taichung.jpg" alt="生活牙醫台中旗艦店 2026 年 5 月休診公告" class="news-offday-image">
+            </button>
+            <button type="button" class="news-offday-image-button" data-lightbox-src="img/offday-zhushan.jpg" data-lightbox-alt="生活牙醫南投竹山店 2026 年 5 月休診公告">
+              <img src="img/offday-zhushan.jpg" alt="生活牙醫南投竹山店 2026 年 5 月休診公告" class="news-offday-image">
+            </button>
           </div>
         </section>
 
@@ -290,6 +294,54 @@
     <img src="img/line.png" alt="">
   </a>
 </div>
+
+<div class="image-lightbox" id="imageLightbox" aria-hidden="true">
+  <button type="button" class="image-lightbox-close" aria-label="關閉照片">×</button>
+  <img src="" alt="" class="image-lightbox-img">
+</div>
+
+<script>
+(function(){
+  const lightbox = document.getElementById('imageLightbox');
+  if (!lightbox) return;
+
+  const lightboxImg = lightbox.querySelector('.image-lightbox-img');
+  const closeBtn = lightbox.querySelector('.image-lightbox-close');
+  const triggers = Array.from(document.querySelectorAll('[data-lightbox-src]'));
+  if (!lightboxImg || !closeBtn || !triggers.length) return;
+
+  function openLightbox(src, alt){
+    lightboxImg.src = src;
+    lightboxImg.alt = alt || '';
+    lightbox.classList.add('is-open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    closeBtn.focus();
+  }
+
+  function closeLightbox(){
+    lightbox.classList.remove('is-open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    lightboxImg.src = '';
+    lightboxImg.alt = '';
+  }
+
+  triggers.forEach(trigger => {
+    trigger.addEventListener('click', () => {
+      openLightbox(trigger.dataset.lightboxSrc, trigger.dataset.lightboxAlt);
+    });
+  });
+
+  closeBtn.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', event => {
+    if (event.target === lightbox) closeLightbox();
+  });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && lightbox.classList.contains('is-open')) closeLightbox();
+  });
+})();
+</script>
 
 </body>
 </html>
