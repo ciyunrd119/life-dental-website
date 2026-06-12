@@ -3095,7 +3095,7 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
     .ceramic-source-page .stat-label { font-size: 13px; letter-spacing: 0.04em; }
     .ceramic-source-page .advantage-grid { grid-template-columns: 1fr; }
     .ceramic-source-page .ao4-team-carousel {
-      --team-card-width: min(76vw, 300px);
+      --team-card-width: min(88vw, 340px);
       margin-top: 36px;
     }
     .ceramic-source-page .ao4-team-controls {
@@ -3112,8 +3112,17 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
     }
     .ceramic-source-page .ao4-team-arrow {
       pointer-events: auto;
-      background: rgba(255,255,255,0.92);
-      box-shadow: 0 8px 20px rgba(44,44,42,0.12);
+      background: transparent;
+      border-color: transparent;
+      box-shadow: none;
+      color: #fff;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.45);
+    }
+    .ceramic-source-page .ao4-team-arrow:hover,
+    .ceramic-source-page .ao4-team-arrow:focus-visible {
+      background: transparent;
+      border-color: transparent;
+      color: #fff;
     }
     .ceramic-source-page .ao4-team-grid {
       display: flex;
