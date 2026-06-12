@@ -432,7 +432,17 @@
       <h2 class="section-heading reveal">All-On-4 的<em>跨專科團隊</em></h2>
       <p class="section-intro reveal">全口重建需要植牙手術、假牙贋復、牙周與咬合整合規劃，由生活牙醫團隊共同評估每位患者的治療條件。</p>
 
-      <div class="ao4-team-grid">
+      <div class="ao4-team-carousel">
+        <div class="ao4-team-controls" aria-label="醫療團隊切換">
+          <button class="ao4-team-arrow" type="button" data-team-dir="-1" aria-label="上一位醫師">
+            <i class="fa-solid fa-angle-left" aria-hidden="true"></i>
+          </button>
+          <button class="ao4-team-arrow" type="button" data-team-dir="1" aria-label="下一位醫師">
+            <i class="fa-solid fa-angle-right" aria-hidden="true"></i>
+          </button>
+        </div>
+
+        <div class="ao4-team-grid">
         <article class="ao4-team-card reveal">
           <div class="ao4-team-photo">
             <img src="../img/clinic/Liu-Chao-Sheng.webp" alt="柳朝升醫師">
@@ -523,6 +533,7 @@
             </div>
           </div>
         </article>
+        </div>
       </div>
     </section>
 
@@ -706,6 +717,27 @@
       const activeIndex = Math.max(0, Math.min(processCards.length - 1, Math.round(processSteps.scrollLeft / stepWidth)));
       setActiveProcessDot(activeIndex);
     }, { passive: true });
+  }
+
+  const teamTrack = document.querySelector('.ao4-team-grid');
+  const teamCards = Array.from(document.querySelectorAll('.ao4-team-card'));
+  const teamArrows = Array.from(document.querySelectorAll('.ao4-team-arrow'));
+
+  if (teamTrack && teamCards.length && teamArrows.length) {
+    const teamStepWidth = () => {
+      const gap = parseFloat(getComputedStyle(teamTrack).gap) || 0;
+      return teamCards[0].getBoundingClientRect().width + gap;
+    };
+
+    teamArrows.forEach((button) => {
+      button.addEventListener('click', () => {
+        const direction = Number(button.dataset.teamDir) || 1;
+        teamTrack.scrollBy({
+          left: direction * teamStepWidth(),
+          behavior: 'smooth'
+        });
+      });
+    });
   }
 
   document.querySelectorAll('.faq-question').forEach((button) => {
