@@ -2220,30 +2220,67 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
 
   /* ── ADVANTAGE ── */
   .ceramic-source-page .advantage { background: var(--cream); }
+  .ceramic-source-page .advantage-layout {
+    display: grid;
+    grid-template-columns: minmax(320px, .9fr) minmax(0, 1.1fr);
+    gap: 42px;
+    align-items: start;
+    margin-top: 60px;
+  }
+  .ceramic-source-page .advantage-media {
+    aspect-ratio: 10 / 11;
+    margin: 0;
+    overflow: hidden;
+    background: var(--sage-pale);
+    position: sticky;
+    top: 96px;
+  }
+  .ceramic-source-page .advantage-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
   .ceramic-source-page .advantage-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
   }
   .ceramic-source-page .adv-card {
-    background: var(--warm-white); padding: 40px 32px;
-    transition: background 0.3s;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid rgba(184,154,106,0.42);
+    border-radius: 0;
+    box-shadow: none;
     cursor: default;
-    position: relative; overflow: hidden;
+    position: relative;
+    display: grid;
+    grid-template-columns: 54px minmax(0, 1fr);
+    gap: 8px 16px;
+    padding: 18px 0;
   }
-  .ceramic-source-page .adv-card::before {
-    content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
-    background: var(--gold); transform: scaleX(0); transform-origin: left;
-    transition: transform 0.4s ease;
+  .ceramic-source-page .adv-card:first-child { border-top: 1px solid rgba(184,154,106,0.42); }
+  .ceramic-source-page .adv-card:hover {
+    box-shadow: none;
   }
-  .ceramic-source-page .adv-card:hover::before { transform: scaleX(1); }
-  .ceramic-source-page .adv-card:hover { background: var(--gold-pale); }
   .ceramic-source-page .adv-number {
-    font-family: var(--font-serif); font-size: 72px; font-weight: 300;
-    color: var(--light-gray); line-height: 1; margin-bottom: 16px;
+    grid-row: 1 / span 2;
+    font-family: var(--font-serif); font-size: 32px; font-weight: 300;
+    color: var(--gold-light); line-height: 1;
+    margin: 0;
     transition: color 0.3s;
   }
-  .ceramic-source-page .adv-card:hover .adv-number { color: var(--gold-light); }
-  .ceramic-source-page .adv-title { font-weight: 500; font-size: 22px; color: var(--charcoal); margin-bottom: 12px; }
-  .ceramic-source-page .adv-desc { font-size: 14px; color: var(--warm-gray); line-height: 1.8; }
+  .ceramic-source-page .adv-card:hover .adv-number { color: var(--gold); }
+  .ceramic-source-page .adv-number i {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    font-size: 24px;
+  }
+  .ceramic-source-page .adv-title { font-weight: 500; font-size: 18px; color: var(--charcoal); margin: 0; }
+  .ceramic-source-page .adv-desc { font-size: 14px; color: var(--warm-gray); line-height: 1.7; margin: 0; }
 
   /* ── ALL-ON-4 TEAM ── */
   .ceramic-source-page .ao4-team { background: var(--warm-white); }
@@ -2258,11 +2295,9 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
     background: var(--cream);
     border: 1px solid var(--light-gray);
     overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
   .ceramic-source-page .ao4-team-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 16px 38px rgba(44,44,42,0.08);
+    box-shadow: none;
   }
   .ceramic-source-page .ao4-team-photo {
     aspect-ratio: 4 / 5;
@@ -2275,10 +2310,8 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
     object-fit: cover;
     object-position: center top;
     display: block;
-    transition: transform 0.4s ease;
   }
-  .ceramic-source-page .ao4-team-card:hover .ao4-team-photo img { transform: scale(1.04); }
-  .ceramic-source-page .ao4-team-info { padding: 22px 22px 24px; }
+  .ceramic-source-page .ao4-team-info { padding: 22px 22px 24px; background: #fff; }
   .ceramic-source-page .ao4-team-info h3 {
     font-family: var(--font-serif);
     font-size: 28px;
@@ -2343,6 +2376,9 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
     width: 80%; margin: 56px auto 0;
   }
   .ceramic-source-page .case-card { background: var(--cream); overflow: hidden; }
+  .ceramic-source-page .ao4-cases .case-card {
+    border: 1px solid rgba(184,154,106,0.34);
+  }
   .ceramic-source-page .case-image {
     position: relative;
     background: var(--sage-pale);
@@ -2474,6 +2510,78 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
     color: var(--text-body);
     line-height: 2;
     letter-spacing: .04em;
+  }
+
+  /* ── SURGERY NOTES ── */
+  .ceramic-source-page .surgery-notes { background: var(--warm-white); }
+  .ceramic-source-page .surgery-notes-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+    margin-top: 46px;
+  }
+  .ceramic-source-page .surgery-note-card {
+    background: #fff;
+    border: 1px solid rgba(184,154,106,0.28);
+    padding: 30px 28px 32px;
+    min-width: 0;
+  }
+  .ceramic-source-page .surgery-note-icon {
+    width: 48px;
+    height: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+    color: var(--gold);
+    background: var(--gold-pale);
+    font-size: 22px;
+  }
+  .ceramic-source-page .surgery-note-card h3 {
+    font-size: 22px;
+    line-height: 1.35;
+    color: var(--charcoal);
+    margin-bottom: 16px;
+    font-weight: 500;
+  }
+  .ceramic-source-page .surgery-note-card h4 {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--charcoal);
+    margin: 22px 0 12px;
+    font-weight: 500;
+  }
+  .ceramic-source-page .surgery-note-card p {
+    font-size: 14px;
+    line-height: 1.85;
+    color: var(--warm-gray);
+    margin-bottom: 12px;
+  }
+  .ceramic-source-page .surgery-note-card ul {
+    list-style: none;
+    display: grid;
+    gap: 12px;
+  }
+  .ceramic-source-page .surgery-note-card li {
+    position: relative;
+    padding-left: 18px;
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--warm-gray);
+  }
+  .ceramic-source-page .surgery-note-card strong {
+    color: var(--charcoal);
+    font-weight: 500;
+  }
+  .ceramic-source-page .surgery-note-card li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: .8em;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
   }
 
   /* ── DOCTOR TEAM ── */
@@ -2971,6 +3079,11 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
     transition: opacity 0.7s ease, transform 0.7s ease;
   }
   .ceramic-source-page .reveal.visible { opacity: 1; transform: translateY(0); }
+  .ceramic-source-page .ao4-team-card.reveal,
+  .ceramic-source-page .ao4-team-card.reveal.visible {
+    transform: none;
+    transition: opacity 0.7s ease;
+  }
 
   /* ── RESPONSIVE ── */
   @media (max-width: 1024px) {
@@ -2983,9 +3096,19 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
     .ceramic-source-page .what-visual { aspect-ratio: 2 / 1; }
     .ceramic-source-page .process-steps { grid-template-columns: repeat(3, 1fr); row-gap: 40px; }
     .ceramic-source-page .process-line { display: none; }
-    .ceramic-source-page .advantage-grid { grid-template-columns: repeat(2, 1fr); }
+    .ceramic-source-page .advantage-layout {
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+    .ceramic-source-page .advantage-media {
+      position: relative;
+      top: auto;
+      max-width: 560px;
+      width: 100%;
+    }
     .ceramic-source-page .ao4-team-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
     .ceramic-source-page .cases-grid { grid-template-columns: 1fr; max-width: 480px; }
+    .ceramic-source-page .surgery-notes-grid { grid-template-columns: 1fr; }
     .doctor-page .doctor-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
     .doctor-page .doctor-info { padding: 12px 16px 14px; }
     .doctor-page .doctor-heading h3 { font-size: 26px; }
@@ -3093,7 +3216,47 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
     .ceramic-source-page .stat-num { font-size: 34px; }
     .ceramic-source-page .stat-num sup { font-size: 14px; }
     .ceramic-source-page .stat-label { font-size: 13px; letter-spacing: 0.04em; }
-    .ceramic-source-page .advantage-grid { grid-template-columns: 1fr; }
+    .ceramic-source-page .material-table-wrap {
+      width: calc(100% + 48px);
+      margin-left: -24px;
+      margin-right: -24px;
+      padding-left: 0;
+      padding-right: 0;
+    }
+    .ceramic-source-page .advantage-layout {
+      margin-top: 36px;
+    }
+    .ceramic-source-page .advantage-media {
+      max-width: none;
+      width: calc(100% + 48px);
+      margin-left: -24px;
+      margin-right: -24px;
+    }
+    .ceramic-source-page .adv-card {
+      grid-template-columns: 46px minmax(0, 1fr);
+      gap: 8px 12px;
+      padding: 14px 16px;
+    }
+    .ceramic-source-page .adv-number {
+      font-size: 30px;
+    }
+    .ceramic-source-page .adv-title {
+      font-size: 18px;
+    }
+    .ceramic-source-page .surgery-notes-grid {
+      margin-top: 36px;
+      gap: 14px;
+    }
+    .ceramic-source-page .surgery-note-card {
+      padding: 24px 20px 26px;
+    }
+    .ceramic-source-page .surgery-note-card h3 {
+      font-size: 20px;
+    }
+    .ceramic-source-page .surgery-note-card li {
+      font-size: 14px;
+      line-height: 1.75;
+    }
     .ceramic-source-page .ao4-team-carousel {
       --team-card-width: min(88vw, 340px);
       margin-top: 36px;
@@ -3139,9 +3302,19 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
     .ceramic-source-page .ao4-team-card {
       flex: 0 0 var(--team-card-width);
       scroll-snap-align: center;
+      display: flex;
+      flex-direction: column;
+      min-height: calc((var(--team-card-width) * 4.2 / 4) + 136px);
     }
-    .ceramic-source-page .ao4-team-photo { aspect-ratio: 4 / 4.2; }
-    .ceramic-source-page .ao4-team-info { padding: 18px 18px 20px; }
+    .ceramic-source-page .ao4-team-photo {
+      aspect-ratio: auto;
+      height: calc(var(--team-card-width) * 4.2 / 4);
+      flex: 0 0 auto;
+    }
+    .ceramic-source-page .ao4-team-info {
+      padding: 18px 18px 20px;
+      flex: 1;
+    }
     .ceramic-source-page .ao4-team-info h3 { font-size: 26px; }
     .ceramic-source-page .process-timeline {
       margin-left: -24px;
@@ -3485,6 +3658,13 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
   }
   .ceramic-source-page .step-title {
     font-size: 18px;
+  }
+  .ceramic-source-page .adv-card .adv-desc {
+    font-size: 14px;
+    line-height: 1.65;
+  }
+  .ceramic-source-page .dsd-text p {
+    font-size: 17px;
   }
 /* === End All Ceramic Crown Page === */
 
@@ -3856,4 +4036,64 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
   .news-list-page .cta-right{align-items:center;}
   .news-list-page .cta-btn-primary,
   .news-list-page .cta-btn-secondary{text-align:center;}
+}
+
+/* Mobile inner-page hero images */
+@media(max-width:900px){
+  .ceramic-source-page .hero-right,
+  .equipment-hero .hero-right,
+  .knowledge-list-hero-media,
+  .news-list-hero-media{
+    height:252px;
+    min-height:252px;
+  }
+
+  .clinic-hero-media{
+    aspect-ratio:auto;
+    height:clamp(224px, 43.75vw, 280px);
+    min-height:0;
+  }
+
+  .ceramic-source-page .hero-image-area,
+  .equipment-hero .hero-image-area,
+  .clinic-hero-media .hero-image-area{
+    height:100%;
+  }
+
+  .ceramic-source-page .hero-right::after,
+  .equipment-hero .hero-right::after,
+  .clinic-hero-media::after,
+  .knowledge-list-hero-media::after,
+  .news-list-hero-media::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.15);
+    pointer-events:none;
+    z-index:1;
+  }
+
+  .ceramic-source-page .hero-image-area img,
+  .equipment-hero .hero-image-area img,
+  .clinic-hero-media img,
+  .knowledge-list-hero-media img,
+  .news-list-hero-media img{
+    height:100%;
+    object-fit:cover;
+    object-position:center;
+  }
+}
+
+@media(max-width:620px){
+  .ceramic-source-page .hero-right,
+  .equipment-hero .hero-right,
+  .knowledge-list-hero-media,
+  .news-list-hero-media{
+    height:224px;
+    min-height:224px;
+  }
+
+  .clinic-hero-media{
+    height:clamp(196px, 43.75vw, 224px);
+  }
 }
