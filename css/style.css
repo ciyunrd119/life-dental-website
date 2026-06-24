@@ -889,9 +889,9 @@ a{color:inherit;text-decoration:none;}
 }
 .case-feature-media{
   position:relative;
-  aspect-ratio:1/1;
+  aspect-ratio:120 / 133;
   min-height:0;
-  background-size:100% auto;
+  background-size:cover;
   background-position:center;
   background-repeat:no-repeat;
   background-color:#D3C0A1;
@@ -904,10 +904,10 @@ a{color:inherit;text-decoration:none;}
   background:#fff;
 }
 
-.cs-img-1 { background-image: url('../img/case-all-on-4.png'); }
-.cs-img-2 { background-image: url('../img/case-implant.png'); }
-.cs-img-3 { background-image: url('../img/case-crown.png'); }
-.cs-img-4 { background-image: url('../img/case-veneer.png'); }
+.cs-img-1 { background-image: url('../img/cases/allon4-1.webp'); }
+.cs-img-2 { background-image: url('../img/cases/implant-1.webp'); }
+.cs-img-3 { background-image: url('../img/cases/cemaric-1.jpg'); }
+.cs-img-4 { background-image: url('../img/cases/veneer-1.webp'); }
 .cs-img-5 { background-image: url('../img/case-invisalign.png'); }
 .cs-img-6 { background-image: url('../img/case-periodontal.png'); }
 
@@ -1057,6 +1057,13 @@ a{color:inherit;text-decoration:none;}
 .home-knowledge-media{
   aspect-ratio:3/2;
   background:#D3C0A1;
+  overflow:hidden;
+}
+.home-knowledge-media img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
 }
 .home-knowledge-card:nth-child(2) .home-knowledge-media{background:#B89A6A;}
 .home-knowledge-card:nth-child(3) .home-knowledge-media{background:#E7DED0;}
@@ -1552,12 +1559,12 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
 .clinic-feature{background:var(--warm-white);border:1px solid var(--border);border-radius:8px;overflow:hidden;box-shadow:0 12px 24px var(--shadow);}
 .clinic-feature img{width:100%;aspect-ratio:4 / 3;object-fit:cover;display:block;}
 .clinic-feature-body{padding:18px 16px 20px;text-align:center;}
-.clinic-feature h3{font-family:'Noto Sans TC',sans-serif;font-size:19px;line-height:1.4;color:var(--gold-dark);font-weight:600;letter-spacing:.04em;margin-bottom:8px;}
+.clinic-feature h3{font-family:'Noto Sans TC',sans-serif;font-size:19px;line-height:1.4;color:var(--gold-dark);font-weight:500;letter-spacing:.04em;margin-bottom:8px;}
 .clinic-feature p{font-size:17px;color:var(--text);line-height:2;font-weight:300;letter-spacing:.04em;margin:0;}
 .clinic-services{margin-top:46px;padding-top:38px;border-top:1px solid var(--border);}
 .clinic-service-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:22px;}
 .clinic-service-card{background:var(--warm-white);border:1px solid var(--border);border-radius:8px;padding:18px 18px 20px;box-shadow:0 10px 22px var(--shadow);}
-.clinic-service-card h3{font-size:19px;line-height:1.4;color:var(--gold-dark);font-weight:600;letter-spacing:.06em;margin-bottom:12px;}
+.clinic-service-card h3{font-size:19px;line-height:1.4;color:var(--gold-dark);font-weight:500;letter-spacing:.06em;margin-bottom:12px;}
 .clinic-service-card ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;}
 .clinic-service-card li{display:inline-flex;align-items:center;min-height:30px;padding:5px 10px;border-radius:8px;background:#fff;border:1px solid rgba(168,136,90,.22);color:var(--text);font-size:16px;line-height:2;font-weight:400;letter-spacing:.04em;}
 .clinic-env-sec{padding:0 48px 58px;background:var(--ivory);overflow:hidden;}
@@ -2029,6 +2036,44 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
   .ceramic-source-page .what-text p {
     font-size: 15px; line-height: 1.9; color: var(--text-body); margin-bottom: 20px;
   }
+  .ceramic-source-page .ao4-fit-list {
+    margin-top: 6px;
+    padding-top: 22px;
+    border-top: 1px solid rgba(184,154,106,0.26);
+  }
+  .ceramic-source-page .ao4-fit-list h3 {
+    font-family: var(--font-serif);
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 1.4;
+    color: var(--charcoal);
+    margin-bottom: 14px;
+  }
+  .ceramic-source-page .ao4-fit-list ol {
+    list-style: none;
+    counter-reset: ao4-fit;
+    display: grid;
+    gap: 10px;
+  }
+  .ceramic-source-page .ao4-fit-list li {
+    counter-increment: ao4-fit;
+    position: relative;
+    padding-left: 40px;
+    font-size: 17px;
+    line-height: 1.8;
+    color: var(--text-body);
+    letter-spacing: 0.04em;
+  }
+  .ceramic-source-page .ao4-fit-list li::before {
+    content: counter(ao4-fit);
+    position: absolute;
+    left: 0;
+    top: 0.08em;
+    font-family: var(--font-serif);
+    font-size: 19px;
+    line-height: 1.2;
+    color: var(--gold);
+  }
   .ceramic-source-page .what-features {
     grid-column: 1 / -1;
     display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -2300,7 +2345,7 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
     box-shadow: none;
   }
   .ceramic-source-page .ao4-team-photo {
-    aspect-ratio: 4 / 5;
+    aspect-ratio: 4 / 4.35;
     background: var(--sage-pale);
     overflow: hidden;
   }
@@ -2311,14 +2356,18 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
     object-position: center top;
     display: block;
   }
-  .ceramic-source-page .ao4-team-info { padding: 22px 22px 24px; background: #fff; }
+  .ceramic-source-page .ao4-team-info {
+    padding: 18px 20px 20px;
+    background: #fff;
+    position: relative;
+  }
   .ceramic-source-page .ao4-team-info h3 {
     font-family: var(--font-serif);
     font-size: 28px;
     font-weight: 500;
     line-height: 1.25;
     color: var(--charcoal);
-    margin-bottom: 14px;
+    margin-bottom: 10px;
   }
   .ceramic-source-page .ao4-team-info h3 span {
     font-family: var(--font-sans);
@@ -2330,16 +2379,40 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
   .ceramic-source-page .ao4-team-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 5px;
+    margin-bottom: 10px;
   }
   .ceramic-source-page .ao4-team-tags span {
     border: 1px solid rgba(184,154,106,0.28);
     background: rgba(255,255,255,0.58);
     color: var(--warm-gray);
     font-size: 14px;
-    line-height: 1.4;
+    line-height: 1.35;
     letter-spacing: 0.04em;
-    padding: 6px 10px;
+    padding: 4px 9px;
+  }
+  .ceramic-source-page .ao4-team-profile {
+    list-style: none;
+    display: grid;
+    gap: 4px;
+  }
+  .ceramic-source-page .ao4-team-profile li {
+    position: relative;
+    padding-left: 14px;
+    font-size: 13px;
+    line-height: 1.42;
+    color: var(--warm-gray);
+    letter-spacing: 0.03em;
+  }
+  .ceramic-source-page .ao4-team-profile li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: .75em;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--gold);
   }
   .ceramic-source-page .ao4-team-controls {
     display: none;
@@ -2398,6 +2471,7 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
   .ceramic-source-page .case-type { font-size: 14px; letter-spacing: 0.15em; color: var(--gold); margin-bottom: 8px; }
   .ceramic-source-page .case-title { font-weight: 500; font-size: 16px; color: var(--charcoal); margin-bottom: 8px; }
   .ceramic-source-page .case-desc { font-size: 14px; color: var(--warm-gray); line-height: 1.7; }
+  .ceramic-source-page .ao4-cases .case-desc { font-size: 15px; }
   .ceramic-source-page .case-more-wrap {
     display: flex;
     justify-content: center;
@@ -2514,6 +2588,68 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
 
   /* ── SURGERY NOTES ── */
   .ceramic-source-page .surgery-notes { background: var(--warm-white); }
+  .ceramic-source-page .surgery-note-link {
+    max-width: 780px;
+    margin: 42px auto 0;
+    padding: 28px 32px;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 20px;
+    color: var(--charcoal);
+    background: #fff;
+    border: 1px solid rgba(184,154,106,0.32);
+    transition: border-color .24s, box-shadow .24s, transform .24s;
+  }
+  .ceramic-source-page .surgery-note-link:hover {
+    border-color: rgba(184,154,106,0.68);
+    box-shadow: 0 16px 42px rgba(44,44,42,0.08);
+    transform: translateY(-2px);
+  }
+  .ceramic-source-page .surgery-note-link-icon {
+    width: 58px;
+    height: 58px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(184,154,106,0.14);
+    color: var(--gold);
+    font-size: 24px;
+  }
+  .ceramic-source-page .surgery-note-link-copy {
+    display: grid;
+    gap: 8px;
+  }
+  .ceramic-source-page .surgery-note-link-copy strong {
+    font-family: var(--font-serif);
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 1.35;
+    color: var(--charcoal);
+  }
+  .ceramic-source-page .surgery-note-link-copy span {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--warm-gray);
+    letter-spacing: 0.04em;
+  }
+  .ceramic-source-page .surgery-note-link-arrow {
+    width: 42px;
+    height: 42px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid rgba(184,154,106,0.36);
+    color: var(--gold);
+    transition: background .24s, color .24s, border-color .24s;
+  }
+  .ceramic-source-page .surgery-note-link:hover .surgery-note-link-arrow {
+    background: var(--gold);
+    color: #fff;
+    border-color: var(--gold);
+  }
   .ceramic-source-page .surgery-notes-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -3109,6 +3245,7 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
     .ceramic-source-page .ao4-team-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
     .ceramic-source-page .cases-grid { grid-template-columns: 1fr; max-width: 480px; }
     .ceramic-source-page .surgery-notes-grid { grid-template-columns: 1fr; }
+    .ceramic-source-page .surgery-note-link { max-width: 560px; }
     .doctor-page .doctor-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
     .doctor-page .doctor-info { padding: 12px 16px 14px; }
     .doctor-page .doctor-heading h3 { font-size: 26px; }
@@ -3232,6 +3369,20 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
       margin-left: -24px;
       margin-right: -24px;
     }
+    .ceramic-source-page .surgery-note-link {
+      grid-template-columns: auto minmax(0, 1fr);
+      padding: 22px 20px;
+      gap: 14px;
+    }
+    .ceramic-source-page .surgery-note-link-copy strong {
+      font-size: 21px;
+    }
+    .ceramic-source-page .surgery-note-link-arrow {
+      grid-column: 2;
+      justify-self: start;
+      width: 36px;
+      height: 36px;
+    }
     .ceramic-source-page .adv-card {
       grid-template-columns: 46px minmax(0, 1fr);
       gap: 8px 12px;
@@ -3267,7 +3418,7 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
       position: absolute;
       left: 0;
       right: 0;
-      top: calc((var(--team-card-width) * 4.2 / 4) / 2);
+      top: calc((var(--team-card-width) * 4.35 / 4) / 2);
       transform: translateY(-50%);
       z-index: 2;
       margin-top: 0;
@@ -3304,18 +3455,18 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
       scroll-snap-align: center;
       display: flex;
       flex-direction: column;
-      min-height: calc((var(--team-card-width) * 4.2 / 4) + 136px);
+      min-height: calc((var(--team-card-width) * 4.35 / 4) + 220px);
     }
     .ceramic-source-page .ao4-team-photo {
       aspect-ratio: auto;
-      height: calc(var(--team-card-width) * 4.2 / 4);
+      height: calc(var(--team-card-width) * 4.35 / 4);
       flex: 0 0 auto;
     }
     .ceramic-source-page .ao4-team-info {
-      padding: 18px 18px 20px;
+      padding: 12px 18px 14px;
       flex: 1;
     }
-    .ceramic-source-page .ao4-team-info h3 { font-size: 26px; }
+    .ceramic-source-page .ao4-team-info h3 { font-size: 25px; margin-bottom: 6px; }
     .ceramic-source-page .process-timeline {
       margin-left: -24px;
       margin-right: -24px;
@@ -3582,6 +3733,8 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
     background: var(--warm-white);
     overflow: hidden;
     cursor: pointer;
+    color: inherit;
+    text-decoration: none;
     transition: box-shadow 0.3s, transform 0.3s;
     display: flex;
     flex-direction: column;
@@ -3601,6 +3754,12 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
   .ceramic-source-page .know-card-img svg {
     width: 100%;
     height: 100%;
+    display: block;
+  }
+  .ceramic-source-page .know-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     display: block;
   }
   .ceramic-source-page .know-card-body {
@@ -3716,6 +3875,7 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
 .know-tool-list{display:grid;gap:8px;margin:16px 0;list-style:none;padding:0;font-weight:500;color:var(--dark);}
 .know-tool-list li{position:relative;padding-left:24px;font-size:18px;line-height:1.7;letter-spacing:.04em;}
 .know-tool-list li::before{content:'・';position:absolute;left:0;top:0;color:var(--dark);font-weight:600;}
+#after .know-tool-list{font-weight:300;}
 .know-related-link{display:flex;width:100%;align-items:center;gap:14px;margin:2px 0 18px;padding:12px 18px;border-radius:8px;background:rgba(212,184,150,.24);color:var(--dark);transition:background .2s;}
 .know-related-link span{font-size:14px;font-weight:600;letter-spacing:.14em;color:#B89A6A;}
 .know-related-link span i{margin-right:10px;color:#B89A6A;}
@@ -3740,6 +3900,11 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
 .know-check-list li{display:flex;gap:12px;align-items:center;padding:18px 0;font-size:16px;line-height:1.85;color:var(--dark);letter-spacing:.04em;border-bottom:1px dashed rgba(168,136,90,.38);}
 .know-check-list li:last-child{border-bottom:0;}
 .know-check-list li i{color:#B89A6A;font-size:30px;line-height:1;flex:0 0 auto;}
+.know-surgery-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-top:26px;}
+.know-surgery-card{background:var(--warm-white);border:1px solid rgba(168,136,90,.24);border-radius:8px;padding:28px 28px 30px;}
+.know-surgery-icon{width:56px;height:56px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;margin-bottom:20px;background:rgba(184,154,106,.14);color:#B89A6A;font-size:24px;}
+.know-surgery-card h3{font-family:'Noto Serif TC',serif;font-size:24px;font-weight:600;line-height:1.45;letter-spacing:.04em;color:var(--dark);margin-bottom:12px;}
+.know-surgery-card p{font-size:17px;line-height:1.95;color:var(--text);letter-spacing:.04em;}
 .know-consult-box{display:flex;align-items:center;justify-content:space-between;gap:30px;margin-top:18px;padding:38px 40px;background:#FAF8F4;border:1px solid rgba(168,136,90,.22);}
 .know-consult-box > div{max-width:760px;}
 .know-consult-box a{display:inline-flex;align-items:center;justify-content:center;min-width:168px;padding:13px 28px;border-radius:999px;background:#333;color:#fff;font-size:16px;font-weight:600;letter-spacing:.12em;transition:background .2s,transform .2s;}
@@ -3776,9 +3941,26 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
 .news-clinic-label{display:block;margin-bottom:8px;font-family:'Cormorant Garamond',serif;font-size:18px;font-style:italic;color:#B89A6A;letter-spacing:.08em;}
 .news-clinic-notice h2{margin-bottom:22px;}
 .news-notice-list{display:grid;gap:14px;list-style:none;margin:0;padding:0;}
+.news-onsite-details{margin-top:28px;border:1px solid rgba(168,136,90,.28);background:#fff;box-shadow:0 10px 24px rgba(0,0,0,.04);overflow:hidden;}
+.news-onsite-heading{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:20px 24px;}
+.news-onsite-heading h3{font-family:'Noto Serif TC',serif;font-size:22px;font-weight:500;line-height:1.5;color:var(--dark);letter-spacing:.04em;margin:0;}
+.news-onsite-toggle{display:inline-flex;align-items:center;justify-content:center;gap:9px;flex:0 0 auto;padding:8px 14px;border:1px solid rgba(168,136,90,.45);border-radius:999px;background:#fff;color:#A8885A;font-family:'Noto Sans TC',sans-serif;font-size:14px;font-weight:500;line-height:1.5;letter-spacing:.06em;cursor:pointer;transition:background .2s,color .2s,border-color .2s;}
+.news-onsite-toggle:hover{background:#B89A6A;border-color:#B89A6A;color:#fff;}
+.news-onsite-toggle:focus-visible{outline:2px solid #B89A6A;outline-offset:3px;}
+.news-onsite-toggle i{flex:0 0 auto;color:#B89A6A;font-size:15px;transition:transform .25s;}
+.news-onsite-toggle:hover i{color:#fff;}
+.news-onsite-toggle[aria-expanded='true'] i{transform:rotate(180deg);}
+.news-onsite-content{padding:0 28px 28px;border-top:1px solid rgba(168,136,90,.18);}
+.news-onsite-details ol{display:grid;gap:12px;margin:0;padding-left:1.5em;}
+.news-onsite-details li{padding-left:4px;font-size:16px;line-height:1.9;color:var(--text);letter-spacing:.03em;}
+.news-onsite-content ol{padding-top:22px;}
 .news-notice-list li{position:relative;padding-left:26px;font-size:18px;line-height:1.9;color:var(--dark);letter-spacing:.04em;}
 .news-notice-list li::before{content:'';position:absolute;left:0;top:.82em;width:8px;height:8px;border-radius:50%;background:#B89A6A;}
 .news-notice-label{font-weight:500;}
+.news-notice-action-text{font-weight:500;color:inherit;}
+a.news-notice-action-text{display:inline-flex;align-items:center;gap:0;transition:color .2s;}
+a.news-notice-action-text i{font-size:.72em;color:#B89A6A;}
+a.news-notice-action-text:hover{color:#A8885A;}
 .news-inline-link{color:#B89A6A;font-weight:500;text-decoration:underline;text-underline-offset:4px;transition:color .2s;}
 .news-inline-link i{margin-right:6px;font-size:.86em;}
 .news-inline-link:hover{color:#D3C0A1;}
@@ -3799,9 +3981,12 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
 .news-office-grid .btn-blue:hover{background:#D3C0A1;}
 .news-article-page .know-consult-box{width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);border:0;border-radius:0;padding-left:max(24px,calc((100vw - 1040px) / 2 + 48px));padding-right:max(24px,calc((100vw - 1040px) / 2 + 48px));}
 @media(max-width:1100px){
-  .know-article-hero-inner{grid-template-columns:1fr;}
   .know-card-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
   .knowledge-article-page .cta-section{grid-template-columns:1fr;gap:40px;background-attachment:scroll;}
+}
+
+@media(max-width:900px){
+  .know-article-hero-inner{grid-template-columns:1fr;}
 }
 
 @media(max-width:760px){
@@ -3815,6 +4000,12 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
   .know-article-tags span{font-size:13px;}
   .news-clinic-notice{padding:28px 22px;}
   .news-notice-list li{font-size:16px;}
+  .news-onsite-details{margin-top:24px;}
+  .news-onsite-heading{padding:18px 20px;gap:12px;}
+  .news-onsite-heading h3{font-size:20px;}
+  .news-onsite-toggle{padding:7px 12px;font-size:13px;}
+  .news-onsite-content{padding:0 20px 24px;}
+  .news-onsite-details li{font-size:15px;line-height:1.85;}
   .news-contact-card{align-items:flex-start;flex-direction:column;}
   .news-contact-card a{font-size:28px;}
   .know-article-toc{
@@ -3832,7 +4023,7 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
   .know-article-toc ol{grid-template-columns:1fr;}
   .know-article-content{position:relative;z-index:1;clear:both;}
   .know-lead-box{padding-top:0;}
-  .know-card-grid,.know-split,.know-image-callout,.know-check-list{grid-template-columns:1fr;}
+  .know-card-grid,.know-surgery-grid,.know-split,.know-image-callout,.know-check-list{grid-template-columns:1fr;}
   .know-consult-box{padding:24px 22px;}
   .know-option-item{grid-template-columns:1fr;padding:22px;}
   .know-consult-box{display:grid;}
@@ -3862,7 +4053,7 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
 .knowledge-list-subtitle{font-family:'Cormorant Garamond','Noto Serif TC',serif;font-size:18px;font-weight:300;color:#6B6860;margin-bottom:40px;letter-spacing:.02em;}
 .knowledge-list-hero p:not(.knowledge-list-subtitle){max-width:460px;font-size:17px;line-height:2;color:var(--text);letter-spacing:.04em;border-left:2px solid #D4B896;padding-left:20px;}
 .knowledge-list-hero-media{position:relative;overflow:hidden;background:#EFF4F2;}
-.knowledge-list-hero-media img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;}
+.knowledge-list-hero-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;}
 .knowledge-list-section{max-width:1240px;margin:0 auto;padding:70px 48px 92px;}
 .knowledge-list-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:30px;}
 .knowledge-list-head span,.knowledge-list-cta span{display:block;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:#B89A6A;margin-bottom:8px;}
@@ -3924,6 +4115,219 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
   .knowledge-list-page .cta-btn-primary,.knowledge-list-page .cta-btn-secondary{width:100%;text-align:center;}
 }
 
+/* ─── ZHUSHAN DIGITAL IMPLANT CENTER ─── */
+.implant-center-page{background:#fff;}
+.implant-center-page main{display:block;}
+.implant-center-hero{display:grid;grid-template-columns:1fr 1fr;min-height:calc(100vh - 126px);background:#F8F5EF;}
+.implant-center-hero-copy{display:flex;flex-direction:column;justify-content:center;padding:76px 64px 76px max(64px,calc((100vw - 1240px) / 2));}
+.implant-center-eyebrow,.implant-center-label,.implant-center-section-head > span,.implant-center-cta > div > span{display:block;margin-bottom:14px;color:#A8885A;font-family:'Cormorant Garamond','Noto Sans TC',serif;font-size:15px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;}
+.implant-center-hero h1{font-family:'Noto Serif TC',serif;font-size:clamp(46px,5.2vw,72px);font-weight:500;line-height:1.25;color:var(--dark);letter-spacing:.03em;margin-bottom:26px;}
+.implant-center-hero h1 em{display:block;margin-top:10px;color:#A8885A;font-family:'Cormorant Garamond','Noto Serif TC',serif;font-size:22px;font-weight:400;line-height:1.4;}
+.implant-center-hero-copy > p{max-width:620px;color:var(--text);font-size:17px;font-weight:300;line-height:2;letter-spacing:.04em;}
+.implant-center-hero-actions,.implant-center-cta-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px;}
+.implant-center-btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:11px 24px;border:1px solid #A8885A;border-radius:999px;color:#A8885A;font-size:15px;font-weight:500;letter-spacing:.08em;transition:background .2s,color .2s,transform .2s;}
+.implant-center-btn:hover{background:#A8885A;color:#fff;transform:translateY(-1px);}
+.implant-center-btn-primary{background:#A8885A;color:#fff;}
+.implant-center-btn-primary:hover{background:#8D7048;border-color:#8D7048;}
+.implant-center-hero-media{position:relative;min-width:0;overflow:hidden;background:#E6E0D6;}
+.implant-center-hero-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;}
+.implant-center-intro{display:grid;grid-template-columns:minmax(360px,.92fr) minmax(0,1.08fr);gap:64px;align-items:center;max-width:1240px;margin:0 auto;padding:100px 48px;}
+.implant-center-intro-media{overflow:hidden;border-radius:4px;box-shadow:0 18px 44px rgba(48,42,34,.12);}
+.implant-center-intro-media img{width:100%;aspect-ratio:4 / 3;object-fit:cover;display:block;}
+.implant-center-intro-copy h2,.implant-center-section-head h2,.implant-center-cta h2{font-family:'Noto Serif TC',serif;font-size:clamp(32px,3.6vw,48px);font-weight:500;line-height:1.45;color:var(--dark);letter-spacing:.04em;}
+.implant-center-intro-copy > p{margin-top:20px;color:var(--text);font-size:17px;font-weight:300;line-height:2;letter-spacing:.04em;}
+.implant-center-services,.implant-center-tech,.implant-center-team,.implant-center-environment{padding:92px 48px;}
+.implant-center-services{background:#F8F5EF;}
+.implant-center-section-head{max-width:760px;margin:0 auto 46px;text-align:center;}
+.implant-center-section-head > p{margin-top:14px;color:var(--text);font-size:16px;font-weight:300;line-height:1.9;letter-spacing:.04em;}
+.implant-center-service-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;max-width:1120px;margin:0 auto;}
+.implant-center-service-grid article{padding:30px 28px;border:1px solid rgba(168,136,90,.22);border-radius:6px;background:#fff;transition:transform .25s,box-shadow .25s;}
+.implant-center-service-grid article:hover{transform:translateY(-4px);box-shadow:0 16px 34px rgba(48,42,34,.08);}
+.implant-center-service-grid h3,.implant-center-adv-grid h3,.implant-center-tech-grid h3,.implant-center-process h3{font-family:'Noto Serif TC',serif;font-size:21px;font-weight:500;line-height:1.5;color:var(--dark);margin-bottom:10px;}
+.implant-center-service-grid p,.implant-center-adv-grid p,.implant-center-tech-grid p,.implant-center-process p{color:var(--text);font-size:15px;font-weight:300;line-height:1.9;letter-spacing:.03em;}
+.implant-center-advantages{padding:96px 48px;background:#2C2C2A;color:#fff;}
+.implant-center-advantages .implant-center-section-head h2{color:#fff;}
+.implant-center-adv-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));max-width:1180px;margin:0 auto;border-top:1px solid rgba(255,255,255,.12);border-left:1px solid rgba(255,255,255,.12);}
+.implant-center-adv-grid article{min-height:240px;padding:30px;border-right:1px solid rgba(255,255,255,.12);border-bottom:1px solid rgba(255,255,255,.12);}
+.implant-center-adv-grid strong{display:block;margin-bottom:28px;color:#D4B896;font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:400;}
+.implant-center-adv-grid h3{color:#fff;}
+.implant-center-adv-grid p{color:rgba(255,255,255,.68);}
+.implant-center-tech{background:#fff;}
+.implant-center-tech-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;max-width:1120px;margin:0 auto;}
+.implant-center-tech-grid article{display:grid;grid-template-columns:255px 1fr;align-items:center;min-height:170px;border:1px solid rgba(168,136,90,.22);background:#FBF9F5;overflow:hidden;}
+.implant-center-tech-grid img{width:100%;height:auto;aspect-ratio:3 / 2;object-fit:contain;display:block;}
+.implant-center-tech-grid article > div{align-self:center;padding:24px;}
+.implant-center-process{padding:96px 48px;background:#F8F5EF;}
+.implant-center-process ol{max-width:980px;margin:0 auto;list-style:none;border-top:1px solid rgba(168,136,90,.3);}
+.implant-center-process li{display:grid;grid-template-columns:90px 1fr;gap:24px;padding:28px 0;border-bottom:1px solid rgba(168,136,90,.3);}
+.implant-center-process li > strong{color:#A8885A;font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:400;line-height:1;}
+.implant-center-process h3{margin-bottom:6px;}
+.implant-center-team{background:#fff;}
+.implant-center-team-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;max-width:1000px;margin:0 auto;}
+.implant-center-team-grid a{display:block;border:1px solid rgba(168,136,90,.22);background:#fff;color:inherit;overflow:hidden;transition:transform .25s,box-shadow .25s;}
+.implant-center-team-grid a:hover{transform:translateY(-4px);box-shadow:0 18px 38px rgba(48,42,34,.1);}
+.implant-center-team-grid img{width:100%;aspect-ratio:4 / 4.35;object-fit:cover;object-position:center top;display:block;background:#F2EEE7;}
+.implant-center-team-grid a > div{padding:20px;}
+.implant-center-team-grid h3{font-family:'Noto Serif TC',serif;font-size:23px;font-weight:500;color:var(--dark);margin-bottom:7px;}
+.implant-center-team-grid span{color:#A8885A;font-size:14px;letter-spacing:.07em;}
+.implant-center-environment{background:#F8F5EF;}
+.implant-center-env-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;max-width:1120px;margin:0 auto;}
+.implant-center-env-grid figure{position:relative;margin:0;overflow:hidden;}
+.implant-center-env-grid img{width:100%;aspect-ratio:3 / 2;object-fit:cover;display:block;transition:transform .35s;}
+.implant-center-env-grid figure:hover img{transform:scale(1.03);}
+.implant-center-env-grid figcaption{position:absolute;left:0;right:0;bottom:0;padding:30px 20px 18px;background:linear-gradient(transparent,rgba(0,0,0,.62));color:#fff;font-size:16px;letter-spacing:.08em;}
+.implant-center-cases{padding:58px 48px 64px;background:#FDFCFA;}
+.implant-center-cases-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;width:80%;max-width:1120px;margin:42px auto 0;}
+.implant-case-card{border:1px solid rgba(184,154,106,.34);background:#FAF8F4;overflow:hidden;}
+.implant-case-image{position:relative;background:#EFF4F2;overflow:hidden;}
+.implant-case-image img{width:100%;height:auto;aspect-ratio:1200 / 1330;object-fit:cover;display:block;}
+.implant-case-body{padding:24px;}
+.implant-case-type{margin-bottom:8px;color:#B89A6A;font-size:14px;letter-spacing:.15em;}
+.implant-case-body h3{margin-bottom:8px;color:#2C2C2A;font-size:16px;font-weight:500;line-height:1.55;}
+.implant-case-body p{color:#6B6860;font-size:15px;font-weight:300;line-height:1.7;}
+.implant-case-more-wrap{display:flex;justify-content:center;margin-top:44px;}
+.implant-case-more-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 34px;border-radius:50px;background:#B89A6A;color:#fff;font-size:18px;font-weight:400;letter-spacing:.08em;transition:background .25s,transform .25s;}
+.implant-case-more-btn:hover{background:#D4B896;transform:translateY(-2px);}
+.implant-case-more-btn i{font-size:17px;}
+.implant-center-cta{display:grid;grid-template-columns:1.4fr .6fr;gap:48px;align-items:center;padding:88px max(48px,calc((100vw - 1120px) / 2));background:#EDE5D9;}
+.implant-center-cta p{max-width:680px;margin-top:15px;color:var(--text);font-size:16px;font-weight:300;line-height:1.9;}
+.implant-center-cta-actions{justify-content:flex-end;margin-top:0;}
+
+@media(max-width:980px){
+  .implant-center-hero{grid-template-columns:1fr;min-height:0;}
+  .implant-center-hero-copy{padding:64px 40px;}
+  .implant-center-hero-media{height:420px;}
+  .implant-center-intro{grid-template-columns:1fr;gap:42px;padding-top:76px;padding-bottom:76px;}
+  .implant-center-service-grid,.implant-center-adv-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .implant-center-tech-grid{grid-template-columns:1fr;}
+  .implant-center-cta{grid-template-columns:1fr;}
+  .implant-center-cta-actions{justify-content:flex-start;}
+}
+
+@media(max-width:680px){
+  .implant-center-hero-copy{padding:50px 24px 54px;}
+  .implant-center-hero h1{font-size:40px;}
+  .implant-center-hero h1 em{font-size:18px;}
+  .implant-center-hero-media{height:280px;}
+  .implant-center-intro,.implant-center-services,.implant-center-advantages,.implant-center-tech,.implant-center-process,.implant-center-team,.implant-center-environment{padding:60px 24px;}
+  .implant-center-intro{display:flex;flex-direction:column;}
+  .implant-center-intro-media{width:100vw;margin-left:calc(50% - 50vw);border-radius:0;box-shadow:none;}
+  .implant-center-service-grid,.implant-center-adv-grid,.implant-center-team-grid,.implant-center-env-grid{grid-template-columns:1fr;}
+  .implant-center-tech-grid article{grid-template-columns:1fr;}
+  .implant-center-tech-grid img{height:auto;aspect-ratio:3 / 2;}
+  .implant-center-process li{grid-template-columns:52px 1fr;gap:14px;}
+  .implant-center-process li > strong{font-size:30px;}
+  .implant-center-cta{padding:64px 24px;}
+  .implant-center-cta-actions,.implant-center-hero-actions{display:grid;grid-template-columns:1fr;}
+  .implant-center-btn{width:100%;}
+}
+
+/* Digital implant center aligned with the Zhushan clinic page */
+.implant-center-hero{display:block;min-height:0;padding:42px 48px 34px;background:var(--ivory);}
+.implant-center-hero-inner{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(360px,.95fr);gap:48px;align-items:center;max-width:1240px;margin:0 auto;}
+.implant-center-hero-copy{display:block;padding:0;}
+.implant-center-eyebrow{display:inline-flex;align-items:center;gap:14px;margin-bottom:12px;color:var(--gold-dark);font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;letter-spacing:.32em;}
+.implant-center-eyebrow::before{content:'';width:52px;height:1px;background:var(--gold-dark);}
+.implant-center-hero h1{font-size:clamp(36px,4.6vw,58px);font-weight:400;line-height:1.22;margin-bottom:14px;}
+.implant-center-hero h1 em{margin-top:8px;font-size:18px;font-weight:400;}
+.implant-center-hero-copy > p{font-size:17px;line-height:2;}
+.implant-center-hero-actions{margin-top:20px;}
+.implant-center-hero-media{height:100%;min-height:320px;}
+.implant-center-intro{gap:42px;padding:52px 48px;}
+.implant-center-intro-media{border-radius:4px;box-shadow:0 12px 24px var(--shadow);}
+.implant-center-label,.implant-center-section-head > span,.implant-center-cta > div > span{display:flex;align-items:center;gap:12px;margin-bottom:16px;color:#B89A6A;font-family:'Noto Sans TC',sans-serif;font-size:14px;font-weight:400;letter-spacing:.2em;}
+.implant-center-label::before,.implant-center-section-head > span::before,.implant-center-cta > div > span::before{content:'';display:block;width:24px;height:.5px;background:#B89A6A;}
+.implant-center-intro-copy h2,.implant-center-section-head h2,.implant-center-cta h2{font-family:'Cormorant Garamond','Noto Serif TC',serif;font-size:clamp(30px,3vw,42px);font-weight:500;line-height:1.2;letter-spacing:0;}
+.implant-center-intro-copy > p{margin-top:16px;}
+.implant-center-services,.implant-center-tech,.implant-center-team,.implant-center-environment{padding:52px 48px 58px;}
+.implant-center-services{background:#fff;}
+.implant-center-section-head{max-width:1240px;margin:0 auto 26px;text-align:left;}
+.implant-center-section-head > p{max-width:760px;margin-top:12px;}
+.implant-center-service-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;max-width:1240px;}
+.implant-center-service-grid article{padding:22px 20px;border-color:var(--border);border-radius:8px;background:var(--warm-white);box-shadow:0 10px 22px var(--shadow);}
+.implant-center-service-grid article:hover{transform:none;border-color:#D3C0A1;box-shadow:0 8px 28px rgba(0,0,0,.07);}
+.implant-center-service-grid h3,.implant-center-adv-grid h3,.implant-center-tech-grid h3,.implant-center-process h3{font-family:'Noto Sans TC',sans-serif;font-size:19px;font-weight:500;line-height:1.45;color:var(--gold-dark);}
+.implant-center-service-grid p,.implant-center-adv-grid p,.implant-center-tech-grid p,.implant-center-process p{font-size:16px;line-height:1.9;}
+.implant-center-advantages{padding:52px 48px 58px;background:var(--ivory);color:var(--dark);}
+.implant-center-advantages .implant-center-section-head h2{color:var(--dark);}
+.implant-center-adv-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:0;max-width:1120px;border-top:1px solid rgba(168,136,90,.28);border-left:1px solid rgba(168,136,90,.28);}
+.implant-center-adv-grid article{display:grid;grid-template-columns:52px minmax(0,1fr);grid-template-rows:auto auto;gap:5px 18px;min-height:0;padding:26px 28px;border:0;border-right:1px solid rgba(168,136,90,.28);border-bottom:1px solid rgba(168,136,90,.28);border-radius:0;background:rgba(255,255,255,.72);box-shadow:none;}
+.implant-center-adv-grid strong{grid-row:1 / span 2;display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;margin:0;border:1px solid rgba(168,136,90,.52);border-radius:50%;color:var(--gold-dark);font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:500;line-height:1;}
+.implant-center-adv-grid h3{grid-column:2;color:var(--dark);margin:0;}
+.implant-center-adv-grid p{grid-column:2;color:var(--text);}
+.implant-center-tech{background:#fff;}
+.implant-center-tech-grid{gap:14px;max-width:1240px;}
+.implant-center-tech-grid article{min-height:170px;border-color:var(--border);border-radius:8px;background:var(--warm-white);box-shadow:0 10px 22px var(--shadow);}
+.implant-center-process{padding:52px 48px 58px;background:var(--ivory);}
+.implant-center-process .implant-center-section-head{max-width:1240px;}
+.implant-center-process ol{max-width:1240px;border-top-color:var(--border);}
+.implant-center-process li{padding:22px 0;border-bottom-color:var(--border);}
+.implant-center-process li > strong{color:var(--gold-dark);font-size:32px;}
+.implant-center-team{background:#fff;}
+.implant-center-team-grid{gap:14px;max-width:1000px;}
+.implant-center-team-grid a{border-color:var(--border);border-radius:8px;background:var(--warm-white);box-shadow:0 12px 24px var(--shadow);}
+.implant-center-team-grid a:hover{transform:none;border-color:#D3C0A1;box-shadow:0 8px 28px rgba(0,0,0,.07);}
+.implant-center-team-grid a > div{padding:18px;}
+.implant-center-team-grid h3{font-family:'Noto Sans TC',sans-serif;font-size:20px;color:var(--gold-dark);}
+.implant-center-team-grid .implant-team-card{display:block;border:1px solid #E8E5DF;border-radius:0;background:#FAF8F4;box-shadow:none;color:inherit;overflow:hidden;}
+.implant-center-team-grid .implant-team-card:hover{border-color:#E8E5DF;box-shadow:none;}
+.implant-center-team-grid .implant-team-photo{padding:0;aspect-ratio:4 / 4.35;background:#EFF4F2;overflow:hidden;}
+.implant-center-team-grid .implant-team-photo img{width:100%;height:100%;aspect-ratio:auto;object-fit:cover;object-position:center top;display:block;}
+.implant-center-team-grid .implant-team-info{position:relative;padding:18px 20px 20px;background:#fff;}
+.implant-center-team-grid .implant-team-info h3{font-family:'Noto Serif TC',serif;font-size:28px;font-weight:500;line-height:1.25;color:var(--charcoal);margin-bottom:10px;}
+.implant-center-team-grid .implant-team-info h3 > span{margin-left:6px;color:#6B6860;font-family:'Noto Sans TC',sans-serif;font-size:15px;font-weight:400;letter-spacing:0;}
+.implant-team-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px;}
+.implant-team-tags span{padding:4px 9px;border:1px solid rgba(184,154,106,.28);background:rgba(255,255,255,.58);color:#6B6860;font-size:14px;line-height:1.35;letter-spacing:.04em;}
+.implant-team-profile{display:grid;gap:4px;list-style:none;}
+.implant-team-profile li{position:relative;padding-left:14px;color:#6B6860;font-size:13px;line-height:1.42;letter-spacing:.03em;}
+.implant-team-profile li::before{content:'';position:absolute;left:0;top:.75em;width:4px;height:4px;border-radius:50%;background:var(--gold);}
+.implant-center-environment{background:var(--ivory);}
+.implant-center-env-grid{gap:5px;max-width:992px;}
+.implant-center-env-grid figure{border-radius:4px;box-shadow:0 14px 30px rgba(0,0,0,.08);}
+.implant-center-cta{min-height:220px;padding:46px max(48px,calc((100vw - 1120px) / 2));background-image:linear-gradient(rgba(30,30,30,.58),rgba(30,30,30,.58)),url('../img/bg-appointment.webp');background-size:cover;background-position:center;background-attachment:fixed;}
+.implant-center-cta h2{color:#fff;}
+.implant-center-cta p{color:rgba(255,255,255,.78);}
+.implant-center-cta .implant-center-btn{border-color:#fff;background:#fff;color:var(--dark);}
+.implant-center-cta .implant-center-btn:hover{border-color:var(--gold-dark);background:var(--gold-dark);color:#fff;}
+.implant-center-page .cta-section{display:grid;grid-template-columns:1.5fr 1fr;gap:80px;align-items:center;padding:100px 80px;background:linear-gradient(rgba(255,255,255,.62),rgba(255,255,255,.62)),url('../img/services/cta.jpg') center / cover fixed;}
+.implant-center-page .cta-title{margin-bottom:20px;color:#2C2C2A;font-family:'Cormorant Garamond','Noto Serif TC',serif;font-size:clamp(40px,5vw,64px);font-weight:500;line-height:1.15;}
+.implant-center-page .cta-title em{color:#B89A6A;font-style:italic;}
+.implant-center-page .cta-desc{max-width:720px;color:#4A4845;font-size:15px;line-height:1.8;}
+.implant-center-page .cta-right{display:flex;flex-direction:column;align-items:flex-start;gap:16px;}
+.implant-center-page .cta-btn-primary,.implant-center-page .cta-btn-secondary{display:inline-block;padding:18px 40px;border-radius:50px;font-size:18px;font-weight:400;letter-spacing:.12em;text-align:center;transition:background .3s,color .3s,border-color .3s;}
+.implant-center-page .cta-btn-primary{border:0;background:#B89A6A;color:#fff;}
+.implant-center-page .cta-btn-primary:hover{background:#D4B896;}
+.implant-center-page .cta-btn-secondary{border:.5px solid rgba(44,44,42,.24);background:rgba(255,255,255,.32);color:#2C2C2A;}
+.implant-center-page .cta-btn-secondary:hover{border-color:#D4B896;background:rgba(255,255,255,.6);color:#B89A6A;}
+
+@media(max-width:980px){
+  .implant-center-hero-inner{grid-template-columns:1fr;gap:28px;}
+  .implant-center-hero-media{height:360px;min-height:0;}
+  .implant-center-service-grid,.implant-center-adv-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .implant-center-cases-grid{grid-template-columns:1fr;width:100%;max-width:480px;}
+  .implant-center-page .cta-section{grid-template-columns:1fr;gap:40px;background-attachment:scroll;}
+}
+
+@media(max-width:680px){
+  .implant-center-hero{padding:28px 0 0;}
+  .implant-center-hero-copy{padding:0 24px 30px;}
+  .implant-center-hero-inner{gap:0;}
+  .implant-center-hero-media{height:224px;width:100%;}
+  .implant-center-eyebrow{font-size:16px;letter-spacing:.22em;}
+  .implant-center-hero h1{font-size:38px;}
+  .implant-center-intro,.implant-center-services,.implant-center-advantages,.implant-center-tech,.implant-center-process,.implant-center-team,.implant-center-environment,.implant-center-cases{padding:46px 24px;}
+  .implant-center-intro{gap:30px;}
+  .implant-center-intro-media{width:100vw;margin-left:calc(50% - 50vw);}
+  .implant-center-service-grid,.implant-center-adv-grid,.implant-center-team-grid,.implant-center-env-grid{grid-template-columns:1fr;}
+  .implant-center-tech-grid article{grid-template-columns:1fr;}
+  .implant-center-cases-grid{margin-top:30px;}
+  .implant-case-more-btn{width:100%;padding-left:20px;padding-right:20px;}
+  .implant-center-cta{padding:46px 24px;background-attachment:scroll;}
+  .implant-center-page .cta-section{padding:54px 24px;}
+  .implant-center-page .cta-right{width:100%;align-items:stretch;}
+  .implant-center-page .cta-btn-primary,.implant-center-page .cta-btn-secondary{width:100%;}
+}
+
 /* ─── NEWS LIST PAGE ─── */
 .news-list-page{background:#fff;}
 .news-list-page main{display:block;}
@@ -3937,7 +4341,7 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
 .news-list-subtitle{font-family:'Cormorant Garamond','Noto Serif TC',serif;font-size:18px;font-weight:300;color:#6B6860;margin-bottom:40px;letter-spacing:.02em;}
 .news-list-hero p:not(.news-list-subtitle){max-width:460px;font-size:17px;line-height:2;color:var(--text);letter-spacing:.04em;border-left:2px solid #D4B896;padding-left:20px;}
 .news-list-hero-media{position:relative;overflow:hidden;background:#EFF4F2;}
-.news-list-hero-media img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;}
+.news-list-hero-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;}
 .news-list-section{max-width:1100px;margin:0 auto;padding:70px 48px 92px;}
 .news-list-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:30px;}
 .news-list-head span{display:block;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:#B89A6A;margin-bottom:8px;}
@@ -4001,6 +4405,90 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
 .idea-article figure img{width:100%;height:auto;display:block;}
 .idea-article .idea-logo-figure{display:flex;align-items:center;justify-content:center;padding:42px 24px;background:#fff;}
 .idea-article .idea-logo-figure img{width:min(220px,70%);}
+
+/* ─── APPOINTMENT PAGE ─── */
+.appointment-page{--gold:#B89A6A;}
+.appointment-hero .news-list-hero-media img{object-position:center;}
+.appointment-section,.appointment-form-section{max-width:1120px;margin:0 auto;padding:82px 48px 94px;}
+.appointment-heading{text-align:center;max-width:700px;margin:0 auto 38px;}
+.appointment-heading > span{display:block;color:var(--gold);font-size:13px;letter-spacing:.2em;text-transform:uppercase;margin-bottom:9px;}
+.appointment-heading h2{font-family:'Noto Serif TC',serif;font-size:clamp(30px,3.4vw,42px);font-weight:600;color:var(--dark);letter-spacing:.04em;margin-bottom:12px;}
+.appointment-heading p{font-size:16px;line-height:1.8;color:var(--muted);}
+.appointment-clinic-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;}
+.appointment-clinic-card{position:relative;padding:34px;border:1px solid var(--border);border-radius:10px;background:#fff;overflow:hidden;}
+.appointment-clinic-card::before{content:'';position:absolute;left:0;top:0;width:4px;height:100%;background:var(--gold);}
+.appointment-clinic-card h3{font-family:'Noto Serif TC',serif;font-size:27px;font-weight:600;color:var(--dark);margin-bottom:24px;}
+.appointment-clinic-card ul{display:grid;gap:13px;margin-bottom:28px;}
+.appointment-clinic-card li{display:grid;grid-template-columns:22px 1fr;gap:8px;align-items:start;color:var(--text);font-size:16px;line-height:1.7;}
+.appointment-clinic-card li i{color:var(--gold);margin-top:6px;}
+.appointment-clinic-card li a{color:inherit;transition:color .2s;}
+.appointment-clinic-card li:first-child a{font-size:20pt;font-weight:400;line-height:1.35;}
+.appointment-clinic-card li a:hover{color:var(--gold);}
+.appointment-address-row{display:flex;align-items:center;flex-wrap:wrap;gap:10px;font-weight:400;}
+.appointment-map-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:34px;padding:5px 12px;border:1px solid rgba(184,154,106,.55);border-radius:999px;color:var(--gold) !important;font-size:14px;font-weight:300;line-height:1.4;white-space:nowrap;transition:background .2s,color .2s,border-color .2s !important;}
+.appointment-map-btn i{margin:0 !important;color:inherit !important;font-size:13px;}
+.appointment-map-btn:hover{background:var(--gold);border-color:var(--gold);color:#fff !important;}
+.appointment-actions{display:flex;flex-wrap:wrap;gap:10px;}
+.appointment-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 20px;border:1px solid var(--gold);border-radius:999px;color:var(--gold);font-size:15px;font-weight:400;letter-spacing:.06em;transition:all .2s;}
+.appointment-btn:hover,.appointment-btn-primary{background:var(--gold);color:#fff;}
+.appointment-btn-primary:hover{background:var(--gold-dark);border-color:var(--gold-dark);}
+.appointment-line-card{display:grid;grid-template-columns:68px 1fr auto;align-items:center;gap:22px;margin-top:24px;padding:25px 30px;border-radius:10px;background:#F3F8F2;border:1px solid #DCE8D8;}
+.appointment-line-card img{width:68px;height:68px;object-fit:contain;}
+.appointment-line-card span{display:block;color:#46A942;font-size:12px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:4px;}
+.appointment-line-card h3{font-family:'Noto Serif TC',serif;font-size:22px;color:var(--dark);margin-bottom:5px;}
+.appointment-line-card p{color:var(--muted);font-size:14px;line-height:1.7;}
+.appointment-line-card > a{display:inline-flex;align-items:center;justify-content:center;min-width:126px;padding:12px 20px;border-radius:999px;background:#46A942;color:#fff;font-weight:500;transition:background .2s;}
+.appointment-line-card > a:hover{background:#368d33;}
+.appointment-notes{background:#F8F5F0;padding:80px 48px 90px;}
+.appointment-notes-inner{max-width:1024px;margin:0 auto;}
+.appointment-notes ol{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;}
+.appointment-notes li{display:grid;grid-template-columns:52px 1fr;gap:18px;padding:28px;background:#fff;border-radius:8px;}
+.appointment-notes li > span{font-family:'Cormorant Garamond',serif;font-size:34px;line-height:1;color:var(--gold);}
+.appointment-notes h3{font-family:'Noto Serif TC',serif;font-size:19px;color:var(--dark);margin-bottom:8px;}
+.appointment-notes p{font-size:15px;line-height:1.8;color:var(--muted);}
+.appointment-form-section{padding-bottom:110px;}
+.appointment-form-wrap{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px 24px;padding:38px;border:1px solid var(--border);border-radius:10px;background:#fff;box-shadow:0 14px 40px rgba(52,43,32,.07);}
+.appointment-form-full{grid-column:1 / -1;}
+.appointment-form-field{min-width:0;margin:0;padding:0;border:0;}
+.appointment-form-field > label,.appointment-form-field legend{display:block;width:100%;font-family:'Noto Serif TC',serif;font-size:16px;font-weight:500;color:var(--dark);letter-spacing:.04em;margin-bottom:10px;}
+.appointment-form-field label span,.appointment-form-field legend span{color:var(--gold);}
+.appointment-form-field input[type='text'],.appointment-form-field input[type='email'],.appointment-form-field input[type='tel'],.appointment-form-field textarea{width:100%;border:1px solid #DDD5CA;border-radius:7px;background:#FDFCFA;color:var(--text);font-family:'Noto Sans TC',sans-serif;font-size:16px;line-height:1.7;padding:13px 15px;transition:border-color .2s,box-shadow .2s,background .2s;}
+.appointment-form-field textarea{resize:vertical;min-height:150px;}
+.appointment-form-field input:focus,.appointment-form-field textarea:focus{outline:0;border-color:var(--gold);background:#fff;box-shadow:0 0 0 3px rgba(184,154,106,.13);}
+.appointment-form-field input::placeholder,.appointment-form-field textarea::placeholder{color:#AAA39A;}
+.appointment-form-options{display:flex;flex-wrap:wrap;gap:10px;}
+.appointment-form-options label{position:relative;cursor:pointer;}
+.appointment-form-options input{position:absolute;opacity:0;pointer-events:none;}
+.appointment-form-options label span{display:flex;align-items:center;justify-content:center;min-height:44px;padding:10px 20px;border:1px solid #DDD5CA;border-radius:999px;background:#fff;color:var(--text);font-size:15px;line-height:1.45;transition:all .2s;}
+.appointment-form-options input:checked + span{border-color:var(--gold);background:var(--gold);color:#fff;}
+.appointment-form-options input:focus-visible + span{outline:2px solid var(--gold);outline-offset:2px;}
+.appointment-form-options-compact label span{min-width:72px;}
+.appointment-form-submit{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-top:8px;}
+.appointment-form-submit p{font-size:14px;line-height:1.7;color:var(--muted);}
+.appointment-form-submit button{flex:0 0 auto;border:0;border-radius:999px;background:var(--gold);color:#fff;font-family:'Noto Sans TC',sans-serif;font-size:16px;letter-spacing:.1em;padding:14px 30px;cursor:pointer;transition:background .2s,transform .2s;}
+.appointment-form-submit button:hover{background:var(--gold-dark);transform:translateY(-1px);}
+
+@media(max-width:760px){
+  .appointment-section,.appointment-form-section{padding:56px 24px 70px;}
+  .appointment-clinic-grid,.appointment-notes ol{grid-template-columns:1fr;}
+  .appointment-clinic-card{padding:28px 24px;}
+  .appointment-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;}
+  .appointment-actions .appointment-btn{min-width:0;padding:12px 10px;white-space:nowrap;}
+  .appointment-line-card{grid-template-columns:56px 1fr;padding:22px;gap:16px;}
+  .appointment-line-card img{width:56px;height:56px;}
+  .appointment-line-card > a{grid-column:1 / -1;width:100%;}
+  .appointment-notes{padding:56px 24px 70px;}
+  .appointment-notes li{grid-template-columns:42px 1fr;padding:23px 20px;gap:12px;}
+  .appointment-notes li > span{font-size:29px;}
+  .appointment-form-wrap{grid-template-columns:1fr;width:calc(100vw - 32px);margin-left:calc(50% - 50vw + 16px);padding:26px 20px;gap:23px;}
+  .appointment-form-full{grid-column:auto;}
+  .appointment-form-options{display:grid;grid-template-columns:1fr;}
+  .appointment-form-options-clinics{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .appointment-form-options-compact{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .appointment-form-options label span{width:100%;}
+  .appointment-form-submit{align-items:stretch;flex-direction:column;}
+  .appointment-form-submit button{width:100%;}
+}
 
 @media(max-width:1180px){
   .news-card-grid{grid-template-columns:repeat(3,minmax(0,1fr));}

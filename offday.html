@@ -43,7 +43,7 @@
           <a href="taichung/team.html">醫師團隊</a>
           <a href="taichung/medical-equipment.html">醫療設備</a>
           <a href="#">植牙美學中心</a>
-          <a href="#">網路掛號</a>
+          <a href="https://www.gracelife.com.tw/s/app/calendar.aspx?src=web&amp;drCode=002;000000" target="_blank" rel="noopener noreferrer">網路約診</a>
         </div>
       </div>
 
@@ -51,10 +51,10 @@
         <a href="zushan/index.html">南投竹山店 <span class="dropdown-arrow">▼</span></a>
         <div class="dropdown-menu">
           <a href="zushan/index.html">診所資訊</a>
-          <a href="zushan/team.html">醫師陣容</a>
+          <a href="zushan/team.html">醫師團隊</a>
           <a href="zushan/medical-equipment.html">醫療設備</a>
-          <a href="#">數位植牙中心</a>
-          <a href="#">網路掛號</a>
+          <a href="zushan/digital-implant-center.html">數位植牙中心</a>
+          <a href="https://www.gracelife.com.tw/s/app/calendar.aspx?src=web&amp;drCode=001;002943" target="_blank" rel="noopener noreferrer">網路約診</a>
         </div>
       </div>
 
@@ -64,7 +64,7 @@
           <div class="mega-col">
             <span class="mega-col-title">All-on-4</span>
             <a href="services/all-on-4.html">All-On-4 一日全口重建</a>
-            <a href="#">All-On-X 顴骨植牙</a>
+            <a href="services/zygoma-implant.html">All-On-X 顴骨植牙</a>
           </div>
           <div class="mega-col">
             <span class="mega-col-title">假牙贋復</span>
@@ -97,18 +97,18 @@
       </div>
 
       <div class="nav-dropdown">
-        <a href="#">案例分享 <span class="dropdown-arrow">▼</span></a>
+        <a href="cases/all-on-4.html">案例分享 <span class="dropdown-arrow">▼</span></a>
         <div class="dropdown-menu">
-          <a href="services/all-on-4.html">All-on-4 一日全口重建</a>
+          <a href="cases/all-on-4.html">All-On-4一日全口重建</a>
           <a href="cases/all-ceramic-crown.html">全瓷冠｜貼片</a>
-          <a href="#">數位植牙</a>
+          <a href="cases/digital-implant.html">數位植牙</a>
           <a href="#">牙齒矯正</a>
           <a href="#">美學牙醫</a>
         </div>
       </div>
 
       <a href="knowledge.html">牙醫知識</a>
-      <a href="https://line.me/ti/p/%40dhh1667m" class="header-cta" target="_blank" rel="noopener noreferrer">預約諮詢</a>
+      <a href="appointment.html" class="header-cta">預約諮詢</a>
     </nav>
   </div>
 </header>
@@ -154,9 +154,26 @@
             </div>
             <ul class="news-notice-list">
               <li><span class="news-notice-label">5月休診日</span>：5/1(五)、5/8(五)-5/12(二)、5/29(五)午晚診，每週六日休診</li>
-              <li id="taichung-onsite-note">每天午診開放現場掛號，現場掛號時間為14:10-17:00 <a href="#" class="news-inline-link"><i class="fa-solid fa-link"></i>現場掛號說明</a></li>
-              <li>不論新舊患者皆可透過網路約診或電話約診，歡迎多加使用</li>
+              <li id="taichung-onsite-note">每天午診開放現場掛號，現場掛號時間為14:10-17:00</li>
+              <li>不論新舊患者皆可透過<a class="news-notice-action-text" href="https://www.gracelife.com.tw/s/app/calendar.aspx?src=web&amp;drCode=002;000000" target="_blank" rel="noopener noreferrer">網路約診 <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>或<span class="news-notice-action-text">電話約診</span>，歡迎多加使用</li>
             </ul>
+            <div class="news-onsite-details" id="taichung-onsite-details">
+              <div class="news-onsite-heading">
+                <h3>現場掛號說明</h3>
+                <button type="button" class="news-onsite-toggle" aria-expanded="false" aria-controls="taichung-onsite-content">
+                  <span class="news-onsite-toggle-label">點擊展開</span>
+                  <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                </button>
+              </div>
+              <div class="news-onsite-content" id="taichung-onsite-content" hidden>
+                <ol>
+                  <li>現場掛號者無法為您保證候診時間，但只要有掛到的我們都會在當診看完；若不想等待了也可以主動告知，我們會退您全額掛號費。</li>
+                  <li>偶有診次因醫師休假而無開放現場掛號或休診，以現場公告為準。</li>
+                  <li>現場掛號以提供給「緊急治療」需求或「第 1 次前來的評估諮詢」的民眾為主，醫師會優先處理急症的舒緩，後續長時間的治療將由醫師安排約診。</li>
+                  <li>部分未列表醫師採純約診制，如有需求請提前預約。</li>
+                </ol>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -341,6 +358,22 @@
   });
   document.addEventListener('keydown', event => {
     if (event.key === 'Escape' && lightbox.classList.contains('is-open')) closeLightbox();
+  });
+})();
+
+(function(){
+  const toggle = document.querySelector('.news-onsite-toggle');
+  if (!toggle) return;
+
+  const content = document.getElementById(toggle.getAttribute('aria-controls'));
+  if (!content) return;
+
+  toggle.addEventListener('click', () => {
+    const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!isOpen));
+    content.hidden = isOpen;
+    const label = toggle.querySelector('.news-onsite-toggle-label');
+    if (label) label.textContent = isOpen ? '點擊展開' : '點擊收合';
   });
 })();
 </script>
