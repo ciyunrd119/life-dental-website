@@ -4293,24 +4293,116 @@ a.news-notice-action-text:hover{color:#A8885A;}
 .implant-center-process ol{max-width:1240px;border-top-color:var(--border);}
 .implant-center-process li{padding:22px 0;border-bottom-color:var(--border);}
 .implant-center-process li > strong{color:var(--gold-dark);font-size:32px;}
-.implant-center-team{background:#fff;}
-.implant-center-team-grid{gap:14px;max-width:1000px;}
-.implant-center-team-grid a{border-color:var(--border);border-radius:8px;background:var(--warm-white);box-shadow:0 12px 24px var(--shadow);}
-.implant-center-team-grid a:hover{transform:none;border-color:#D3C0A1;box-shadow:0 8px 28px rgba(0,0,0,.07);}
+.implant-center-team{background:linear-gradient(180deg,#fff 0%,#FAF8F4 100%);}
+.implant-center-team-grid{grid-template-columns:1fr;gap:42px;max-width:1160px;}
+.implant-center-team-grid a{border:0;border-radius:0;background:transparent;box-shadow:none;}
+.implant-center-team-grid a:hover{transform:none;border:0;box-shadow:none;}
 .implant-center-team-grid a > div{padding:18px;}
 .implant-center-team-grid h3{font-family:'Noto Sans TC',sans-serif;font-size:20px;color:var(--gold-dark);}
-.implant-center-team-grid .implant-team-card{display:block;border:1px solid #E8E5DF;border-radius:0;background:#FAF8F4;box-shadow:none;color:inherit;overflow:hidden;}
-.implant-center-team-grid .implant-team-card:hover{border-color:#E8E5DF;box-shadow:none;}
-.implant-center-team-grid .implant-team-photo{padding:0;aspect-ratio:4 / 4.35;background:#EFF4F2;overflow:hidden;}
+.implant-center-team-grid .implant-team-card{
+  position:relative;
+  display:grid;
+  grid-template-columns:minmax(260px,30%) minmax(0,1fr);
+  min-height:350px;
+  border:0;
+  border-radius:0;
+  background:transparent;
+  box-shadow:none;
+  color:inherit;
+  overflow:visible;
+}
+.implant-center-team-grid .implant-team-card::before{
+  content:'01';
+  position:absolute;
+  right:0;
+  top:-34px;
+  color:rgba(184,154,106,.16);
+  font-family:'Cormorant Garamond',serif;
+  font-size:116px;
+  font-weight:600;
+  line-height:1;
+}
+.implant-center-team-grid .implant-team-card:nth-child(2)::before{content:'02';}
+.implant-center-team-grid .implant-team-card:hover{border:0;box-shadow:none;}
+.implant-center-team-grid .implant-team-card:nth-child(even){grid-template-columns:minmax(0,1fr) minmax(260px,30%);}
+.implant-center-team-grid .implant-team-card:nth-child(even) .implant-team-photo{grid-column:2;grid-row:1;}
+.implant-center-team-grid .implant-team-card:nth-child(even) .implant-team-info{grid-column:1;grid-row:1;}
+.implant-center-team-grid .implant-team-photo{
+  position:relative;
+  margin:0;
+  padding:0;
+  min-height:0;
+  border-radius:0;
+  background:#EFF4F2;
+  overflow:hidden;
+  box-shadow:18px 18px 0 rgba(184,154,106,.13);
+}
+.implant-center-team-grid .implant-team-photo::after{
+  content:'Oral Surgery';
+  position:absolute;
+  left:16px;
+  bottom:16px;
+  padding:7px 12px;
+  border-radius:999px;
+  background:rgba(255,255,255,.9);
+  color:#A8885A;
+  font-size:13px;
+  letter-spacing:.08em;
+}
+.implant-center-team-grid .implant-team-card:nth-child(2) .implant-team-photo::after{content:'Prosthodontics';}
 .implant-center-team-grid .implant-team-photo img{width:100%;height:100%;aspect-ratio:auto;object-fit:cover;object-position:center top;display:block;}
-.implant-center-team-grid .implant-team-info{position:relative;padding:18px 20px 20px;background:#fff;}
-.implant-center-team-grid .implant-team-info h3{font-family:'Noto Serif TC',serif;font-size:28px;font-weight:500;line-height:1.25;color:var(--charcoal);margin-bottom:10px;}
+.implant-center-team-grid .implant-team-info{
+  position:relative;
+  z-index:1;
+  display:grid;
+  grid-template-columns:minmax(180px,.42fr) minmax(0,1fr);
+  gap:18px 28px;
+  align-content:center;
+  padding:34px 0 32px 46px;
+  background:rgba(255,255,255,.64);
+}
+.implant-center-team-grid .implant-team-card:nth-child(even) .implant-team-info{padding:34px 46px 32px 0;}
+.implant-center-team-grid .implant-team-info h3{font-family:'Noto Serif TC',serif;font-size:36px;font-weight:500;line-height:1.2;color:var(--charcoal);margin-bottom:0;}
 .implant-center-team-grid .implant-team-info h3 > span{margin-left:6px;color:#6B6860;font-family:'Noto Sans TC',sans-serif;font-size:15px;font-weight:400;letter-spacing:0;}
-.implant-team-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px;}
-.implant-team-tags span{padding:4px 9px;border:1px solid rgba(184,154,106,.28);background:rgba(255,255,255,.58);color:#6B6860;font-size:14px;line-height:1.35;letter-spacing:.04em;}
+.implant-team-tags{display:flex;flex-wrap:wrap;align-content:flex-start;gap:7px;margin-bottom:0;}
+.implant-team-tags span{padding:6px 11px;border:0;border-radius:999px;background:#EFE7DA;color:#6B6860;font-size:14px;line-height:1.35;letter-spacing:.04em;}
 .implant-team-profile{display:grid;gap:4px;list-style:none;}
-.implant-team-profile li{position:relative;padding-left:14px;color:#6B6860;font-size:13px;line-height:1.42;letter-spacing:.03em;}
-.implant-team-profile li::before{content:'';position:absolute;left:0;top:.75em;width:4px;height:4px;border-radius:50%;background:var(--gold);}
+.implant-team-profile-full{
+  grid-column:2;
+  grid-row:1 / span 2;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:7px 20px;
+  margin-top:0;
+  padding:20px 0 0 26px;
+  background:transparent;
+}
+.implant-team-profile-full::after{
+  content:'完整學經歷';
+  grid-column:1 / -1;
+  margin-top:2px;
+  color:#A8885A;
+  font-size:13px;
+  letter-spacing:.16em;
+}
+.implant-team-profile li{position:relative;padding-left:14px;color:#5F5C55;font-size:13px;line-height:1.5;letter-spacing:.03em;}
+.implant-team-profile li::before{content:'';position:absolute;left:0;top:.78em;width:4px;height:4px;border-radius:50%;background:var(--gold);}
+@media(max-width:980px){
+  .implant-center-team-grid .implant-team-card{grid-template-columns:minmax(220px,34%) minmax(0,1fr);}
+  .implant-center-team-grid .implant-team-card:nth-child(even){grid-template-columns:minmax(220px,34%) minmax(0,1fr);}
+  .implant-center-team-grid .implant-team-card:nth-child(even) .implant-team-photo{grid-column:1;}
+  .implant-center-team-grid .implant-team-card:nth-child(even) .implant-team-info{grid-column:2;}
+  .implant-center-team-grid .implant-team-info{grid-template-columns:1fr;gap:12px;padding:28px 28px 30px;}
+  .implant-center-team-grid .implant-team-card:nth-child(even) .implant-team-info{padding:28px 28px 30px;}
+  .implant-team-profile-full{grid-column:1;grid-row:auto;padding:16px 0 0;background:transparent;}
+}
+@media(max-width:680px){
+  .implant-center-team-grid .implant-team-card{grid-template-columns:1fr;}
+  .implant-center-team-grid .implant-team-card:nth-child(even){grid-template-columns:1fr;}
+  .implant-center-team-grid .implant-team-card:nth-child(even) .implant-team-photo,
+  .implant-center-team-grid .implant-team-card:nth-child(even) .implant-team-info{grid-column:1;grid-row:auto;}
+  .implant-center-team-grid .implant-team-photo{aspect-ratio:4 / 4.35;min-height:0;}
+  .implant-team-profile-full{grid-template-columns:1fr;}
+}
 .implant-center-environment{background:var(--ivory);}
 .implant-center-env-grid{gap:5px;max-width:992px;}
 .implant-center-env-grid figure{border-radius:4px;box-shadow:0 14px 30px rgba(0,0,0,.08);}
@@ -4324,7 +4416,7 @@ a.news-notice-action-text:hover{color:#A8885A;}
 .implant-center-page .cta-title em{color:#B89A6A;font-style:italic;}
 .implant-center-page .cta-desc{max-width:720px;color:#4A4845;font-size:15px;line-height:1.8;}
 .implant-center-page .cta-right{display:flex;flex-direction:column;align-items:flex-start;gap:16px;}
-.implant-center-page .cta-btn-primary,.implant-center-page .cta-btn-secondary{display:inline-block;padding:18px 40px;border-radius:50px;font-size:18px;font-weight:400;letter-spacing:.12em;text-align:center;transition:background .3s,color .3s,border-color .3s;}
+.implant-center-page .cta-btn-primary,.implant-center-page .cta-btn-secondary{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:18px 40px;border-radius:50px;font-size:18px;font-weight:400;letter-spacing:.12em;text-align:center;transition:background .3s,color .3s,border-color .3s;}
 .implant-center-page .cta-btn-primary{border:0;background:#B89A6A;color:#fff;}
 .implant-center-page .cta-btn-primary:hover{background:#D4B896;}
 .implant-center-page .cta-btn-secondary{border:.5px solid rgba(44,44,42,.24);background:rgba(255,255,255,.32);color:#2C2C2A;}
