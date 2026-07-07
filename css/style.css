@@ -1656,13 +1656,16 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
 .equipment-page .cta-right{display:flex;flex-direction:column;gap:16px;align-items:flex-start;}
 .equipment-page .cta-btn-primary,
 .equipment-page .cta-btn-secondary{
+  align-items:center;
+  justify-content:center;
+  gap:10px;
   font-size:18px;
   font-weight:400;
   letter-spacing:.12em;
   padding:18px 40px;
   border-radius:50px;
   text-decoration:none;
-  display:inline-block;
+  display:inline-flex;
   transition:background .3s,color .3s,border-color .3s;
 }
 .equipment-page .cta-btn-primary{background:var(--gold);color:#fff;border:none;}
