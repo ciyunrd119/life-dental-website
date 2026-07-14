@@ -8,9 +8,9 @@
 *.psd
 **/*.ai
 **/*.psd
+img/services/implant/zirconia-corwn
 
 # Local/editor files.
 .vscode
 .idea
 *.swp
-

@@ -4,9 +4,9 @@ Thumbs.db
 # Design source files should not be published with the static site.
 *.ai
 *.psd
+img/services/implant/zirconia-corwn
 
 # Local/editor files.
 .vscode/
 .idea/
 *.swp
-
