@@ -794,7 +794,8 @@ a{color:inherit;text-decoration:none;}
 .services-track {
   display: grid;
   grid-template-columns: repeat(6,minmax(0,1fr));
-  gap: 12px;
+  column-gap: 12px;
+  row-gap: 8.4px;
   padding: 12px 48px 26px;
   max-width: 1240px;
   margin: 0 auto;
@@ -804,9 +805,9 @@ a{color:inherit;text-decoration:none;}
 }
 
 .svc-card {
-  background: #fff;
+  background: transparent;
   border-radius: 8px;
-  border: 1px solid rgba(168,136,90,.16);
+  border: 0;
   overflow: hidden;
   text-decoration: none;
   min-height: 188px;
@@ -818,7 +819,7 @@ a{color:inherit;text-decoration:none;}
   box-shadow: 0 0 0 rgba(0,0,0,0);
   transition: box-shadow .28s ease, border-color .28s ease;
 }
-.svc-card:hover { box-shadow: 0 14px 34px rgba(70,58,40,.14); border-color: rgba(184,154,106,.3); }
+.svc-card:hover { box-shadow: none; border-color: transparent; }
 
 .svc-icon {
   position: relative;
@@ -830,7 +831,7 @@ a{color:inherit;text-decoration:none;}
   align-items: center;
   justify-content: center;
   flex: 0 0 104px;
-  margin-bottom: 12px;
+  margin-bottom: 4.2px;
   overflow: hidden;
 }
 .svc-icon::after{
@@ -850,8 +851,8 @@ a{color:inherit;text-decoration:none;}
 .svc-icon svg,
 .svc-icon img { width: 92px; height: 92px; display: block; position:relative; z-index:1; }
 .svc-icon svg { stroke: currentColor; }
-.svc-body { min-height: 50px; padding: 0; text-align: center; display: flex; align-items: center; justify-content: center; }
-.svc-title { font-family: 'Microsoft JhengHei', '微軟正黑體', sans-serif; font-size: 18.67px; font-weight: 300; color: #B88F43; letter-spacing: .06em; line-height: 1.35; }
+.svc-body { min-height: 50px; padding: 0; text-align: center; display: flex; align-items: flex-start; justify-content: center; }
+.svc-title { font-family: 'Microsoft JhengHei', '微軟正黑體', sans-serif; font-size: 18.67px; font-weight: 400; color: #B89A6A; letter-spacing: .06em; line-height: 1.35; }
 
 /* ─── CASES FEATURE ─── */
 .cases-sec {
@@ -907,7 +908,7 @@ a{color:inherit;text-decoration:none;}
 .cs-img-1 { background-image: url('../img/cases/allon4-1.webp'); }
 .cs-img-2 { background-image: url('../img/cases/implant-1.webp'); }
 .cs-img-3 { background-image: url('../img/cases/cemaric-1.jpg'); }
-.cs-img-4 { background-image: url('../img/cases/veneer-1.webp'); }
+.cs-img-4 { background-image: url('../img/cases/ortho5.webp'); }
 .cs-img-5 { background-image: url('../img/case-invisalign.png'); }
 .cs-img-6 { background-image: url('../img/case-periodontal.png'); }
 
@@ -1169,15 +1170,15 @@ a{color:inherit;text-decoration:none;}
   width:26px;
   height:26px;
   margin-left:6px;
-  border:1px solid rgba(42,111,168,.25);
+  border:1px solid rgba(143,143,143,.45);
   border-radius:50%;
-  color:var(--primary);
+  color:#8f8f8f;
   vertical-align:middle;
   transition:background .2s,color .2s,border-color .2s;
 }
 .c-map-link:hover{
   background:#8f8f8f;
-  border-color:var(--primary);
+  border-color:#8f8f8f;
   color:#fff;
 }
 .c-map-link svg{width:15px;height:15px;display:block;}
@@ -1475,22 +1476,26 @@ a{color:inherit;text-decoration:none;}
 /* ─── FOOTER ─── */
 footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
 .footer-divider{border-top:1px solid rgba(255,255,255,.05);}
-.ft-top{max-width:1240px;margin:0 auto;padding:72px 48px;display:grid;grid-template-columns:1.4fr .8fr 1.1fr 1.1fr;gap:48px;}
-.ft-brand .logo-en{color:rgba(255,255,255,.85);}
-.ft-brand .logo-zh{color:rgba(200,168,130,.65);}
-.ft-brand p{font-size:16px;color:rgba(255,255,255,.35);margin-top:20px;line-height:1.9;letter-spacing:.03em;}
+.ft-top{max-width:1240px;margin:0 auto;padding:72px 48px;display:grid;grid-template-columns:1fr 1fr 1.25fr;gap:40px;}
 .ft-col h4{font-size:16px;letter-spacing:.25em;color:rgba(255,255,255,.4);text-transform:uppercase;margin-bottom:18px;font-weight:500;padding-bottom:12px;border-bottom:none;}
 .ft-col a{display:block;color:rgba(255,255,255,.38);font-size:16px;letter-spacing:.04em;padding:5px 0;transition:color .2s;}
 .ft-col a:hover{color:rgba(255,255,255,.8);}
 .ft-col .ft-fb-btn{display:inline-flex;align-items:center;justify-content:center;margin-top:12px;padding:8px 14px;border:1px solid rgba(255,255,255,.28);color:rgba(255,255,255,.62);background:transparent;min-width:150px;font-size:14px;}
 .ft-col .ft-fb-btn:hover{border-color:rgba(255,255,255,.6);color:#fff;}
+.ft-col h4 .ft-location-link{display:inline;padding:0;color:inherit;font:inherit;font-size:17px;letter-spacing:.1em;}
+.ft-col h4.ft-compact-title{margin-bottom:6px;padding-bottom:0;}
+.ft-treatment-col > h4.ft-compact-title{font-size:17px;letter-spacing:.1em;}
+.ft-treatment-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:18px;align-items:start;}
+.ft-treatment-links a{min-width:0;}
+.ft-col .ft-social-links{display:flex;align-items:center;gap:10px;margin-top:12px;}
+.ft-col .ft-social-links .ft-fb-btn.ft-social-icon{width:40px;height:40px;min-width:0;margin-top:0;padding:0;border-radius:50%;font-size:17px;}
 .ft-col p{font-size:16px;color:rgba(255,255,255,.38);letter-spacing:.03em;line-height:1.9;}
 .ft-phone-number{font-size:18px;}
 .ft-col p:nth-of-type(2){white-space:nowrap;}
 .ft-bottom{border-top:1px solid rgba(255,255,255,.05);max-width:1240px;margin:0 auto;padding:20px 48px;display:flex;justify-content:space-between;align-items:center;font-size:16px;color:rgba(255,255,255,.2);letter-spacing:.06em;}
 
 /* ─── FLOATING ─── */
-.float-wrap{position:fixed;right:20px;bottom:32px;display:flex;flex-direction:column;gap:12px;z-index:999;}
+.float-wrap{position:fixed;right:20px;bottom:32px;display:flex;flex-direction:column;align-items:flex-end;gap:12px;z-index:999;}
 .fl-top{width:48px;height:48px;border-radius:50%;background:var(--charcoal);color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.2);opacity:0;transition:opacity .3s,background .2s;font-size:18px;}
 .fl-top:hover{background:#555;}
 .fl-line{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.2);transition:transform .2s;}
@@ -1508,18 +1513,39 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
 .clinic-kicker{display:inline-flex;align-items:center;gap:14px;font-family:'Cormorant Garamond',serif;font-size:18px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold-dark);font-weight:600;margin-bottom:12px;}
 .clinic-kicker::before{content:'';width:52px;height:1px;background:var(--gold-dark);}
 .clinic-hero h1{font-family:'Noto Serif TC',serif;font-size:clamp(36px,4.6vw,58px);font-weight:400;color:var(--dark);letter-spacing:.04em;line-height:1.22;margin-bottom:12px;}
+.zushan-page .clinic-hero h1,
+.taichung-page .clinic-hero h1{font-size:clamp(28px,4.6vw,58px);font-weight:600;}
 .clinic-lead{font-size:18px;color:var(--text);line-height:2;letter-spacing:.04em;max-width:680px;}
 .clinic-contact-summary{display:grid;gap:8px;max-width:620px;margin-top:14px;}
 .clinic-contact-row{display:grid;grid-template-columns:64px minmax(0,1fr);gap:18px;align-items:baseline;padding:11px 0;border-top:1px solid rgba(168,136,90,.24);}
 .clinic-contact-row:last-child{border-bottom:1px solid rgba(168,136,90,.24);}
 .clinic-contact-row span{font-size:14px;font-weight:600;letter-spacing:.18em;color:var(--gold-dark);}
 .clinic-contact-row strong{font-size:22px;line-height:1.42;color:var(--dark);font-weight:700;letter-spacing:.04em;}
+.zushan-page .clinic-contact-row strong{font-weight:600;}
+.taichung-page .clinic-contact-row strong{font-weight:500;}
+.taichung-page .clinic-contact-row:first-child strong{font-weight:600;}
+.zushan-page .clinic-contact-row:nth-child(2) strong,
+.taichung-page .clinic-contact-row:nth-child(2) strong{font-weight:500;}
 .clinic-social-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;}
 .clinic-social-links a{display:inline-flex;align-items:center;justify-content:center;min-width:112px;padding:8px 16px;border-radius:999px;background:#333;color:#fff;font-size:14px;font-weight:500;letter-spacing:.08em;transition:background .2s,transform .2s;}
 .clinic-social-links a:hover{background:var(--gold-dark);transform:translateY(-1px);}
+.clinic-social-links-compact{gap:8px;margin-top:14px;}
+.clinic-social-links-compact a{width:36px;height:36px;min-width:0;padding:0;border-radius:50%;font-size:16px;}
 .clinic-hero-media{position:relative;height:100%;min-height:320px;background:#EFF4F2;overflow:hidden;}
 .clinic-hero-media .hero-image-area{position:absolute;inset:0;width:100%;height:100%;display:block;}
 .clinic-hero-media img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;}
+@media(min-width:901px){
+  .zushan-page .clinic-hero,
+  .taichung-page .clinic-hero{padding:0;}
+  .zushan-page .clinic-hero-inner,
+  .taichung-page .clinic-hero-inner{max-width:none;align-items:stretch;}
+  .zushan-page .clinic-hero-inner > div:first-child,
+  .taichung-page .clinic-hero-inner > div:first-child{display:flex;flex-direction:column;justify-content:center;padding:48px 0 34px max(48px,calc((100vw - 1240px)/2));}
+  .zushan-page .clinic-hero h1,
+  .taichung-page .clinic-hero h1{font-size:clamp(28px,calc(4.6vw - 2px),56px);}
+  .zushan-page .clinic-hero-media,
+  .taichung-page .clinic-hero-media{min-height:0;align-self:stretch;}
+}
 .clinic-info-band{background:var(--dark);padding:36px 48px;}
 .clinic-info-grid{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);border-left:1px solid rgba(255,255,255,.08);}
 .clinic-info-item{padding:22px 28px;border-right:1px solid rgba(255,255,255,.08);}
@@ -1529,18 +1555,21 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
 .clinic-hours-inner{max-width:980px;margin:0 auto;display:grid;grid-template-columns:minmax(0,.82fr) minmax(520px,1fr);gap:34px;align-items:center;}
 .clinic-hours-copy h2{font-family:'Noto Serif TC',serif;font-size:34px;font-weight:400;color:var(--dark);letter-spacing:.04em;margin-bottom:14px;}
 .clinic-hours-copy p{font-size:17px;color:var(--dark);line-height:2;font-weight:300;letter-spacing:.04em;}
-.clinic-notice-btn{display:inline-flex;align-items:center;justify-content:center;margin-top:18px;padding:10px 22px;border:1px solid var(--gold-dark);border-radius:999px;background:transparent;color:var(--gold-dark);font-size:15px;font-weight:500;letter-spacing:.1em;transition:background .2s,color .2s,transform .2s;}
+.clinic-notice-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;margin-top:18px;padding:10px 22px;border:1px solid var(--gold-dark);border-radius:999px;background:transparent;color:var(--gold-dark);font-size:15px;font-weight:500;letter-spacing:.1em;transition:background .2s,color .2s,transform .2s;}
 .clinic-notice-btn:hover{background:var(--gold-dark);color:#fff;transform:translateY(-1px);}
 .clinic-hours-card{background:#fff;padding:0;max-width:560px;margin:0 auto;overflow-x:visible;}
 .clinic-hours-table{width:100%;min-width:0;table-layout:fixed;border-collapse:collapse;font-family:'Microsoft JhengHei','Noto Sans TC',sans-serif;color:var(--dark);background:rgba(200,168,130,.08);border:1px solid rgba(168,136,90,.26);}
 .clinic-hours-table th,.clinic-hours-table td{border-bottom:1px solid rgba(168,136,90,.24);padding:13px 10px;text-align:center;vertical-align:middle;}
 .clinic-hours-table thead th{background:var(--gold-dark);color:#fff;font-size:16px;font-weight:700;letter-spacing:.1em;}
 .clinic-hours-table thead th:first-child{width:31%;text-align:left;font-size:13px;letter-spacing:.06em;white-space:nowrap;}
+.clinic-hours-table-all-checks thead th:first-child{font-size:16px;text-align:center;}
+.clinic-hours-table-all-checks tbody th{text-align:center;}
 .clinic-hours-table tbody th{width:31%;text-align:left;font-size:18px;font-weight:700;letter-spacing:.02em;color:var(--dark);white-space:nowrap;}
 .clinic-hours-table tbody th span{display:block;margin-top:4px;font-size:11px;font-weight:700;letter-spacing:.03em;color:var(--gold-dark);white-space:normal;}
 .clinic-hours-table td{font-size:22px;font-weight:700;color:var(--gold-dark);}
 .clinic-hours-table tbody tr:last-child th,.clinic-hours-table tbody tr:last-child td{border-bottom:none;}
 .clinic-hours-table tbody tr:nth-child(2) td{font-size:16px;line-height:1.3;letter-spacing:.02em;color:#8c7048;white-space:nowrap;}
+.clinic-hours-table-all-checks tbody tr:nth-child(2) td{font-size:22px;line-height:normal;letter-spacing:normal;color:var(--gold-dark);white-space:normal;}
 .clinic-booking-cta{position:relative;min-height:220px;padding:46px 48px;background-image:linear-gradient(rgba(30,30,30,.58),rgba(30,30,30,.58)),url('../img/bg-appointment.webp');background-size:cover;background-position:center;background-attachment:fixed;display:flex;align-items:center;}
 .clinic-booking-cta-inner{width:100%;max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:28px;}
 .clinic-booking-cta .sec-label{color:rgba(255,255,255,.72);margin-bottom:12px;}
@@ -1567,6 +1596,10 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
 .clinic-service-card h3{font-size:19px;line-height:1.4;color:var(--gold-dark);font-weight:500;letter-spacing:.06em;margin-bottom:12px;}
 .clinic-service-card ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;}
 .clinic-service-card li{display:inline-flex;align-items:center;min-height:30px;padding:5px 10px;border-radius:8px;background:#fff;border:1px solid rgba(168,136,90,.22);color:var(--text);font-size:16px;line-height:2;font-weight:400;letter-spacing:.04em;}
+.zushan-page .clinic-service-card li,
+.taichung-page .clinic-service-card li{font-size:14px;font-weight:300;}
+.zushan-page .clinic-service-card li.clinic-service-item-emphasis,
+.taichung-page .clinic-service-card li.clinic-service-item-emphasis{font-size:16px;}
 .clinic-env-sec{padding:0 48px 58px;background:var(--ivory);overflow:hidden;}
 .clinic-env-inner{max-width:1240px;margin:0 auto;}
 .clinic-env-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;padding-top:38px;margin-bottom:20px;}
@@ -1757,6 +1790,8 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
   .hero{height:auto;min-height:100svh;}
   .clinic-hero,.clinic-hours-sec,.clinic-content,.clinic-env-sec,.clinic-review-sec,.clinic-map-sec,.clinic-booking-cta,.equipment-list-sec,.ao4-hero,.ao4-intro,.ao4-split-sec,.ao4-process-sec,.ao4-note-sec,.ao4-reasons-sec,.ao4-cta{padding-left:24px;padding-right:24px;}
   .clinic-hero{padding-left:0;padding-right:0;padding-bottom:0;}
+  .zushan-page .clinic-hero,
+  .taichung-page .clinic-hero{padding-top:48px;}
   .clinic-hero-inner{grid-template-columns:1fr;gap:0;max-width:none;}
   .clinic-hero-inner > div:first-child{order:1;padding-left:24px;padding-right:24px;padding-bottom:34px;}
   .clinic-hero-media{order:2;width:100%;min-height:0;aspect-ratio:16/10;}
@@ -1768,10 +1803,12 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
   .clinic-hours-table th,.clinic-hours-table td{padding:12px 4px;}
   .clinic-hours-table thead th{font-size:17px;letter-spacing:.04em;}
   .clinic-hours-table thead th:first-child{width:30%;font-size:11px;letter-spacing:.02em;white-space:normal;}
+  .clinic-hours-table-all-checks thead th:first-child{font-size:17px;}
   .clinic-hours-table tbody th{width:30%;font-size:16px;letter-spacing:0;white-space:normal;}
   .clinic-hours-table tbody th span{font-size:10px;line-height:1.45;}
   .clinic-hours-table td{font-size:21px;}
   .clinic-hours-table tbody tr:nth-child(2) td{font-size:13px;line-height:1.25;letter-spacing:0;white-space:normal;word-break:keep-all;}
+  .clinic-hours-table-all-checks tbody tr:nth-child(2) td{font-size:21px;line-height:normal;word-break:normal;}
   .clinic-info-grid{grid-template-columns:1fr;border-left:none;}
   .clinic-info-item{border-right:none;border-bottom:1px solid rgba(255,255,255,.08);padding:18px 0;}
   .clinic-info-item:last-child{border-bottom:none;}
@@ -1814,7 +1851,8 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
   .services-track{
     display:grid;
     grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:10px;
+    column-gap:10px;
+    row-gap:7px;
     padding:0 20px 14px;
   }
   .services-more-grid{
@@ -1830,13 +1868,13 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
     min-height:148px;
     padding:16px 12px 14px;
   }
-  .svc-icon{width:76px;height:76px;flex-basis:76px;margin-bottom:8px;}
+  .svc-icon{width:76px;height:76px;flex-basis:76px;margin-bottom:2.8px;}
   .svc-icon svg,
   .svc-icon img{width:68px;height:68px;}
   .svc-body{min-height:44px;}
   .svc-title{
     font-size:18px;
-    font-weight:300;
+    font-weight:400;
     line-height:1.35;
   }
   .doctor-copy{padding-top:36px;padding-bottom:36px;}
@@ -1846,11 +1884,15 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
   .doctor-bio{margin-bottom:26px;}
   .ft-top{grid-template-columns:1fr;}
   .clinic-hero{padding-top:28px;padding-bottom:0;}
+  .zushan-page .clinic-hero,
+  .taichung-page .clinic-hero{padding-top:48px;}
   .page-breadcrumb-inner{font-size:13px;gap:8px;flex-wrap:wrap;}
   .clinic-hero-media,.clinic-hero-media .hero-image-area,.clinic-hero-media img{min-height:0;}
   .clinic-contact-summary{gap:6px;margin-top:14px;}
   .clinic-contact-row{grid-template-columns:1fr;gap:3px;padding:9px 0;}
   .clinic-contact-row strong{font-size:19px;line-height:1.4;}
+  .taichung-page .clinic-notice-btn,
+  .zushan-page .clinic-notice-btn{display:flex;width:max-content;margin-left:auto;margin-right:auto;}
   .clinic-feature-list{grid-template-columns:1fr;}
   .clinic-feature-body{padding:20px 18px 22px;}
   .clinic-feature h3{font-size:20px;margin-bottom:10px;}
@@ -1862,10 +1904,12 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
   .clinic-hours-table th,.clinic-hours-table td{padding:10px 3px;}
   .clinic-hours-table thead th{font-size:15px;}
   .clinic-hours-table thead th:first-child{width:29%;font-size:10px;}
+  .clinic-hours-table-all-checks thead th:first-child{font-size:15px;}
   .clinic-hours-table tbody th{width:29%;font-size:14px;}
   .clinic-hours-table tbody th span{font-size:9px;}
   .clinic-hours-table td{font-size:19px;}
   .clinic-hours-table tbody tr:nth-child(2) td{font-size:12px;}
+  .clinic-hours-table-all-checks tbody tr:nth-child(2) td{font-size:19px;}
   .clinic-env-head{display:block;padding-top:32px;}
   .clinic-booking-cta{min-height:200px;padding-top:34px;padding-bottom:34px;}
   .clinic-booking-btn{width:100%;}
@@ -2001,6 +2045,22 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
     height: clamp(360px, 42vw, 520px);
     min-height: 0;
   }
+  @media (min-width: 1025px) {
+    .hero:has(.hero-stats) {
+      height: 680px;
+      min-height: 680px;
+      max-height: 680px;
+    }
+    .hero:has(.hero-stats) .hero-right,
+    .hero:has(.hero-stats) .hero-image-area {
+      height: 100%;
+      min-height: 0;
+    }
+    .hero:has(.hero-stats) .hero-image-area img {
+      height: 100%;
+      object-fit: cover;
+    }
+  }
   /* ── SECTION COMMON ── */
   .ceramic-source-page section { padding: var(--section-gap) 80px; }
   .ceramic-source-page .page-breadcrumb { padding: 14px 48px; }
@@ -2042,42 +2102,6 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
   }
   .ceramic-source-page .what-text p {
     font-size: 15px; line-height: 1.9; color: var(--text-body); margin-bottom: 20px;
-  }
-  .ceramic-source-page .ortho-fit-list {
-    margin-top: 30px;
-    padding-top: 24px;
-    border-top: 1px solid rgba(184,154,106,0.26);
-  }
-  .ceramic-source-page .ortho-fit-list h3 {
-    font-family: var(--font-serif);
-    font-size: 26px;
-    font-weight: 500;
-    line-height: 1.4;
-    color: var(--charcoal);
-    margin-bottom: 16px;
-  }
-  .ceramic-source-page .ortho-fit-list ul {
-    list-style: none;
-    display: grid;
-    gap: 9px;
-  }
-  .ceramic-source-page .ortho-fit-list li {
-    position: relative;
-    padding-left: 18px;
-    font-size: 16px;
-    line-height: 1.75;
-    color: var(--text-body);
-    letter-spacing: 0.04em;
-  }
-  .ceramic-source-page .ortho-fit-list li::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0.82em;
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: #D3C0A1;
   }
   .ceramic-source-page .ao4-fit-list {
     margin-top: 6px;
@@ -3439,6 +3463,16 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
     }
     .ceramic-source-page .what-features { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .ceramic-source-page .what-visual { aspect-ratio: 2 / 1; }
+    .ceramic-source-page.gum-contouring-page .what-is .what-visual,
+    .ceramic-source-page.ceramic-veneer-page .what-is .what-visual {
+      aspect-ratio: auto;
+    }
+    .ceramic-source-page.gum-contouring-page .what-is .what-visual img,
+    .ceramic-source-page.ceramic-veneer-page .what-is .what-visual img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
     .ceramic-source-page .ortho-system-grid { grid-template-columns: 1fr; }
     .ceramic-source-page .implant-info-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .ceramic-source-page .implant-info-card {
@@ -4279,6 +4313,84 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
   }
 }
 
+/* ── SOFT CARD INDICATIONS ── */
+.soft-card-indications .microscope-indication-list-card {
+  margin-top: 38px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.soft-card-indications .microscope-indication-list-card ul {
+  display: grid;
+  gap: 16px;
+  counter-reset: ortho-indication;
+}
+.soft-card-indications .microscope-indication-list-card li {
+  min-width: 0;
+  padding: 26px 26px 26px 74px;
+  border: 0;
+  border-radius: 12px;
+  background: rgba(184, 154, 106, .09);
+  counter-increment: ortho-indication;
+}
+.soft-card-indications .microscope-indication-list-card li:nth-child(even) {
+  padding-left: 74px;
+  background: rgba(211, 192, 161, .16);
+}
+.soft-card-indications .microscope-indication-list-card li:nth-child(odd):not(:last-child) {
+  border-right: 0;
+}
+.soft-card-indications .microscope-indication-list-card li::before,
+.soft-card-indications .microscope-indication-list-card li:nth-child(even)::before {
+  content: counter(ortho-indication, decimal-leading-zero);
+  top: 26px;
+  left: 24px;
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  background: rgba(211, 192, 161, .72);
+  color: #735A38;
+  font-family: var(--font-serif);
+  font-size: 17px;
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+.soft-card-indications .microscope-indication-list-card h3 {
+  margin-bottom: 8px;
+}
+@media (min-width: 901px) {
+  .soft-card-indications .microscope-indication-list-card ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .soft-card-indications .microscope-indication-list-card li:last-child {
+    grid-column: auto;
+  }
+}
+@media (max-width: 640px) {
+  .soft-card-indications .microscope-indication-list-card {
+    margin-top: 30px;
+    padding: 0;
+  }
+  .soft-card-indications .microscope-indication-list-card ul {
+    gap: 12px;
+  }
+  .soft-card-indications .microscope-indication-list-card li,
+  .soft-card-indications .microscope-indication-list-card li:nth-child(even) {
+    padding: 22px 20px 22px 64px;
+  }
+  .soft-card-indications .microscope-indication-list-card li::before,
+  .soft-card-indications .microscope-indication-list-card li:nth-child(even)::before {
+    top: 22px;
+    left: 18px;
+    width: 32px;
+    height: 32px;
+  }
+}
+
 /* ── PERIODONTAL SYMPTOMS ── */
 .periodontal-page .periodontal-symptoms {
   background: #fff;
@@ -4676,7 +4788,10 @@ a.news-notice-action-text:hover{color:#A8885A;}
 .news-office-grid .c-map-link:hover{background:#B89A6A;border-color:#B89A6A;color:#fff;}
 .news-office-grid .btn-blue{background:#B89A6A;}
 .news-office-grid .btn-blue:hover{background:#D3C0A1;}
-.news-article-page .know-consult-box{width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);border:0;border-radius:0;padding-left:max(24px,calc((100vw - 1040px) / 2 + 48px));padding-right:max(24px,calc((100vw - 1040px) / 2 + 48px));}
+.news-article-page .know-consult-box{width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);border:0;border-radius:0;padding-left:max(24px,calc((100vw - 1040px) / 2 + 48px));padding-right:max(24px,calc((100vw - 1040px) / 2 + 48px));background:linear-gradient(rgba(255,255,255,.7),rgba(255,255,255,.7)),url('../img/services/cta.jpg') center / cover no-repeat;}
+.news-article-page .news-list-cta-section{width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);}
+.offday-page .know-article-body,.offday-page #contact{padding-bottom:0;}
+.offday-page .news-list-cta-section{margin-top:32px;}
 @media(max-width:1100px){
   .know-card-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
   .knowledge-article-page .cta-section{grid-template-columns:1fr;gap:40px;background-attachment:scroll;}
@@ -4728,6 +4843,7 @@ a.news-notice-action-text:hover{color:#A8885A;}
   .know-consult-box a{width:100%;}
   .news-article-page .know-consult-box{justify-items:center;text-align:left;}
   .news-article-page .know-consult-box a{width:auto;min-width:220px;}
+  .offday-page .news-list-cta-section{margin-top:24px;}
   .know-share-section{padding:0 24px 54px;}
   .know-share-inner{padding-top:22px;}
   .know-share-buttons{display:grid;grid-template-columns:1fr;gap:10px;}
@@ -5123,13 +5239,13 @@ a.news-notice-action-text:hover{color:#A8885A;}
 .news-list-page main{display:block;}
 .news-list-hero{min-height:calc(100vh - 122px);background:#FDFCFA;padding:0;}
 .news-list-hero-inner{min-height:calc(100vh - 122px);display:grid;grid-template-columns:1fr 1fr;align-items:stretch;}
-.news-list-hero-copy{display:flex;flex-direction:column;justify-content:center;padding:80px 64px 80px 80px;background:#FDFCFA;}
+.news-list-hero-copy{height:max(600px, calc(100vh - 122px));display:flex;flex-direction:column;justify-content:center;padding:80px 64px 80px 80px;background:#FDFCFA;}
 .news-list-eyebrow{font-size:14px;font-weight:400;letter-spacing:.22em;color:#B89A6A;text-transform:uppercase;margin-bottom:22px;display:flex;align-items:center;gap:12px;}
 .news-list-eyebrow::before{content:'';display:block;width:32px;height:.5px;background:#B89A6A;}
 .news-list-hero h1{font-family:'Cormorant Garamond','Noto Serif TC',serif;font-size:clamp(52px,6vw,80px);font-weight:600;line-height:1.1;letter-spacing:0;color:#2C2C2A;margin-bottom:8px;}
 .news-list-hero h1 em{display:block;font-size:18px;font-style:italic;color:#B89A6A;}
 .news-list-subtitle{font-family:'Cormorant Garamond','Noto Serif TC',serif;font-size:18px;font-weight:300;color:#6B6860;margin-bottom:40px;letter-spacing:.02em;}
-.news-list-hero p:not(.news-list-subtitle){max-width:460px;font-size:17px;line-height:2;color:var(--text);letter-spacing:.04em;border-left:2px solid #D4B896;padding-left:20px;}
+.news-list-hero p:not(.news-list-subtitle){width:100%;max-width:460px;height:136px;font-size:17px;line-height:2;color:var(--text);letter-spacing:.04em;border-left:2px solid #D4B896;padding-left:20px;}
 .news-list-hero-media{position:relative;overflow:hidden;background:#EFF4F2;}
 .news-list-hero-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;}
 .news-list-section{max-width:1100px;margin:0 auto;padding:70px 48px 92px;}
@@ -5215,11 +5331,12 @@ a.news-notice-action-text:hover{color:#A8885A;}
 .appointment-clinic-card li:first-child a{font-size:20pt;font-weight:400;line-height:1.35;}
 .appointment-clinic-card li a:hover{color:var(--gold);}
 .appointment-address-row{display:flex;align-items:center;flex-wrap:wrap;gap:10px;font-weight:400;}
-.appointment-map-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:34px;padding:5px 12px;border:1px solid rgba(184,154,106,.55);border-radius:999px;color:var(--gold) !important;font-size:14px;font-weight:300;line-height:1.4;white-space:nowrap;transition:background .2s,color .2s,border-color .2s !important;}
+.appointment-map-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:34px;padding:5px 12px;border:1px solid rgba(90,90,90,.45);border-radius:999px;color:#777 !important;font-size:14px;font-weight:300;line-height:1.4;white-space:nowrap;transition:background .2s,color .2s,border-color .2s !important;}
 .appointment-map-btn i{margin:0 !important;color:inherit !important;font-size:13px;}
-.appointment-map-btn:hover{background:var(--gold);border-color:var(--gold);color:#fff !important;}
-.appointment-actions{display:flex;flex-wrap:wrap;gap:10px;}
+.appointment-map-btn:hover{background:#777;border-color:#777;color:#fff !important;}
+.appointment-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;}
 .appointment-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 20px;border:1px solid var(--gold);border-radius:999px;color:var(--gold);font-size:15px;font-weight:400;letter-spacing:.06em;transition:all .2s;}
+.appointment-actions .appointment-btn{width:min(100%,260px);}
 .appointment-btn:hover,.appointment-btn-primary{background:var(--gold);color:#fff;}
 .appointment-btn-primary:hover{background:var(--gold-dark);border-color:var(--gold-dark);}
 .appointment-line-card{display:grid;grid-template-columns:68px 1fr auto;align-items:center;gap:22px;margin-top:24px;padding:25px 30px;border-radius:10px;background:#F3F8F2;border:1px solid #DCE8D8;}
@@ -5262,7 +5379,7 @@ a.news-notice-action-text:hover{color:#A8885A;}
   .appointment-section,.appointment-form-section{padding:56px 24px 70px;}
   .appointment-clinic-grid,.appointment-notes ol{grid-template-columns:1fr;}
   .appointment-clinic-card{padding:28px 24px;}
-  .appointment-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;}
+  .appointment-actions{display:flex;justify-content:center;gap:8px;}
   .appointment-actions .appointment-btn{min-width:0;padding:12px 10px;white-space:nowrap;}
   .appointment-line-card{grid-template-columns:56px 1fr;padding:22px;gap:16px;}
   .appointment-line-card img{width:56px;height:56px;}
@@ -5287,7 +5404,7 @@ a.news-notice-action-text:hover{color:#A8885A;}
 @media(max-width:900px){
   .news-list-hero,.news-list-hero-inner{min-height:auto;}
   .news-list-hero-inner{grid-template-columns:1fr;}
-  .news-list-hero-copy{padding:60px 40px;}
+  .news-list-hero-copy{height:520px;padding:60px 40px;}
   .news-list-hero-media{min-height:360px;}
   .news-card-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
   .idea-section{padding-top:60px;padding-bottom:78px;}
@@ -5381,5 +5498,196 @@ a.news-notice-action-text:hover{color:#A8885A;}
 
   .clinic-hero-media{
     height:clamp(196px, 43.75vw, 224px);
+  }
+}
+
+/* ─── HOME CLINICS REDESIGN ─── */
+.clinics-sec{
+  padding:68px 48px 76px;
+  background:#F7F4EF;
+}
+.clinics-inner > .sec-label{
+  display:flex;
+  width:max-content;
+  margin:0 auto 14px;
+}
+.clinics-inner > .sec-h2{
+  margin-bottom:0;
+  text-align:center;
+}
+.clinics-sec .clinics-grid{
+  max-width:1160px;
+  margin-top:38px;
+  gap:28px;
+  align-items:start;
+}
+.clinics-sec .home-clinic-card{
+  padding:36px;
+  border:1px solid rgba(184,154,106,.3);
+  border-radius:16px;
+  background-color:#fff;
+  box-shadow:0 18px 44px rgba(67,54,38,.07);
+}
+.clinics-sec .home-clinic-card::before{
+  height:5px;
+  background:#B89A6A;
+}
+.clinics-sec .clinic-card-tc{
+  background-image:linear-gradient(90deg,#fff 0%,rgba(255,255,255,.95) 58%,rgba(255,255,255,.68) 100%),url('../img/clinicbg_tc.png');
+}
+.clinics-sec .clinic-card-zs{
+  background-image:linear-gradient(90deg,#fff 0%,rgba(255,255,255,.95) 58%,rgba(255,255,255,.68) 100%),url('../img/clinicbg_zs.png');
+}
+.clinics-sec .home-clinic-card .c-name{
+  font-size:30px;
+  font-weight:500;
+  margin-bottom:8px;
+}
+.clinics-sec .home-clinic-card .c-divider{
+  width:56px;
+  background:#B89A6A;
+  margin-bottom:20px;
+}
+.clinics-sec .home-clinic-card .c-rows{
+  min-height:92px;
+  margin-bottom:24px;
+}
+.clinics-sec .home-clinic-card .c-row{
+  font-size:15px;
+}
+.clinics-sec .home-clinic-card .c-rows .c-row:first-child{
+  font-size:23px;
+  font-weight:500;
+}
+.clinics-sec .home-clinic-card .c-hours{
+  width:100%;
+  margin:0 0 22px;
+  padding:18px;
+  border:0;
+  border-radius:12px;
+  background:#FAF8F4;
+}
+.clinics-sec .home-clinic-card .c-hrs-lbl{
+  margin-bottom:12px;
+  color:#8F7550;
+  font-size:14px;
+  font-weight:600;
+}
+.c-hours-table-wrap{
+  width:100%;
+  overflow-x:auto;
+  scrollbar-width:thin;
+}
+.c-hours-table{
+  width:100%;
+  border-collapse:collapse;
+  table-layout:fixed;
+  color:#444;
+  font-size:13px;
+  line-height:1.35;
+}
+.c-hours-table th,
+.c-hours-table td{
+  padding:10px 5px;
+  border-bottom:1px solid rgba(184,154,106,.24);
+  text-align:center;
+  vertical-align:middle;
+}
+.c-hours-table thead th{
+  background:#B89A6A;
+  color:#fff;
+  font-weight:500;
+}
+.c-hours-table thead th:first-child{
+  border-radius:6px 0 0 0;
+}
+.c-hours-table thead th:last-child{
+  border-radius:0 6px 0 0;
+}
+.c-hours-table th:first-child{
+  width:30%;
+}
+.c-hours-table tbody th{
+  color:#333;
+  font-weight:500;
+  white-space:nowrap;
+}
+.c-hours-table tbody td{
+  color:#8F7550;
+  font-weight:500;
+  overflow-wrap:anywhere;
+}
+.c-hours-note{
+  margin-top:10px;
+  color:#777;
+  font-size:12px;
+  line-height:1.65;
+}
+.clinics-sec .home-clinic-card .c-btns{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:10px;
+}
+.clinics-sec .home-clinic-card .btn-blue,
+.clinics-sec .home-clinic-card .btn-fb{
+  justify-content:center;
+  min-width:0;
+  border-radius:999px;
+  padding:12px 14px;
+}
+
+@media(max-width:900px){
+  .clinics-sec{
+    padding:52px 24px 60px;
+  }
+  .clinics-sec .clinics-grid{
+    max-width:680px;
+    margin-top:28px;
+    gap:22px;
+  }
+  .clinics-sec .home-clinic-card{
+    padding:30px;
+  }
+}
+
+@media(max-width:600px){
+  .clinics-sec{
+    padding:48px 20px 54px;
+  }
+  .clinics-inner > .sec-h2{
+    font-size:30px;
+  }
+  .clinics-sec .home-clinic-card{
+    padding:28px 18px 24px;
+    border-radius:12px;
+    background-size:210px auto;
+  }
+  .clinics-sec .home-clinic-card .c-name{
+    font-size:26px;
+  }
+  .clinics-sec .home-clinic-card .c-rows{
+    min-height:0;
+  }
+  .clinics-sec .home-clinic-card .c-row{
+    font-size:14px;
+  }
+  .clinics-sec .home-clinic-card .c-rows .c-row:first-child{
+    font-size:21px;
+  }
+  .clinics-sec .home-clinic-card .c-hours{
+    padding:12px 8px;
+  }
+  .c-hours-table{
+    font-size:11px;
+  }
+  .c-hours-table th,
+  .c-hours-table td{
+    padding:9px 2px;
+  }
+  .c-hours-table th:first-child{
+    width:31%;
+  }
+  .clinics-sec .home-clinic-card .c-btns{
+    grid-template-columns:1fr;
   }
 }

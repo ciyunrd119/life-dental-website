@@ -31,13 +31,7 @@
     <nav id="main-nav">
 
       <!-- 1. 關於我們 -->
-      <div class="nav-dropdown">
-        <a href="#">關於我們 <span class="dropdown-arrow">▼</span></a>
-        <div class="dropdown-menu">
-          <a href="idea.html">集團理念</a>
-          <a href="news.html">最新消息</a>
-        </div>
-      </div>
+      
 
       <!-- 2. 台中旗艦店 -->
       <div class="nav-dropdown">
@@ -46,7 +40,7 @@
           <a href="taichung/index.html">診所資訊</a>
           <a href="taichung/team.html">醫師團隊</a>
           <a href="taichung/medical-equipment.html">醫療設備</a>
-          <a href="#">植牙美學中心</a>
+          <a href="http://www.graceimp.com.tw/" target="_blank" rel="noopener noreferrer">植牙美學中心</a>
           <a href="https://www.gracelife.com.tw/s/app/calendar.aspx?src=web&amp;drCode=002;000000" target="_blank" rel="noopener noreferrer">網路約診</a>
         </div>
       </div>
@@ -75,8 +69,8 @@
           <div class="mega-col">
             <span class="mega-col-title">假牙贋復</span>
             <a href="services/all-ceramic-crown.html">全瓷冠</a>
-            <a href="services/zirconia-crown.html">全鋯冠</a>
-            <a href="services/ceramic-veneer.html">陶瓷貼片</a>
+            <a href="services/zirconia-crown.html">全鋯冠</a><a href="services/ceramic-veneer.html">陶瓷貼片</a>
+            <a href="services/3d-inlay.html">3D 齒雕</a>
           </div>
           <div class="mega-col">
             <span class="mega-col-title">數位植牙</span>
@@ -91,7 +85,7 @@
           <div class="mega-col">
             <span class="mega-col-title">美學牙醫</span>
             <a href="services/teeth-whitening.html">牙齒美白</a>
-            <a href="services/gum-contouring.html">牙齦美容術</a>
+            <a href="services/gum-contouring.html">牙齦整形術</a>
           </div>
           <div class="mega-col">
             <span class="mega-col-title">其他項目</span>
@@ -117,7 +111,17 @@
       <!-- 6. 牙醫知識 -->
       <a href="knowledge.html">牙醫知識</a>
 
-      <!-- 7. 預約諮詢 -->
+      <!-- 7. 關於我們 -->
+      
+      <div class="nav-dropdown">
+        <a href="#">關於我們 <span class="dropdown-arrow">▼</span></a>
+        <div class="dropdown-menu">
+          <a href="idea.html">集團理念</a>
+          <a href="news.html">最新消息</a>
+        </div>
+      </div>
+
+      <!-- 8. 預約諮詢 -->
       <a href="appointment.html" class="header-cta">預約諮詢</a>
 
     </nav>
@@ -145,6 +149,10 @@
       <p class="hero-lead">
         全方位口腔照護｜讓您打從心底綻放笑容
       </p>
+
+      <div class="hero-btns">
+        <a href="appointment.html" class="btn-gold">網路預約或諮詢</a>
+      </div>
 
     </div>
 
@@ -210,7 +218,6 @@
         <span class="dtag">顯微根管治療</span>
       </div>
 
-      <a href="#" class="btn-primary-outline">查看醫療團隊</a>
     </div>
   </div>
 </section>
@@ -369,12 +376,12 @@
         <span class="cs-more">觀看更多案例</span>
       </div>
     </a>
-    <a href="cases/all-ceramic-crown.html" class="case-feature-card">
+    <a href="cases/orthodontics.html" class="case-feature-card">
       <div class="case-feature-media cs-img-4" aria-hidden="true"></div>
       <div class="case-feature-body">
-        <div class="cs-cat">陶瓷貼片</div>
-        <h3 class="cs-title">前牙縫隙與牙色困擾，陶瓷貼片打造精緻笑容</h3>
-        <p class="cs-desc">以薄型陶瓷貼片調整牙齒長寬比例與色階，保留自然齒質，同步提升笑容亮度。</p>
+        <div class="cs-cat">齒顎矯正</div>
+        <h3 class="cs-title">掌握成長階段，規劃合適矯正時程</h3>
+        <p class="cs-desc">依照換牙進度、顎骨發育與咬合狀況進行評估，安排適合的介入時機與後續追蹤計畫。</p>
         <span class="cs-more">觀看更多案例</span>
       </div>
     </a>
@@ -630,7 +637,7 @@
     <h2 class="sec-h2">台中・南投｜生活牙醫診所</h2>
     <div class="clinics-grid">
 
-      <div class="clinic-card clinic-card-tc">
+      <article class="clinic-card clinic-card-tc home-clinic-card">
         <div class="c-name">台中旗艦店</div>
         <div class="c-divider"></div>
         <div class="c-rows">
@@ -647,18 +654,42 @@
         </div>
         <div class="c-hours">
           <div class="c-hrs-lbl">診療時間</div>
-          <img src="img/timetable_tc.png" alt="台中旗艦店診療時間表" class="c-hours-img">
+          <div class="c-hours-table-wrap">
+            <table class="c-hours-table" aria-label="台中旗艦店診療時間表">
+              <thead>
+                <tr>
+                  <th scope="col">時間</th>
+                  <th scope="col">一</th>
+                  <th scope="col">二</th>
+                  <th scope="col">三</th>
+                  <th scope="col">四</th>
+                  <th scope="col">五</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">09:30–12:00</th>
+                  <td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td>
+                </tr>
+                <tr>
+                  <th scope="row">14:30–17:30</th>
+                  <td>薛青坡</td><td>陳嘉豪</td><td>邱勁嘉</td><td>邱勁嘉</td><td>莊禮駿</td>
+                </tr>
+                <tr>
+                  <th scope="row">18:30–21:00</th>
+                  <td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="c-hours-note">午診現場掛號時間 14:10–17:00；實際門診依休診公告為準。</p>
         </div>
         <div class="c-btns">
-          <a href="#" class="btn-blue">網路掛號</a>
-          <a href="https://www.facebook.com/ilovegracelife/" target="_blank" rel="noopener noreferrer" class="btn-fb">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-            臉書粉絲團
-          </a>
+          <a href="https://www.gracelife.com.tw/s/app/calendar.aspx?drCode=002%3B000000&amp;src=web" target="_blank" rel="noopener noreferrer" class="btn-blue">網路掛號</a>
         </div>
-      </div>
+      </article>
 
-      <div class="clinic-card clinic-card-zs">
+      <article class="clinic-card clinic-card-zs home-clinic-card">
         <div class="c-name">南投竹山店</div>
         <div class="c-divider"></div>
         <div class="c-rows">
@@ -675,16 +706,40 @@
         </div>
         <div class="c-hours">
           <div class="c-hrs-lbl">診療時間</div>
-          <img src="img/timetable_zs.png" alt="南投竹山店診療時間表" class="c-hours-img">
+          <div class="c-hours-table-wrap">
+            <table class="c-hours-table" aria-label="南投竹山店診療時間表">
+              <thead>
+                <tr>
+                  <th scope="col">時間</th>
+                  <th scope="col">一</th>
+                  <th scope="col">二</th>
+                  <th scope="col">三</th>
+                  <th scope="col">四</th>
+                  <th scope="col">五</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">09:00–12:00</th>
+                  <td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td>
+                </tr>
+                <tr>
+                  <th scope="row">14:30–17:30</th>
+                  <td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td>
+                </tr>
+                <tr>
+                  <th scope="row">18:30–21:00</th>
+                  <td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="c-hours-note">採全預約制度，請提前電話或網路約診。</p>
         </div>
         <div class="c-btns">
-          <a href="#" class="btn-blue">網路掛號</a>
-          <a href="https://www.facebook.com/gracelifenantou/" target="_blank" rel="noopener noreferrer" class="btn-fb">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-            臉書粉絲團
-          </a>
+          <a href="https://www.gracelife.com.tw/s/app/calendar.aspx?drCode=001%3B002943&amp;src=web" target="_blank" rel="noopener noreferrer" class="btn-blue">網路掛號</a>
         </div>
-      </div>
+      </article>
 
     </div>
   </div>
@@ -693,40 +748,49 @@
 <!-- ═══ FOOTER ═══ -->
 <footer>
   <div class="ft-top">
-    <div class="ft-brand">
-      <a href="#" class="logo">
-        <span class="logo-en">Grace Life</span>
-        <span class="logo-zh">生活牙醫診所</span>
-      </a>
-      <p>隱身台中・南投的微笑綠洲，整合多位傑出專科醫師，以最高醫療水準提供植牙、矯正、美學牙科等全方位服務。</p>
-    </div>
     <div class="ft-col">
-      <h4>療程項目</h4>
-      <a href="services/all-on-4.html">All-on-4 全口重建</a>
-      <a href="#">人工植牙</a>
-      <a href="services/all-ceramic-crown.html">全瓷冠・貼片</a>
-      <a href="services/invisalign.html">隱適美矯正</a>
-      <a href="services/teeth-whitening.html">冷光美白</a>
-      <a href="services/periodontal-treatment.html">牙周治療</a>
-      <a href="services/microscope-root-canal.html">顯微根管</a>
-    </div>
-    <div class="ft-col">
-      <h4>台中旗艦店|生活牙醫</h4>
+      <h4 class="ft-compact-title"><a href="taichung/index.html" class="ft-location-link">台中旗艦店｜生活牙醫診所</a></h4>
       <p>📞 <span class="ft-phone-number">04-2254-6060</span></p>
       <p>📍 台中市南屯區公益路二段525號</p>
-      <a href="https://www.facebook.com/ilovegracelife/" target="_blank" rel="noopener noreferrer" class="ft-fb-btn">Facebook 粉絲團</a>
+      <div class="ft-social-links">
+        <a href="https://www.facebook.com/ilovegracelife/" target="_blank" rel="noopener noreferrer" class="ft-fb-btn ft-social-icon" aria-label="台中旗艦店 Facebook 粉絲團" title="台中旗艦店 Facebook 粉絲團"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+        <a href="https://www.instagram.com/gracelife520" target="_blank" rel="noopener noreferrer" class="ft-fb-btn ft-social-icon" aria-label="台中旗艦店 Instagram" title="台中旗艦店 Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+        <a href="https://www.youtube.com/@52gracelife" target="_blank" rel="noopener noreferrer" class="ft-fb-btn ft-social-icon" aria-label="台中旗艦店 YouTube" title="台中旗艦店 YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
+      </div>
     </div>
     <div class="ft-col">
-      <h4>南投竹山店|生活牙醫</h4>
+      <h4 class="ft-compact-title"><a href="zushan/index.html" class="ft-location-link">南投竹山店｜生活牙醫診所</a></h4>
       <p>📞 <span class="ft-phone-number">049-2660-260</span></p>
       <p>📍 南投縣竹山鎮前山路一段99號</p>
-      <a href="https://www.facebook.com/gracelifenantou/" target="_blank" rel="noopener noreferrer" class="ft-fb-btn">Facebook 粉絲團</a>
+      <div class="ft-social-links">
+        <a href="https://www.facebook.com/gracelifenantou/" target="_blank" rel="noopener noreferrer" class="ft-fb-btn ft-social-icon" aria-label="南投竹山店 Facebook 粉絲團" title="南投竹山店 Facebook 粉絲團"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+        <a href="https://www.instagram.com/gracelife_nantou/" target="_blank" rel="noopener noreferrer" class="ft-fb-btn ft-social-icon" aria-label="南投竹山店 Instagram" title="南投竹山店 Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+      </div>
+    </div>
+    <div class="ft-col ft-treatment-col">
+      <h4 class="ft-compact-title">療程項目</h4>
+      <div class="ft-treatment-links">
+        <a href="services/all-on-4.html">All-On-4 一日全口重建</a>
+        <a href="services/zygoma-implant.html">顴骨植牙</a>
+        <a href="services/all-ceramic-crown.html">全瓷冠</a>
+        <a href="services/zirconia-crown.html">全鋯冠</a>
+        <a href="services/ceramic-veneer.html">陶瓷貼片</a>
+        <a href="services/3d-inlay.html">3D 齒雕</a>
+        <a href="services/implant.html">數位植牙</a>
+        <a href="services/implant-augmentation.html">植牙附加手術</a>
+        <a href="services/orthodontics.html">齒顎矯正</a>
+        <a href="services/invisalign.html">隱適美隱形矯正</a>
+        <a href="services/teeth-whitening.html">牙齒美白</a>
+        <a href="services/gum-contouring.html">牙齦整形術</a>
+        <a href="services/periodontal-treatment.html">牙周治療</a>
+        <a href="services/microscope-root-canal.html">顯微根管</a>
+      </div>
     </div>
   </div>
   <div style="border-top:1px solid rgba(255,255,255,.05)">
     <div class="ft-bottom">
       <span>© 2025 生活牙醫診所 Grace Life Dental Clinic. All rights reserved.</span>
-      <span>隱私政策 · 服務條款</span>
+
     </div>
   </div>
 </footer>
