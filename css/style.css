@@ -542,7 +542,7 @@ a{color:inherit;text-decoration:none;}
 .hero-h1{
   font-family:'Noto Serif TC',serif;
   font-size:clamp(28px,4vw,56px);
-  font-weight:400;color:#fff !important;
+  font-weight:500;color:#fff !important;
   line-height:1.35;letter-spacing:.04em;
   margin-bottom:20px;
   white-space:nowrap;
@@ -558,9 +558,10 @@ a{color:inherit;text-decoration:none;}
 
 .hero-btns{display:flex;gap:16px;flex-wrap:wrap;align-items:center;justify-content:center;}
 .btn-gold{
-  display:inline-flex;align-items:center;gap:10px;
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  min-width:220px;
   background:var(--gold);color:#fff;padding:16px 36px;
-  font-size:16px;letter-spacing:.14em;border-radius:2px;
+  font-size:16px;font-weight:500;letter-spacing:.14em;border-radius:50px;
   transition:background .2s,transform .2s;
 }
 .btn-gold:hover{background:var(--gold-dark);transform:translateY(-2px);}
@@ -3539,6 +3540,18 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
     .ceramic-source-page .cta-section {
       background-attachment: scroll;
     }
+    .ceramic-source-page .case-share-grid {
+      width: 100%;
+      max-width: none;
+    }
+    .case-share-grid .case-image img {
+      height: auto;
+      aspect-ratio: auto;
+      object-fit: contain;
+    }
+    .case-share-grid .case-desc {
+      font-size: 14px;
+    }
   }
 
   /* ── KNOWLEDGE ── */
@@ -4170,6 +4183,9 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
   }
   .ceramic-source-page .step-desc {
     font-size: 16px;
+  }
+  .ceramic-source-page .case-share-grid .case-desc {
+    font-size: 14px;
   }
   .ceramic-source-page .step-title {
     font-size: 18px;
@@ -5409,7 +5425,7 @@ a.news-notice-action-text:hover{color:#A8885A;}
 .appointment-line-card span{display:block;color:#46A942;font-size:12px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:4px;}
 .appointment-line-card h3{font-family:'Noto Serif TC',serif;font-size:22px;color:var(--dark);margin-bottom:5px;}
 .appointment-line-card p{color:var(--muted);font-size:14px;line-height:1.7;}
-.appointment-line-card > a{display:inline-flex;align-items:center;justify-content:center;min-width:126px;padding:12px 20px;border-radius:999px;background:#46A942;color:#fff;font-weight:500;transition:background .2s;}
+.appointment-line-card > a{display:inline-flex;align-items:center;justify-content:center;width:min(100%,260px);padding:12px 20px;border-radius:999px;background:#46A942;color:#fff;font-weight:500;transition:background .2s;}
 .appointment-line-card > a:hover{background:#368d33;}
 .appointment-notes{background:#F8F5F0;padding:80px 48px 90px;}
 .appointment-notes-inner{max-width:1024px;margin:0 auto;}
@@ -5448,7 +5464,7 @@ a.news-notice-action-text:hover{color:#A8885A;}
   .appointment-actions .appointment-btn{min-width:0;padding:12px 10px;white-space:nowrap;}
   .appointment-line-card{grid-template-columns:56px 1fr;padding:22px;gap:16px;}
   .appointment-line-card img{width:56px;height:56px;}
-  .appointment-line-card > a{grid-column:1 / -1;width:100%;}
+  .appointment-line-card > a{grid-column:1 / -1;justify-self:center;}
   .appointment-notes{padding:56px 24px 70px;}
   .appointment-notes li{grid-template-columns:42px 1fr;padding:23px 20px;gap:12px;}
   .appointment-notes li > span{font-size:29px;}
