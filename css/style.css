@@ -4844,8 +4844,8 @@ a.news-notice-action-text:hover{color:#A8885A;}
   .news-notice-list li{font-size:16px;}
   .news-onsite-details{margin-top:24px;}
   .news-onsite-heading{padding:18px 20px;gap:12px;}
-  .news-onsite-heading h3{font-size:20px;}
-  .news-onsite-toggle{padding:7px 12px;font-size:13px;}
+  .news-onsite-heading h3{font-size:16px;}
+  .news-onsite-toggle{padding:7px 12px;font-size:13px;font-weight:400;}
   .news-onsite-content{padding:0 20px 24px;}
   .news-onsite-details li{font-size:15px;line-height:1.85;}
   .news-contact-card{align-items:flex-start;flex-direction:column;}
