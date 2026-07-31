@@ -3,33 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>最新消息｜生活牙醫診所</title>
-<meta name="description" content="生活牙醫診所整理院所公告、門診異動、活動資訊與療程新訊，協助您掌握最新消息。">
+<title>影音專區｜生活牙醫診所</title>
+<meta name="description" content="生活牙醫診所影音專區，透過短影音認識齒顎矯正、顯微根管、All-on-4 全口重建等牙科療程與衛教知識。">
 <link rel="icon" href="img/favicon.ico" type="image/x-icon">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://www.youtube-nocookie.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <link rel="stylesheet" href="css/style.css">
 <script src="js/main.js" defer></script>
 </head>
-<body class="news-list-page">
+<body class="news-list-page video-library-page">
 
 <header>
   <div class="header-inner">
     <a href="index.html" class="logo">
       <img src="img/logo.png" alt="生活牙醫診所" class="logo-img">
     </a>
-
     <button class="hamburger" id="hamburger" aria-label="開啟選單">
-      <span></span>
-      <span></span>
-      <span></span>
+      <span></span><span></span><span></span>
     </button>
-
     <nav id="main-nav">
-      
-
       <div class="nav-dropdown">
         <a href="taichung/index.html">台中旗艦店 <span class="dropdown-arrow">▼</span></a>
         <div class="dropdown-menu">
@@ -40,7 +35,6 @@
           <a href="https://www.gracelife.com.tw/s/app/calendar.aspx?src=web&amp;drCode=002;000000" target="_blank" rel="noopener noreferrer">網路約診</a>
         </div>
       </div>
-
       <div class="nav-dropdown">
         <a href="zushan/index.html">南投竹山店 <span class="dropdown-arrow">▼</span></a>
         <div class="dropdown-menu">
@@ -51,7 +45,6 @@
           <a href="https://www.gracelife.com.tw/s/app/calendar.aspx?src=web&amp;drCode=001;002943" target="_blank" rel="noopener noreferrer">網路約診</a>
         </div>
       </div>
-
       <div class="nav-dropdown">
         <a href="#">療程項目 <span class="dropdown-arrow">▼</span></a>
         <div class="mega-menu">
@@ -63,7 +56,9 @@
           <div class="mega-col">
             <span class="mega-col-title">假牙贋復</span>
             <a href="services/all-ceramic-crown.html">全瓷冠</a>
-            <a href="services/zirconia-crown.html">全鋯冠</a><a href="services/ceramic-veneer.html">陶瓷貼片</a><a href="services/3d-inlay.html">3D 齒雕</a>
+            <a href="services/zirconia-crown.html">全鋯冠</a>
+            <a href="services/ceramic-veneer.html">陶瓷貼片</a>
+            <a href="services/3d-inlay.html">3D 齒雕</a>
           </div>
           <div class="mega-col">
             <span class="mega-col-title">數位植牙</span>
@@ -84,11 +79,9 @@
             <span class="mega-col-title">其他項目</span>
             <a href="services/periodontal-treatment.html">牙周治療</a>
             <a href="services/microscope-root-canal.html">顯微根管</a>
-
           </div>
         </div>
       </div>
-
       <div class="nav-dropdown">
         <a href="cases/all-on-4.html">案例分享 <span class="dropdown-arrow">▼</span></a>
         <div class="dropdown-menu">
@@ -99,23 +92,21 @@
           <a href="cases/aesthetic-dentistry.html">美學牙醫</a>
         </div>
       </div>
-
       <div class="nav-dropdown">
         <a href="knowledge.html">牙醫知識 <span class="dropdown-arrow">▼</span></a>
         <div class="dropdown-menu">
           <a href="knowledge.html">牙醫知識</a>
-          <a href="videos.html">影音專區</a>
+          <a href="videos.html" aria-current="page">影音專區</a>
         </div>
       </div>
-      
       <div class="nav-dropdown">
         <a href="#">關於我們 <span class="dropdown-arrow">▼</span></a>
         <div class="dropdown-menu">
           <a href="idea.html">集團理念</a>
           <a href="news.html">最新消息</a>
+          
         </div>
       </div>
-
       <a href="appointment.html" class="header-cta">預約諮詢</a>
     </nav>
   </div>
@@ -128,74 +119,93 @@
       <span>-</span>
       <span>關於我們</span>
       <span>-</span>
-      <span>最新消息</span>
+      <span>影音專區</span>
     </div>
   </section>
 
-  <section class="news-list-hero">
-    <div class="news-list-hero-inner">
-      <div class="news-list-hero-copy">
-        <div class="news-list-eyebrow">Latest News</div>
+  <section class="knowledge-list-hero">
+    <div class="knowledge-list-hero-inner">
+      <div class="knowledge-list-hero-copy">
+        <div class="knowledge-list-eyebrow">Video Stories</div>
         <h1>
-          最新消息
-          <em>Latest News</em>
+          影音專區
+          <em>Grace Life Shorts</em>
         </h1>
-        <p class="news-list-subtitle">掌握生活牙醫的即時院所動態</p>
-        <p>整理門診公告、醫師班表、活動資訊與院所服務更新，讓您在預約與回診前掌握最即時的生活牙醫消息。</p>
+        <p class="knowledge-list-subtitle">用短影音輕鬆認識牙科療程與口腔照護</p>
+        <p>透過醫師的專業解說與實際療程介紹，快速掌握矯正、植牙與顯微治療等常見問題。</p>
       </div>
-      <div class="news-list-hero-media">
-        <img src="img/hero/about-us.webp" alt="生活牙醫診所最新消息形象照">
+      <div class="knowledge-list-hero-media">
+        <img src="img/hero/about-us.webp" alt="生活牙醫診所專業治療形象照">
       </div>
     </div>
   </section>
 
-  <section class="news-list-section" aria-label="最新消息列表">
-    <div class="news-list-head">
+  <section class="video-library-section" aria-labelledby="video-library-title">
+    <div class="video-library-head">
       <div>
-        <span>Latest News</span>
-        <h2>最新消息</h2>
+        <span>Latest Shorts</span>
+        <h2 id="video-library-title">牙科知識短影音</h2>
       </div>
+      <a class="video-channel-btn" href="https://www.youtube.com/52gracelife" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+        <span>前往 YouTube 頻道</span>
+      </a>
     </div>
 
-    <table class="news-table">
-      <thead>
-        <tr>
-          <th class="col-date">日期</th>
-          <th>標題</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="news-row" data-href="offday.html">
-          <td class="col-date"><span class="nt-date">2026.05.25</span></td>
-          <td><span class="nt-title">5 月休診公告及診所調整事項說明</span></td>
-        </tr>
-        <tr class="news-row" data-href="#">
-          <td class="col-date"><span class="nt-date">2026.05.18</span></td>
-          <td><span class="nt-title">台中生活牙醫 6 月起提供午診現場掛號服務</span></td>
-        </tr>
-        <tr class="news-row" data-href="#">
-          <td class="col-date"><span class="nt-date">2026.05.12</span></td>
-          <td><span class="nt-title">歡迎歐陽國才醫師加入竹山生活牙醫團隊</span></td>
-        </tr>
-        <tr class="news-row" data-href="#">
-          <td class="col-date"><span class="nt-date">2026.05.06</span></td>
-          <td><span class="nt-title">端午連假門診時間調整公告</span></td>
-        </tr>
-        <tr class="news-row" data-href="#">
-          <td class="col-date"><span class="nt-date">2026.04.29</span></td>
-          <td><span class="nt-title">LINE 線上預約流程更新，回診安排更便利</span></td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="video-grid">
+      <article class="video-card">
+        <div class="video-player">
+          <iframe src="https://www.youtube.com/embed/Ka-EzmxKAoc?si=UMS_6BFRqBoRFw_5" title="骨釘是什麼？打骨釘會痛嗎？一定要打嗎？" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div class="video-card-body">
+          <span>齒顎矯正</span>
+          <h3>骨釘是什麼？打骨釘會痛嗎？一定要打嗎？</h3>
+          <time datetime="2026-07-31">2026.07.31</time>
+        </div>
+      </article>
+
+      <article class="video-card">
+        <div class="video-player">
+          <iframe src="https://www.youtube-nocookie.com/embed/7g3k1TkeEXs" title="顯微根管治療，把治療視野放大 20 倍" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div class="video-card-body">
+          <span>顯微根管</span>
+          <h3>顯微根管治療，把治療視野放大 20 倍</h3>
+          <time datetime="2026-07-31">2026.07.31</time>
+        </div>
+      </article>
+
+      <article class="video-card">
+        <div class="video-player">
+          <iframe src="https://www.youtube-nocookie.com/embed/RRXhspmyAUI" title="矯正牙齒真的能改變臉型嗎？齒顎矯正專科醫師解說" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div class="video-card-body">
+          <span>齒顎矯正</span>
+          <h3>矯正牙齒真的能改變臉型嗎？專科醫師解說</h3>
+          <time datetime="2026-07-31">2026.07.31</time>
+        </div>
+      </article>
+
+      <article class="video-card">
+        <div class="video-player">
+          <iframe src="https://www.youtube-nocookie.com/embed/EOI4d1MBeOQ" title="All-On-4 一日全口重建" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div class="video-card-body">
+          <span>全口重建</span>
+          <h3>All-On-4 一日全口重建療程介紹</h3>
+          <time datetime="2026-07-31">2026.07.31</time>
+        </div>
+      </article>
+    </div>
   </section>
 
   <section class="cta-section news-list-cta-section" id="cta">
     <div>
-      <h2 class="cta-title">掌握最新消息<em>安排安心看診</em></h2>
-      <p class="cta-desc">若您想確認門診時間、預約方式或最新活動細節，歡迎透過 LINE 與我們聯繫，由專人協助您安排。</p>
+      <h2 class="cta-title">立即諮詢預約<em>讓專業醫師為您評估</em></h2>
+      <p class="cta-desc">若您對影片中的療程有任何疑問，歡迎預約諮詢，由生活牙醫專業團隊協助安排合適的醫師與評估時段。</p>
     </div>
     <div class="cta-right">
-      <a href="appointment.html" class="cta-btn-primary">立即預約諮詢</a>
+      <a href="appointment.html" class="cta-btn-primary">立即諮詢預約</a>
     </div>
   </section>
 </main>
@@ -262,7 +272,6 @@
   <div style="border-top:1px solid rgba(255,255,255,.05)">
     <div class="ft-bottom">
       <span>© 2025 生活牙醫診所 Grace Life Dental Clinic. All rights reserved.</span>
-
     </div>
   </div>
 </footer>

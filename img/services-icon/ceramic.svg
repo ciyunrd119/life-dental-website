@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_圖層_1" data-name="圖層 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 110">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-2, .cls-3 {
+        fill: #b89a6a;
+      }
+
+      .cls-3 {
+        stroke: #fff;
+        stroke-miterlimit: 10;
+        stroke-width: 3px;
+      }
+    </style>
+  </defs>
+  <circle class="cls-2" cx="55" cy="55" r="54"/>
+  <rect class="cls-3" x="16.04" y="42.85" width="11.97" height="15.88" rx="4.5" ry="4.5"/>
+  <rect class="cls-3" x="80.01" y="42.85" width="11.97" height="15.88" rx="4.5" ry="4.5"/>
+  <rect class="cls-3" x="26.46" y="48.05" width="11.97" height="15.88" rx="4.5" ry="4.5"/>
+  <rect class="cls-3" x="68.55" y="48.05" width="11.97" height="15.88" rx="4.5" ry="4.5"/>
+  <rect class="cls-3" x="39.09" y="50.97" width="15.21" height="17.48" rx="4.5" ry="4.5"/>
+  <path class="cls-3" d="M65.32,88.46h-6.21c-2.48,0-4.5-2.03-4.5-4.5l.67-8.74c.18-2.4,2.18-4.25,4.59-4.25h4.69c2.4,0,4.4,1.85,4.59,4.25l.67,8.74c0,2.47-2.02,4.5-4.5,4.5Z"/>
+  <polygon class="cls-1" points="64.46 59.3 58.52 59.3 57.52 50.87 65.46 50.87 64.46 59.3"/>
+  <path class="cls-3" d="M88.7,49.11l-28.32,1.67c-3.67,.22-7.35,.21-11.02,0l-28.05-1.66c-5.45,0-9.9-3.23-9.9-7.17v-1.99c0-3.94,4.46-7.17,9.9-7.17H88.7c5.45,0,9.9,3.23,9.9,7.17v1.99c0,3.94-4.46,7.17-9.9,7.17Z"/>
+</svg>
