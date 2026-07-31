@@ -11,3 +11,4 @@ img/services/whitening/internal bleaching
 .vscode/
 .idea/
 *.swp
+.vercel
