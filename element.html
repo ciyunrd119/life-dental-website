@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<!--
+  維護提醒：
+  修改 knowledge/*.html 的共用元件語法、css/style.css 的 know-* 樣式，
+  或 js/main.js 的知識文章互動時，請同步更新本頁的預覽與可複製程式碼。
+-->
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>牙醫知識元件庫｜生活牙醫診所</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="img/favicon.ico" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .element-library-page{background:#f3f1ed;color:var(--text);}
+  .element-toolbar{position:sticky;top:0;z-index:300;background:rgba(30,30,30,.96);color:#fff;border-bottom:1px solid rgba(255,255,255,.12);}
+  .element-toolbar-inner{max-width:1240px;min-height:64px;margin:0 auto;padding:10px 28px;display:flex;align-items:center;justify-content:space-between;gap:24px;}
+  .element-brand{display:flex;align-items:center;gap:14px;font-weight:500;letter-spacing:.08em;}
+  .element-brand img{width:auto;height:38px;filter:brightness(0) invert(1);}
+  .element-toolbar-actions{display:flex;align-items:center;gap:10px;}
+  .element-toolbar a{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border:1px solid rgba(255,255,255,.25);border-radius:999px;font-size:14px;letter-spacing:.06em;transition:.2s;}
+  .element-toolbar a:hover{background:#fff;color:#222;}
+  .element-intro{background:#242424;color:#fff;padding:70px 28px 74px;}
+  .element-intro-inner{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,.42fr);gap:54px;align-items:end;}
+  .element-kicker{color:#d4b896;font-size:13px;font-weight:500;letter-spacing:.22em;margin-bottom:18px;}
+  .element-intro h1{font-family:'Noto Serif TC',serif;font-size:clamp(36px,5vw,68px);font-weight:500;line-height:1.25;letter-spacing:.04em;margin-bottom:20px;}
+  .element-intro p{max-width:720px;color:rgba(255,255,255,.7);font-size:17px;line-height:1.95;letter-spacing:.04em;}
+  .element-intro-note{padding:22px 24px;border:1px solid rgba(212,184,150,.4);background:rgba(255,255,255,.04);font-size:14px;line-height:1.8;color:rgba(255,255,255,.75);}
+  .element-layout{max-width:1240px;margin:0 auto;padding:48px 28px 90px;display:grid;grid-template-columns:220px minmax(0,1fr);gap:34px;align-items:start;}
+  .element-index{position:sticky;top:92px;background:#fff;border:1px solid var(--border);padding:20px;}
+  .element-index strong{display:block;color:var(--gold-dark);font-size:13px;letter-spacing:.18em;margin-bottom:12px;}
+  .element-index ol{list-style:none;display:grid;gap:4px;}
+  .element-index a{display:block;padding:7px 8px;border-radius:4px;color:#555;font-size:14px;line-height:1.5;}
+  .element-index a:hover{background:var(--ivory);color:var(--gold-dark);}
+  .element-content{display:grid;gap:30px;min-width:0;}
+  .element-panel{min-width:0;scroll-margin-top:94px;background:#fff;border:1px solid var(--border);box-shadow:0 14px 34px rgba(0,0,0,.04);}
+  .element-panel-head{padding:24px 28px;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;justify-content:space-between;gap:20px;}
+  .element-panel-head h2{font-family:'Noto Serif TC',serif;font-size:26px;font-weight:600;color:var(--dark);line-height:1.4;letter-spacing:.04em;}
+  .element-panel-head p{margin-top:5px;color:var(--muted);font-size:14px;line-height:1.7;}
+  .element-class{flex:0 0 auto;padding:5px 9px;border-radius:4px;background:#eee;color:#555;font:12px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;}
+  .element-preview{padding:34px 28px;overflow:hidden;}
+  .element-preview-dark{background:#333;}
+  .element-preview .know-section{padding:0;border:0;}
+  .element-preview .know-lead-box{padding:0;}
+  .element-preview .know-image-callout{margin:0;}
+  .element-preview .know-article-hero{margin:-34px -28px;padding:46px 38px;}
+  .element-preview .know-article-hero-inner{grid-template-columns:1fr .72fr;gap:32px;}
+  .element-preview .know-article-copy h1{font-size:clamp(30px,4vw,46px);}
+  .element-preview .know-article-copy p{font-size:16px;}
+  .element-code{min-width:0;overflow:hidden;border-top:1px solid var(--border);background:#1f2022;}
+  .element-code summary{cursor:pointer;list-style:none;padding:14px 20px;color:#e3c9a8;font-size:13px;font-weight:500;letter-spacing:.1em;display:flex;align-items:center;justify-content:space-between;}
+  .element-code summary::-webkit-details-marker{display:none;}
+  .element-code summary::after{content:'＋';font-size:17px;}
+  .element-code[open] summary::after{content:'－';}
+  .element-code-wrap{position:relative;border-top:1px solid rgba(255,255,255,.1);}
+  .element-code pre{max-height:430px;overflow:auto;padding:22px 20px;margin:0;color:#ececec;font:13px/1.75 ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;white-space:pre;}
+  .element-copy{position:absolute;top:12px;right:14px;z-index:2;border:1px solid rgba(255,255,255,.25);border-radius:5px;background:#333;color:#fff;padding:7px 10px;font:12px/1.2 'Noto Sans TC',sans-serif;cursor:pointer;}
+  .element-copy:hover,.element-copy.is-copied{background:#d4b896;color:#222;border-color:#d4b896;}
+  .element-token-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;}
+  .element-token{border:1px solid var(--border);background:#fff;}
+  .element-token-color{height:72px;background:var(--swatch);}
+  .element-token-meta{padding:10px 12px;font-size:13px;line-height:1.6;}
+  .element-token-meta code{display:block;color:var(--gold-dark);}
+  .element-type-sample{display:grid;gap:20px;}
+  .element-type-serif{font-family:'Noto Serif TC',serif;font-size:38px;font-weight:600;line-height:1.35;color:var(--dark);}
+  .element-type-sans{font-size:18px;line-height:2;letter-spacing:.04em;}
+  .element-type-en{font-family:'Cormorant Garamond',serif;font-size:44px;line-height:1;color:var(--gold-dark);}
+  .element-table-wrap{overflow:auto;}
+  .element-table{width:100%;border-collapse:collapse;min-width:680px;}
+  .element-table th,.element-table td{text-align:left;padding:13px 16px;border-bottom:1px solid var(--border);font-size:14px;vertical-align:top;}
+  .element-table th{background:var(--ivory);color:var(--dark);font-weight:600;}
+  .element-table code{color:var(--gold-dark);font:13px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace;}
+  .element-file-note{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;}
+  .element-file-note div{padding:17px 18px;border:1px solid var(--border);background:var(--warm-white);font-size:14px;line-height:1.7;}
+  .element-file-note code{display:block;color:var(--gold-dark);margin-bottom:4px;}
+  .element-placeholder{display:grid;place-items:center;width:100%;height:100%;min-height:180px;color:#8a765c;font-size:14px;letter-spacing:.08em;background:linear-gradient(135deg,#eadbc8,#d9c0a0);}
+  .element-footer{padding:28px;text-align:center;background:#242424;color:rgba(255,255,255,.55);font-size:13px;letter-spacing:.08em;}
+  @media(max-width:900px){
+    .element-intro-inner,.element-layout{grid-template-columns:1fr;}
+    .element-index{position:static;}
+    .element-index ol{grid-template-columns:repeat(2,minmax(0,1fr));}
+    .element-token-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+    .element-file-note{grid-template-columns:1fr;}
+    .element-preview .know-article-hero-inner{grid-template-columns:1fr;}
+  }
+  @media(max-width:600px){
+    .element-toolbar-inner{padding:10px 16px;}
+    .element-brand span{display:none;}
+    .element-toolbar-actions a:first-child{display:none;}
+    .element-intro{padding:52px 20px;}
+    .element-layout{padding:28px 16px 60px;}
+    .element-index ol{grid-template-columns:1fr 1fr;}
+    .element-panel-head{padding:20px;display:block;}
+    .element-class{display:inline-block;margin-top:10px;}
+    .element-preview{padding:28px 20px;}
+    .element-preview .know-article-hero{margin:-28px -20px;padding:38px 20px;}
+    .element-token-grid{grid-template-columns:1fr 1fr;}
+  }
+</style>
+</head>
+<body class="knowledge-article-page element-library-page">
+
+<header class="element-toolbar">
+  <div class="element-toolbar-inner">
+    <a class="element-brand" href="index.html" aria-label="回生活牙醫首頁">
+      <img src="img/logo.png" alt="">
+      <span>牙醫知識元件庫</span>
+    </a>
+    <div class="element-toolbar-actions">
+      <a href="css/style.css" target="_blank"><i class="fa-solid fa-code"></i> 開啟樣式表</a>
+      <a href="knowledge.html"><i class="fa-solid fa-arrow-left"></i> 牙醫知識</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="element-intro">
+    <div class="element-intro-inner">
+      <div>
+        <div class="element-kicker">KNOWLEDGE ARTICLE UI LIBRARY</div>
+        <h1>牙醫知識<br>內容元件與語法</h1>
+        <p>這是一份不公開在主選單的內部元件庫。每個區塊都有實際預覽與可直接複製的 HTML，新增文章時只要保留既有 class，再替換文字、圖片與連結即可。</p>
+      </div>
+      <div class="element-intro-note">
+        <strong>使用方式</strong><br>
+        文章頁需載入 <code>css/style.css</code>、Font Awesome 與三套既有字型。頁面 body 請加上 <code>knowledge-article-page</code>。
+      </div>
+    </div>
+  </section>
+
+  <div class="element-layout">
+    <aside class="element-index" aria-label="元件目錄">
+      <strong>元件目錄</strong>
+      <ol>
+        <li><a href="#setup">01 基礎設定</a></li>
+        <li><a href="#tokens">02 色彩與字型</a></li>
+        <li><a href="#hero">03 文章首屏</a></li>
+        <li><a href="#toc">04 文章目錄</a></li>
+        <li><a href="#lead">05 前言與段落</a></li>
+        <li><a href="#cards">06 三欄資訊卡</a></li>
+        <li><a href="#checks">07 勾選清單</a></li>
+        <li><a href="#note">08 醫師提醒</a></li>
+        <li><a href="#points">09 重點段落</a></li>
+        <li><a href="#surgery">10 圖示雙卡</a></li>
+        <li><a href="#images">11 圖片元件</a></li>
+        <li><a href="#related">12 延伸閱讀</a></li>
+        <li><a href="#consult">13 諮詢區塊</a></li>
+        <li><a href="#share">14 分享按鈕</a></li>
+        <li><a href="#skeleton">15 完整骨架</a></li>
+        <li><a href="#classes">16 類別速查</a></li>
+      </ol>
+    </aside>
+
+    <div class="element-content">
+      <section class="element-panel" id="setup">
+        <div class="element-panel-head">
+          <div><h2>01｜基礎設定</h2><p>新文章 head 必備資源與 body 類別。</p></div>
+          <code class="element-class">&lt;head&gt; + body</code>
+        </div>
+        <div class="element-preview">
+          <div class="element-file-note">
+            <div><code>css/style.css</code>全站樣式與所有 <code>know-*</code> 元件</div>
+            <div><code>js/main.js</code>主選單、回頂端與文章分享互動</div>
+            <div><code>knowledge/img/</code>文章專屬圖片建議存放位置</div>
+          </div>
+        </div>
+        <details class="element-code" open>
+          <summary>查看／複製語法</summary>
+          <div class="element-code-wrap">
+            <button class="element-copy" type="button">複製</button>
+            <pre><code>&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;
+&lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;
+&lt;link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;600;700&amp;family=Noto+Sans+TC:wght@300;400;500;700&amp;family=Cormorant+Garamond:wght@300;400;600&amp;display=swap" rel="stylesheet"&gt;
+&lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"&gt;
+&lt;link rel="stylesheet" href="../css/style.css"&gt;
+&lt;script src="../js/main.js" defer&gt;&lt;/script&gt;
+
+&lt;body class="knowledge-article-page"&gt;</code></pre>
+          </div>
+        </details>
+      </section>
+
+      <section class="element-panel" id="tokens">
+        <div class="element-panel-head">
+          <div><h2>02｜色彩與字型</h2><p>目前知識文章使用的全站 CSS 變數與三套字型。</p></div>
+          <code class="element-class">:root</code>
+        </div>
+        <div class="element-preview">
+          <div class="element-token-grid">
+            <div class="element-token"><div class="element-token-color" style="--swatch:#F6F6F6"></div><div class="element-token-meta"><code>--ivory</code>#F6F6F6</div></div>
+            <div class="element-token"><div class="element-token-color" style="--swatch:#FAFAFA"></div><div class="element-token-meta"><code>--warm-white</code>#FAFAFA</div></div>
+            <div class="element-token"><div class="element-token-color" style="--swatch:#1E1E1E"></div><div class="element-token-meta"><code>--dark</code>#1E1E1E</div></div>
+            <div class="element-token"><div class="element-token-color" style="--swatch:#4A4A4A"></div><div class="element-token-meta"><code>--text</code>#4A4A4A</div></div>
+            <div class="element-token"><div class="element-token-color" style="--swatch:#909090"></div><div class="element-token-meta"><code>--muted</code>#909090</div></div>
+            <div class="element-token"><div class="element-token-color" style="--swatch:#C8A882"></div><div class="element-token-meta"><code>--gold</code>#C8A882</div></div>
+            <div class="element-token"><div class="element-token-color" style="--swatch:#A8885A"></div><div class="element-token-meta"><code>--gold-dark</code>#A8885A</div></div>
+            <div class="element-token"><div class="element-token-color" style="--swatch:#DEDEDE"></div><div class="element-token-meta"><code>--border</code>#DEDEDE</div></div>
+          </div>
+          <div class="element-type-sample" style="margin-top:30px">
+            <div class="element-type-serif">文章標題｜Noto Serif TC</div>
+            <div class="element-type-sans">內文使用 Noto Sans TC，建議維持較寬鬆的行高與字距，讓醫療知識閱讀起來清楚、沉穩。</div>
+            <div class="element-type-en">01 Cormorant Garamond</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="element-panel" id="hero">
+        <div class="element-panel-head">
+          <div><h2>03｜文章首屏</h2><p>標籤、標題、閱讀資訊與主視覺；可加 wide 類別顯示完整比例圖片。</p></div>
+          <code class="element-class">know-article-hero</code>
+        </div>
+        <div class="element-preview">
+          <section class="know-article-hero">
+            <div class="know-article-hero-inner">
+              <div class="know-article-copy">
+                <div class="know-article-eyebrow">醫療知識</div>
+                <h1>牙醫知識文章標題放在這裡</h1>
+                <div class="know-article-tags"><span>醫療知識</span><span>療程標籤</span></div>
+                <div class="know-article-meta"><span>2026.07.31</span><span>閱讀約 6 分鐘</span></div>
+              </div>
+              <figure class="know-article-media"><div class="element-placeholder">文章主圖 4:3</div></figure>
+            </div>
+          </section>
+        </div>
+        <details class="element-code"><summary>查看／複製語法</summary><div class="element-code-wrap"><button class="element-copy" type="button">複製</button><pre><code>&lt;section class="know-article-hero"&gt;
+  &lt;div class="know-article-hero-inner"&gt;
+    &lt;div class="know-article-copy"&gt;
+      &lt;div class="know-article-eyebrow"&gt;醫療知識&lt;/div&gt;
+      &lt;h1&gt;文章標題&lt;/h1&gt;
+      &lt;div class="know-article-tags" aria-label="文章標籤"&gt;
+        &lt;span&gt;醫療知識&lt;/span&gt;&lt;span&gt;療程標籤&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div class="know-article-meta"&gt;
+        &lt;span&gt;2026.07.31&lt;/span&gt;&lt;span&gt;閱讀約 6 分鐘&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;figure class="know-article-media"&gt;
+      &lt;img src="img/article-cover.jpg" alt="文章主圖說明"&gt;
+    &lt;/figure&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre></div></details>
+      </section>
+
+      <section class="element-panel" id="toc">
+        <div class="element-panel-head"><div><h2>04｜文章目錄</h2><p>錨點 href 必須與內容段落 id 相同。</p></div><code class="element-class">know-article-toc</code></div>
+        <div class="element-preview">
+          <nav class="know-article-toc" aria-label="文章目錄">
+            <div class="know-toc-label">文章目錄</div>
+            <ol><li><a href="#lead">認識治療方式</a></li><li><a href="#cards">哪些人適合？</a></li><li><a href="#consult">治療前注意事項</a></li></ol>
+          </nav>
+        </div>
+        <details class="element-code"><summary>查看／複製語法</summary><div class="element-code-wrap"><button class="element-copy" type="button">複製</button><pre><code>&lt;nav class="know-article-toc" aria-label="文章目錄"&gt;
+  &lt;div class="know-toc-label"&gt;文章目錄&lt;/div&gt;
+  &lt;ol&gt;
+    &lt;li&gt;&lt;a href="#intro"&gt;認識治療方式&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#who"&gt;哪些人適合？&lt;/a&gt;&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/nav&gt;</code></pre></div></details>
+      </section>
+
+      <section class="element-panel" id="lead">
+        <div class="element-panel-head"><div><h2>05｜前言與標準段落</h2><p>前言使用 lead box；正文每一節使用 know-section，段落標題為金色。</p></div><code class="element-class">know-lead-box / know-section</code></div>
+        <div class="element-preview">
+          <section class="know-lead-box"><p>這裡放文章摘要或讀者最關心的問題。可使用兩段文字，快速說明文章會回答哪些疑問。</p></section>
+          <section class="know-section"><h2>段落標題放在這裡</h2><p>一般內文段落使用舒適的行高。需要加強時可用 <strong class="know-text-medium">中度強調</strong>，重要提醒則使用 <strong class="know-text-emphasis">底色強調文字</strong>。</p></section>
+        </div>
+        <details class="element-code"><summary>查看／複製語法</summary><div class="element-code-wrap"><button class="element-copy" type="button">複製</button><pre><code>&lt;section class="know-lead-box" id="intro"&gt;
+  &lt;p&gt;文章摘要或前言內容。&lt;/p&gt;
+&lt;/section&gt;
+
+&lt;section class="know-section" id="topic"&gt;
+  &lt;h2&gt;段落標題&lt;/h2&gt;
+  &lt;p&gt;一般內文，&lt;strong class="know-text-medium"&gt;中度強調&lt;/strong&gt;，
+  &lt;strong class="know-text-emphasis"&gt;底色強調&lt;/strong&gt;。&lt;/p&gt;
+&lt;/section&gt;</code></pre></div></details>
+      </section>
+
+      <section class="element-panel" id="cards">
+        <div class="element-panel-head"><div><h2>06｜三欄資訊卡</h2><p>適合整理原因、步驟、適用情況；淡金編號位於右上角，卡片標題為 18px 系統字體，平板兩欄、手機單欄。</p></div><code class="element-class">know-card-grid</code></div>
+        <div class="element-preview">
+          <div class="know-card-grid">
+            <div class="know-info-card"><span>01</span><h3>第一項重點</h3><p>放入簡短說明，建議各卡文字長度接近。</p></div>
+            <div class="know-info-card"><span>02</span><h3>第二項重點</h3><p>適合用來比較原因、步驟或治療特色。</p></div>
+            <div class="know-info-card"><span>03</span><h3>第三項重點</h3><p>標題盡量保持一至兩行，閱讀更整齊。</p></div>
+          </div>
+        </div>
+        <details class="element-code"><summary>查看／複製語法</summary><div class="element-code-wrap"><button class="element-copy" type="button">複製</button><pre><code>&lt;div class="know-card-grid"&gt;
+  &lt;div class="know-info-card"&gt;
+    &lt;span&gt;01&lt;/span&gt;&lt;h3&gt;第一項重點&lt;/h3&gt;&lt;p&gt;簡短說明。&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class="know-info-card"&gt;
+    &lt;span&gt;02&lt;/span&gt;&lt;h3&gt;第二項重點&lt;/h3&gt;&lt;p&gt;簡短說明。&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class="know-info-card"&gt;
+    &lt;span&gt;03&lt;/span&gt;&lt;h3&gt;第三項重點&lt;/h3&gt;&lt;p&gt;簡短說明。&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></div></details>
+      </section>
+
+      <section class="element-panel" id="checks">
+        <div class="element-panel-head"><div><h2>07｜勾選清單</h2><p>適合適用條件、注意事項與症狀列點；使用無外框的淺色背景。</p></div><code class="element-class">know-check-list</code></div>
+        <div class="element-preview">
+          <ul class="know-check-list">
+            <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i><span>第一項檢查條件或注意事項。</span></li>
+            <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i><span>第二項可放稍長的說明文字。</span></li>
+            <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i><span>若有不適，應由醫師實際檢查評估。</span></li>
+          </ul>
+        </div>
+        <details class="element-code"><summary>查看／複製語法</summary><div class="element-code-wrap"><button class="element-copy" type="button">複製</button><pre><code>&lt;ul class="know-check-list"&gt;
+  &lt;li&gt;&lt;i class="fa-solid fa-circle-check" aria-hidden="true"&gt;&lt;/i&gt;&lt;span&gt;第一項內容。&lt;/span&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;i class="fa-solid fa-circle-check" aria-hidden="true"&gt;&lt;/i&gt;&lt;span&gt;第二項內容。&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;</code></pre></div></details>
+      </section>
+
+      <section class="element-panel" id="note">
+        <div class="element-panel-head"><div><h2>08｜醫師提醒</h2><p>用於風險、例外狀況或需要特別注意的醫療資訊。</p></div><code class="element-class">know-doctor-note</code></div>
+        <div class="element-preview">
+          <div class="know-doctor-note"><span>醫師提醒</span><p>每個人的口腔條件不同，實際治療方式仍需經醫師檢查與影像評估後決定。</p></div>
+        </div>
+        <details class="element-code"><summary>查看／複製語法</summary><div class="element-code-wrap"><button class="element-copy" type="button">複製</button><pre><code>&lt;div class="know-doctor-note"&gt;
+  &lt;span&gt;醫師提醒&lt;/span&gt;
+  &lt;p&gt;提醒內容放在這裡。&lt;/p&gt;
+&lt;/div&gt;</code></pre></div></details>
+      </section>
+
+      <section class="element-panel" id="points">
+        <div class="element-panel-head"><div><h2>09｜重點段落與圓點清單</h2><p>適合優缺點、工具、準備物品或細節補充；重點標題為深灰色，桌機 20px、手機 18px，工具清單使用深灰文字與金色圓點。</p></div><code class="element-class">know-point-list / know-tool-list</code></div>
+        <div class="element-preview">
+          <div class="know-point-list">
+            <section class="know-point-item"><h3>適合情況</h3><p>用短標題搭配一段完整說明，層次比一般段落更清楚。</p></section>
+            <section class="know-point-item"><h3>準備項目</h3><ul class="know-tool-list"><li>近期用藥與病史資料</li><li>想詢問醫師的問題</li><li>過去的相關影像紀錄</li></ul></section>
+          </div>
+        </div>
+        <details class="element-code"><summary>查看／複製語法</summary><div class="element-code-wrap"><button class="element-copy" type="button">複製</button><pre><code>&lt;div class="know-point-list"&gt;
+  &lt;section class="know-point-item"&gt;
+    &lt;h3&gt;適合情況&lt;/h3&gt;&lt;p&gt;完整說明。&lt;/p&gt;
+  &lt;/section&gt;
+  &lt;section class="know-point-item"&gt;
+    &lt;h3&gt;準備項目&lt;/h3&gt;
+    &lt;ul class="know-tool-list"&gt;&lt;li&gt;第一項&lt;/li&gt;&lt;li&gt;第二項&lt;/li&gt;&lt;/ul&gt;
+  &lt;/section&gt;
+&lt;/div&gt;</code></pre></div></details>
+      </section>
+
+      <section class="element-panel" id="surgery">
+        <div class="element-panel-head"><div><h2>10｜圖示雙卡</h2><p>適合兩項並列的評估重點、術前術後或方案比較。</p></div><code class="element-class">know-surgery-grid</code></div>
+        <div class="element-preview">
+          <div class="know-surgery-grid">
+            <article class="know-surgery-card"><div class="know-surgery-icon"><i class="fa-solid fa-clipboard-check"></i></div><h3>治療前評估</h3><p>整理兩個重要面向，圖示可替換成 Font Awesome 圖示。</p></article>
+            <article class="know-surgery-card"><div class="know-surgery-icon"><i class="fa-solid fa-tooth"></i></div><h3>口腔條件</h3><p>手機版會自動改為單欄，文字長度建議大致相同。</p></article>
+          </div>
+        </div>
+        <details class="element-code"><summary>查看／複製語法</summary><div class="element-code-wrap"><button class="element-copy" type="button">複製</button><pre><code>&lt;div class="know-surgery-grid"&gt;
+  &lt;article class="know-surgery-card"&gt;
+    &lt;div class="know-surgery-icon"&gt;&lt;i class="fa-solid fa-clipboard-check"&gt;&lt;/i&gt;&lt;/div&gt;
+    &lt;h3&gt;治療前評估&lt;/h3&gt;&lt;p&gt;說明文字。&lt;/p&gt;
+  &lt;/article&gt;
+  &lt;article class="know-surgery-card"&gt;
+    &lt;div class="know-surgery-icon"&gt;&lt;i class="fa-solid fa-tooth"&gt;&lt;/i&gt;&lt;/div&gt;
+    &lt;h3&gt;口腔條件&lt;/h3&gt;&lt;p&gt;說明文字。&lt;/p&gt;
+  &lt;/article&gt;
+&lt;/div&gt;</code></pre></div></details>
+      </section>
+
+      <section class="element-panel" id="images">
+        <div class="element-panel-head"><div><h2>11｜圖片元件</h2><p>標準 16:9 圖片、80% 療程圖，以及深色圖文並排。</p></div><code class="element-class">know-image-placeholder / callout</code></div>
+        <div class="element-preview">
+          <figure class="know-image-placeholder"><div class="element-placeholder">標準內文圖片 16:9</div></figure>
+          <figure class="know-image-placeholder know-treatment-figure"><div class="element-placeholder">置中療程圖片 80%</div></figure>
+          <section class="know-image-callout">
+            <div class="element-placeholder">重點圖片 4:3</div>
+            <div><h2>深色圖文重點區</h2><p>適合特別重要的觀念、設備特色或治療優勢，和一般白底段落形成視覺節奏。</p></div>
+          </section>
+        </div>
+        <details class="element-code"><summary>查看／複製語法</summary><div class="element-code-wrap"><button class="element-copy" type="button">複製</button><pre><code>&lt;figure class="know-image-placeholder"&gt;
+  &lt;img src="img/article-01.jpg" alt="圖片內容說明"&gt;
+&lt;/figure&gt;
+
+&lt;figure class="know-image-placeholder know-treatment-figure"&gt;
+  &lt;img src="img/article-02.jpg" alt="療程圖片說明"&gt;
+&lt;/figure&gt;
+
+&lt;section class="know-image-callout"&gt;
+  &lt;img src="img/article-03.jpg" alt="重點圖片說明"&gt;
+  &lt;div&gt;&lt;h2&gt;深色圖文重點區&lt;/h2&gt;&lt;p&gt;說明文字。&lt;/p&gt;&lt;/div&gt;
+&lt;/section&gt;</code></pre></div></details>
+      </section>
+
+      <section class="element-panel" id="related">
+        <div class="element-panel-head"><div><h2>12｜延伸閱讀</h2><p>連到其他知識文章或療程介紹；標籤與深灰色標題皆為 16px。</p></div><code class="element-class">know-related-link</code></div>
+        <div class="element-preview">
+          <a href="knowledge.html" class="know-related-link"><span><i class="fa-solid fa-book-bookmark"></i>延伸閱讀</span><strong>相關牙醫知識文章標題</strong></a>
+        </div>
+        <details class="element-code"><summary>查看／複製語法</summary><div class="element-code-wrap"><button class="element-copy" type="button">複製</button><pre><code>&lt;a href="另一篇文章.html" class="know-related-link"&gt;
+  &lt;span&gt;&lt;i class="fa-solid fa-book-bookmark"&gt;&lt;/i&gt;延伸閱讀&lt;/span&gt;
+  &lt;strong&gt;相關牙醫知識文章標題&lt;/strong&gt;
+&lt;/a&gt;</code></pre></div></details>
+      </section>
+
+      <section class="element-panel" id="consult">
+        <div class="element-panel-head"><div><h2>13｜段落內諮詢區塊</h2><p>可插在文章內容結尾，提供明確下一步。</p></div><code class="element-class">know-consult-box</code></div>
+        <div class="element-preview">
+          <section class="know-consult-box">
+            <div><h2>需要進一步評估嗎？</h2><p>由醫師依照您的實際狀況說明合適的檢查與治療方式。</p></div>
+            <a href="appointment.html">預約諮詢</a>
+          </section>
+        </div>
+        <details class="element-code"><summary>查看／複製語法</summary><div class="element-code-wrap"><button class="element-copy" type="button">複製</button><pre><code>&lt;section class="know-consult-box"&gt;
+  &lt;div&gt;&lt;h2&gt;需要進一步評估嗎？&lt;/h2&gt;&lt;p&gt;簡短說明。&lt;/p&gt;&lt;/div&gt;
+  &lt;a href="../appointment.html"&gt;預約諮詢&lt;/a&gt;
+&lt;/section&gt;</code></pre></div></details>
+      </section>
+
+      <section class="element-panel" id="share">
+        <div class="element-panel-head"><div><h2>14｜文章分享按鈕</h2><p>main.js 會自動產生 LINE、Facebook 分享網址與複製目前頁面連結。</p></div><code class="element-class">know-share-section</code></div>
+        <div class="element-preview">
+          <div class="know-share-inner" style="padding-top:0;border-top:0">
+            <h2>分享這篇文章</h2>
+            <div class="know-share-buttons">
+              <span class="know-share-btn"><i class="fa-brands fa-line"></i><span>LINE</span></span>
+              <span class="know-share-btn"><i class="fa-brands fa-facebook-f"></i><span>Facebook</span></span>
+              <span class="know-share-btn"><i class="fa-solid fa-link"></i><span>複製連結</span></span>
+            </div>
+          </div>
+        </div>
+        <details class="element-code"><summary>查看／複製語法</summary><div class="element-code-wrap"><button class="element-copy" type="button">複製</button><pre><code>&lt;section class="know-share-section" aria-labelledby="knowShareTitle"&gt;
+  &lt;div class="know-share-inner"&gt;
+    &lt;h2 id="knowShareTitle"&gt;分享這篇文章&lt;/h2&gt;
+    &lt;div class="know-share-buttons"&gt;
+      &lt;a href="#" class="know-share-btn" data-share-channel="line" target="_blank" rel="noopener noreferrer"&gt;
+        &lt;i class="fa-brands fa-line"&gt;&lt;/i&gt;&lt;span&gt;LINE&lt;/span&gt;
+      &lt;/a&gt;
+      &lt;a href="#" class="know-share-btn" data-share-channel="facebook" target="_blank" rel="noopener noreferrer"&gt;
+        &lt;i class="fa-brands fa-facebook-f"&gt;&lt;/i&gt;&lt;span&gt;Facebook&lt;/span&gt;
+      &lt;/a&gt;
+      &lt;button type="button" class="know-share-btn" data-copy-link&gt;
+        &lt;i class="fa-solid fa-link"&gt;&lt;/i&gt;&lt;span&gt;複製連結&lt;/span&gt;
+      &lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre></div></details>
+      </section>
+
+      <section class="element-panel" id="skeleton">
+        <div class="element-panel-head"><div><h2>15｜文章內容完整骨架</h2><p>複製後依需求插入上方元件，並確保目錄 href 與段落 id 對應。</p></div><code class="element-class">article skeleton</code></div>
+        <details class="element-code" open><summary>查看／複製完整骨架</summary><div class="element-code-wrap"><button class="element-copy" type="button">複製</button><pre><code>&lt;main&gt;
+  &lt;section class="page-breadcrumb" aria-label="網頁分層"&gt;
+    &lt;div class="page-breadcrumb-inner"&gt;
+      &lt;a href="../index.html"&gt;Home&lt;/a&gt;&lt;span&gt;-&lt;/span&gt;
+      &lt;a href="../knowledge.html"&gt;醫療知識&lt;/a&gt;&lt;span&gt;-&lt;/span&gt;
+      &lt;span&gt;文章標題&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;article class="know-article"&gt;
+    &lt;section class="know-article-hero"&gt;...文章首屏...&lt;/section&gt;
+    &lt;div class="know-article-body"&gt;
+      &lt;nav class="know-article-toc" aria-label="文章目錄"&gt;...文章目錄...&lt;/nav&gt;
+      &lt;div class="know-article-content"&gt;
+        &lt;section class="know-lead-box" id="intro"&gt;...前言...&lt;/section&gt;
+        &lt;section class="know-section" id="topic-1"&gt;...第一段...&lt;/section&gt;
+        &lt;section class="know-section" id="topic-2"&gt;...第二段...&lt;/section&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/article&gt;
+
+  &lt;section class="know-share-section"&gt;...文章分享...&lt;/section&gt;
+  &lt;section class="cta-section" id="cta"&gt;...頁尾 CTA...&lt;/section&gt;
+&lt;/main&gt;</code></pre></div></details>
+      </section>
+
+      <section class="element-panel" id="classes">
+        <div class="element-panel-head"><div><h2>16｜CSS 類別速查</h2><p>樣式皆位於 css/style.css 的牙醫知識文章區段。</p></div><code class="element-class">class reference</code></div>
+        <div class="element-table-wrap">
+          <table class="element-table">
+            <thead><tr><th>用途</th><th>主要類別</th><th>備註</th></tr></thead>
+            <tbody>
+              <tr><td>頁面模式</td><td><code>knowledge-article-page</code></td><td>加在 body</td></tr>
+              <tr><td>首屏</td><td><code>know-article-hero</code><br><code>know-article-hero-inner</code></td><td>左右圖文、手機自動單欄</td></tr>
+              <tr><td>首圖</td><td><code>know-article-media</code><br><code>know-article-media-wide</code></td><td>預設 4:3；wide 顯示原比例</td></tr>
+              <tr><td>內容寬度</td><td><code>know-article-body</code><br><code>know-article-content</code></td><td>文章最大寬度 1040px</td></tr>
+              <tr><td>目錄</td><td><code>know-article-toc</code><br><code>know-toc-label</code></td><td>自動編號</td></tr>
+              <tr><td>前言／段落</td><td><code>know-lead-box</code><br><code>know-section</code></td><td>金色段落標題＋上分隔線</td></tr>
+              <tr><td>文字強調</td><td><code>know-text-medium</code><br><code>know-text-emphasis</code></td><td>一般粗體／底色強調</td></tr>
+              <tr><td>提醒</td><td><code>know-doctor-note</code></td><td>金色圓角框</td></tr>
+              <tr><td>內文圖片</td><td><code>know-image-placeholder</code><br><code>know-treatment-figure</code></td><td>16:9／置中 80%</td></tr>
+              <tr><td>深色圖文</td><td><code>know-image-callout</code></td><td>桌機雙欄、手機單欄</td></tr>
+              <tr><td>資訊卡</td><td><code>know-card-grid</code><br><code>know-info-card</code></td><td>右上淡金編號，標題 18px</td></tr>
+              <tr><td>圖示卡</td><td><code>know-surgery-grid</code><br><code>know-surgery-card</code></td><td>兩欄圖示卡</td></tr>
+              <tr><td>清單</td><td><code>know-check-list</code><br><code>know-tool-list</code></td><td>無外框勾選／深灰字＋金色圓點</td></tr>
+              <tr><td>重點段落</td><td><code>know-point-list</code><br><code>know-point-item</code></td><td>深灰標題：桌機 20px／手機 18px</td></tr>
+              <tr><td>延伸閱讀</td><td><code>know-related-link</code></td><td>16px 標籤＋深灰標題，整列可點擊</td></tr>
+              <tr><td>內容 CTA</td><td><code>know-consult-box</code></td><td>標題文字＋按鈕</td></tr>
+              <tr><td>分享</td><td><code>know-share-section</code><br><code>know-share-btn</code></td><td>需搭配 main.js</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </div>
+</main>
+
+<footer class="element-footer">生活牙醫診所｜牙醫知識元件庫（內部參考頁，不列入主選單）</footer>
+
+<script>
+  document.querySelectorAll('.element-copy').forEach((button) => {
+    button.addEventListener('click', async () => {
+      const code = button.parentElement.querySelector('code').textContent;
+      const original = button.textContent;
+      try {
+        if (navigator.clipboard && window.isSecureContext) {
+          await navigator.clipboard.writeText(code);
+        } else {
+          const textarea = document.createElement('textarea');
+          textarea.value = code;
+          textarea.style.position = 'fixed';
+          textarea.style.opacity = '0';
+          document.body.appendChild(textarea);
+          textarea.select();
+          document.execCommand('copy');
+          textarea.remove();
+        }
+        button.textContent = '已複製';
+        button.classList.add('is-copied');
+      } catch (error) {
+        button.textContent = '複製失敗';
+      }
+      window.setTimeout(() => {
+        button.textContent = original;
+        button.classList.remove('is-copied');
+      }, 1600);
+    });
+  });
+</script>
+</body>
+</html>
