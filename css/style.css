@@ -920,7 +920,7 @@ a[href^="tel:"],a[x-apple-data-detectors]{text-decoration:none!important;}
 .cs-img-6 { background-image: url('../img/case-periodontal.png'); }
 
 .cs-cat {
-  font-size: 11px; letter-spacing: .22em; text-transform: uppercase;
+  font-size: 11px; letter-spacing: .12em; text-transform: uppercase;
   color:#B89A6A; font-weight: 400; margin-bottom: 12px;
   display: inline-flex; align-items: center; align-self:flex-start;
   padding:3px 10px;
@@ -1516,6 +1516,8 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
 .fl-line{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.2);transition:transform .2s;}
 .fl-line img{width:100%;height:100%;display:block;border-radius:50%;object-fit:cover;}
 .fl-line:hover{transform:scale(1.08);}
+.fl-booking{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#B89A6A;color:#fff;box-shadow:0 4px 16px rgba(0,0,0,.2);transition:transform .2s,background .2s;font-size:20px;line-height:1;}
+.fl-booking:hover{background:var(--gold-dark);transform:scale(1.08);}
 
 /* ─── CLINIC DETAIL PAGE ─── */
 .clinic-page{background:#fff;}
@@ -1595,7 +1597,7 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
 .clinic-booking-cta .sec-label{color:rgba(255,255,255,.72);margin-bottom:12px;}
 .clinic-booking-cta .sec-label::before{background:rgba(200,168,130,.9);}
 .clinic-booking-cta h2{font-family:'Noto Serif TC',serif;font-size:clamp(30px,4vw,46px);font-weight:400;color:#fff;letter-spacing:.04em;line-height:1.35;}
-.clinic-booking-btn{display:inline-flex;align-items:center;justify-content:center;min-width:168px;padding:13px 28px;border-radius:999px;background:#fff;color:var(--dark);font-size:16px;font-weight:600;letter-spacing:.12em;transition:background .2s,color .2s,transform .2s;}
+.clinic-booking-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-width:168px;padding:13px 28px;border-radius:999px;background:#fff;color:var(--dark);font-size:16px;font-weight:600;letter-spacing:.12em;transition:background .2s,color .2s,transform .2s;}
 .clinic-booking-btn:hover{background:var(--gold-dark);color:#fff;transform:translateY(-1px);}
 .clinic-page .sec-label{font-size:14px;letter-spacing:.2em;color:#B89A6A;text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:12px;font-weight:400;}
 .clinic-page .sec-label::before{content:'';display:block;width:24px;height:.5px;background:#B89A6A;}
@@ -4988,6 +4990,8 @@ a.news-notice-action-text:hover{color:#A8885A;}
 .implant-center-intro{display:grid;grid-template-columns:minmax(360px,.92fr) minmax(0,1.08fr);gap:64px;align-items:center;max-width:1240px;margin:0 auto;padding:100px 48px;}
 .implant-center-intro-media{overflow:hidden;border-radius:4px;box-shadow:0 18px 44px rgba(48,42,34,.12);}
 .implant-center-intro-media img{width:100%;aspect-ratio:4 / 3;object-fit:cover;display:block;}
+.implant-center-intro-media.implant-center-intro-media--natural{order:-1;border:0;border-radius:0;box-shadow:none;background:none;}
+.implant-center-intro-media--natural img{height:auto;aspect-ratio:auto;object-fit:contain;}
 .implant-center-intro-copy h2,.implant-center-section-head h2,.implant-center-cta h2{font-family:'Noto Serif TC',serif;font-size:clamp(32px,3.6vw,48px);font-weight:500;line-height:1.45;color:var(--dark);letter-spacing:.04em;}
 .implant-center-intro-copy > p{margin-top:20px;color:var(--text);font-size:17px;font-weight:300;line-height:2;letter-spacing:.04em;}
 .implant-center-services,.implant-center-tech,.implant-center-team,.implant-center-environment{padding:92px 48px;}
@@ -5065,7 +5069,7 @@ a.news-notice-action-text:hover{color:#A8885A;}
   .implant-center-hero-media{height:280px;}
   .implant-center-intro,.implant-center-services,.implant-center-advantages,.implant-center-tech,.implant-center-process,.implant-center-team,.implant-center-environment{padding:60px 24px;}
   .implant-center-intro{display:flex;flex-direction:column;}
-  .implant-center-intro-media{width:100vw;margin-left:calc(50% - 50vw);border-radius:0;box-shadow:none;}
+  .implant-center-intro-media{width:calc(100% + 48px);margin-left:-24px;border-radius:0;box-shadow:none;}
   .implant-center-service-grid,.implant-center-adv-grid,.implant-center-team-grid,.implant-center-env-grid{grid-template-columns:1fr;}
   .implant-center-tech-grid article{grid-template-columns:1fr;}
   .implant-center-tech-grid img{height:auto;aspect-ratio:3 / 2;}
@@ -5249,7 +5253,8 @@ a.news-notice-action-text:hover{color:#A8885A;}
   .implant-center-hero h1{font-size:38px;}
   .implant-center-intro,.implant-center-services,.implant-center-advantages,.implant-center-tech,.implant-center-process,.implant-center-team,.implant-center-environment,.implant-center-cases{padding:46px 24px;}
   .implant-center-intro{gap:30px;}
-  .implant-center-intro-media{width:100vw;margin-left:calc(50% - 50vw);}
+  .implant-center-intro-media{width:calc(100% + 48px);margin-left:-24px;}
+  .implant-center-intro-media.implant-center-intro-media--natural{order:0;width:calc(100% + 48px);max-width:none;flex:0 0 auto;align-self:center;margin-left:0;}
   .implant-center-service-grid,.implant-center-adv-grid,.implant-center-team-grid,.implant-center-env-grid{grid-template-columns:1fr;}
   .implant-center-adv-grid{gap:12px;}
   .implant-center-adv-grid article{padding:22px 20px 22px 64px;}
