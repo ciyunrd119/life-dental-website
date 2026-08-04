@@ -1493,7 +1493,9 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
 .ft-treatment-col > h4.ft-compact-title{font-size:17px;letter-spacing:.1em;}
 .ft-treatment-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:18px;align-items:start;}
 .ft-treatment-links a{min-width:0;}
+.ft-col .ft-social-title{margin-top:14px;color:rgba(255,255,255,.84);font-size:15px;font-weight:500;letter-spacing:.08em;}
 .ft-col .ft-social-links{display:flex;align-items:center;gap:10px;margin-top:12px;}
+.ft-col .ft-social-title + .ft-social-links{margin-top:8px;}
 .ft-col .ft-social-links .ft-fb-btn.ft-social-icon{width:40px;height:40px;min-width:0;margin-top:0;padding:0;border-radius:50%;font-size:17px;}
 .ft-col p{font-size:16px;color:rgba(255,255,255,.66);letter-spacing:.03em;line-height:1.9;}
 .ft-phone-number{font-family:system-ui,sans-serif;font-size:18px;}
