@@ -68,14 +68,20 @@ Expected: FAIL，列出 12 個尚未完整的案例 Alt。
 - [ ] **Step 3: 驗證台中案例 Alt**
 
 ```bash
-rg -n 'alt="台中生活牙醫(陳嘉豪|邱勁嘉|莊禮駿|薛青坡)醫師' \
+taichung_updated_count=0
+for doctor_file in \
   taichung/dr-chen-chia-hao.html \
   taichung/dr-chiu-chin-chia.html \
   taichung/dr-chuang-li-chun.html \
-  taichung/dr-hsueh-ching-po.html
+  taichung/dr-hsueh-ching-po.html; do
+  doctor_name=$(rg -o '<h1>[^<]+</h1>' "$doctor_file" | sed -E 's#</?h1>##g')
+  page_count=$(rg -U -o "<div class=\"case-image\">\\s*<img[^>]+alt=\"台中生活牙醫${doctor_name}醫師" "$doctor_file" | rg -c '^<div class="case-image">')
+  taichung_updated_count=$((taichung_updated_count + page_count))
+done
+test "$taichung_updated_count" = "12"
 ```
 
-Expected: 顯示 12 行。
+Expected: exit 0，`taichung_updated_count` 為 12。
 
 ### Task 2: 補齊南投醫師案例圖片 Alt
 
@@ -138,11 +144,26 @@ Expected: 顯示 9 行。
 - [ ] **Step 1: 確認所有案例圖片都有正確地區前綴**
 
 ```bash
-taichung_case_count=$(rg -U -o '<div class="case-image">\s*<img[^>]+alt="台中生活牙醫' taichung/dr-*.html | wc -l | tr -d ' ')
-nantou_case_count=$(rg -U -o '<div class="case-image">\s*<img[^>]+alt="南投生活牙醫' zushan/team/dr-*.html | wc -l | tr -d ' ')
-test "$taichung_case_count" = "24"
-test "$nantou_case_count" = "9"
-echo "PASS：台中 ${taichung_case_count} 張、南投 ${nantou_case_count} 張案例照片皆含正確前綴"
+set -eu
+case_total=0
+case_good=0
+for doctor_file in taichung/dr-*.html zushan/team/dr-*.html; do
+  if rg -q '<div class="case-image">' "$doctor_file"; then
+    doctor_name=$(rg -o '<h1>[^<]+</h1>' "$doctor_file" | sed -E 's#</?h1>##g')
+    case "$doctor_file" in
+      taichung/*) location_prefix='台中生活牙醫' ;;
+      zushan/*) location_prefix='南投生活牙醫' ;;
+    esac
+    page_total=$(rg -U -o '<div class="case-image">\s*<img[^>]+alt="' "$doctor_file" | rg -c '^<div class="case-image">')
+    page_good=$(rg -U -o "<div class=\"case-image\">\\s*<img[^>]+alt=\"${location_prefix}${doctor_name}醫師" "$doctor_file" | rg -c '^<div class="case-image">')
+    test "$page_total" = "$page_good"
+    case_total=$((case_total + page_total))
+    case_good=$((case_good + page_good))
+  fi
+done
+test "$case_total" = "33"
+test "$case_good" = "33"
+echo "PASS：${case_good} 張案例照片皆含正確地區、品牌與醫師姓名"
 ```
 
 Expected: PASS，台中 24 張、南投 9 張。
@@ -170,4 +191,3 @@ git diff --word-diff=plain -- taichung/dr-*.html zushan/team/dr-*.html
 ```
 
 Expected: 只顯示 21 個案例圖片 Alt 新增地區、生活牙醫與醫師姓名；圖片路徑、結構與裝飾 Alt 沒有變更。
-
