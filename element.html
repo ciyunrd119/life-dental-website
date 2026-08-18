@@ -211,7 +211,7 @@
 
       <section class="element-panel" id="hero">
         <div class="element-panel-head">
-          <div><h2>03｜文章首屏</h2><p>標籤、標題、閱讀資訊與主視覺；可加 wide 類別顯示完整比例圖片。</p></div>
+          <div><h2>03｜文章首屏</h2><p>標籤、標題、閱讀資訊與 3:2 主視覺；手機版圖片貼齊首屏區塊底部。</p></div>
           <code class="element-class">know-article-hero</code>
         </div>
         <div class="element-preview">
@@ -223,7 +223,7 @@
                 <div class="know-article-tags"><span>醫療知識</span><span>療程標籤</span></div>
                 <div class="know-article-meta"><span>2026.07.31</span><span>閱讀約 6 分鐘</span></div>
               </div>
-              <figure class="know-article-media"><div class="element-placeholder">文章主圖 4:3</div></figure>
+              <figure class="know-article-media know-article-media-placeholder"><div class="element-placeholder">文章主圖 3:2（1200×800）</div></figure>
             </div>
           </section>
         </div>
@@ -368,12 +368,12 @@
       </section>
 
       <section class="element-panel" id="images">
-        <div class="element-panel-head"><div><h2>11｜圖片元件</h2><p>標準 16:9 圖片、80% 療程圖，以及深色圖文並排。</p></div><code class="element-class">know-image-placeholder / callout</code></div>
+        <div class="element-panel-head"><div><h2>11｜圖片元件</h2><p>原圖比例內文圖片、原圖比例 80% 療程圖，以及深色圖文並排。</p></div><code class="element-class">know-image-placeholder / callout</code></div>
         <div class="element-preview">
-          <figure class="know-image-placeholder"><div class="element-placeholder">標準內文圖片 16:9</div></figure>
-          <figure class="know-image-placeholder know-treatment-figure"><div class="element-placeholder">置中療程圖片 80%</div></figure>
+          <figure class="know-image-placeholder"><div class="element-placeholder">標準內文圖片・原圖比例</div></figure>
+          <figure class="know-image-placeholder know-treatment-figure"><div class="element-placeholder">置中療程圖片 80%・原圖比例</div></figure>
           <section class="know-image-callout">
-            <div class="element-placeholder">重點圖片 4:3</div>
+            <div class="element-placeholder">重點圖片・原圖比例</div>
             <div><h2>深色圖文重點區</h2><p>適合特別重要的觀念、設備特色或治療優勢，和一般白底段落形成視覺節奏。</p></div>
           </section>
         </div>
@@ -481,14 +481,14 @@
             <thead><tr><th>用途</th><th>主要類別</th><th>備註</th></tr></thead>
             <tbody>
               <tr><td>頁面模式</td><td><code>knowledge-article-page</code></td><td>加在 body</td></tr>
-              <tr><td>首屏</td><td><code>know-article-hero</code><br><code>know-article-hero-inner</code></td><td>左右圖文、手機自動單欄</td></tr>
-              <tr><td>首圖</td><td><code>know-article-media</code><br><code>know-article-media-wide</code></td><td>預設 4:3；wide 顯示原比例</td></tr>
+              <tr><td>首屏</td><td><code>know-article-hero</code><br><code>know-article-hero-inner</code></td><td>左右圖文；手機單欄且首圖貼齊底部</td></tr>
+              <tr><td>首圖</td><td><code>know-article-media</code><br><code>know-article-media-wide</code></td><td>統一 3:2（建議 1200×800）</td></tr>
               <tr><td>內容寬度</td><td><code>know-article-body</code><br><code>know-article-content</code></td><td>文章最大寬度 1040px</td></tr>
               <tr><td>目錄</td><td><code>know-article-toc</code><br><code>know-toc-label</code></td><td>自動編號</td></tr>
               <tr><td>前言／段落</td><td><code>know-lead-box</code><br><code>know-section</code></td><td>金色段落標題＋上分隔線</td></tr>
               <tr><td>文字強調</td><td><code>know-text-medium</code><br><code>know-text-emphasis</code></td><td>一般粗體／底色強調</td></tr>
               <tr><td>提醒</td><td><code>know-doctor-note</code></td><td>金色圓角框</td></tr>
-              <tr><td>內文圖片</td><td><code>know-image-placeholder</code><br><code>know-treatment-figure</code></td><td>16:9／置中 80%</td></tr>
+              <tr><td>內文圖片</td><td><code>know-image-placeholder</code><br><code>know-treatment-figure</code></td><td>原圖比例／置中 80% 原圖比例</td></tr>
               <tr><td>深色圖文</td><td><code>know-image-callout</code></td><td>桌機雙欄、手機單欄</td></tr>
               <tr><td>資訊卡</td><td><code>know-card-grid</code><br><code>know-info-card</code></td><td>右上淡金編號，標題 18px</td></tr>
               <tr><td>圖示卡</td><td><code>know-surgery-grid</code><br><code>know-surgery-card</code></td><td>兩欄圖示卡</td></tr>

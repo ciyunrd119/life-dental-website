@@ -937,8 +937,6 @@ a[href^="tel:"],a[x-apple-data-detectors]{text-decoration:none!important;}
 .cs-img-2 { background-image: url('../img/cases/implant-1.webp'); }
 .cs-img-3 { background-image: url('../img/cases/cemaric-1.jpg'); }
 .cs-img-4 { background-image: url('../img/cases/ortho5.webp'); }
-.cs-img-5 { background-image: url('../img/case-invisalign.png'); }
-.cs-img-6 { background-image: url('../img/case-periodontal.png'); }
 
 .cs-cat {
   font-size: 11px; letter-spacing: .12em; text-transform: uppercase;
@@ -1167,13 +1165,13 @@ a[href^="tel:"],a[x-apple-data-detectors]{text-decoration:none!important;}
   position:relative;overflow:hidden;transition:border-color .3s,box-shadow .3s;
 }
 .clinic-card-tc{
-  background-image:url('../img/clinicbg_tc.png');
+  background-image:url('../img/hero/taichung-clinic-background.png');
   background-repeat:no-repeat;
   background-position:top right;
   background-size:260px auto;
 }
 .clinic-card-zs{
-  background-image:url('../img/clinicbg_zs.png');
+  background-image:url('../img/hero/zushan-clinic.webp');
   background-repeat:no-repeat;
   background-position:top right;
   background-size:260px auto;
@@ -1608,7 +1606,7 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
 .clinic-page .clinic-hours-table thead th{background:#B89A6A;}
 .clinic-page .clinic-hours-table tbody th span,.clinic-page .clinic-hours-table td,.clinic-page .clinic-hours-table tbody tr:nth-child(2) td,.clinic-page .clinic-hours-table-all-checks tbody tr:nth-child(2) td{color:#B89A6A;}
 .clinic-page .clinic-hours-table:not(.clinic-hours-table-all-checks) tbody tr:nth-child(2) th span,.clinic-page .clinic-hours-table:not(.clinic-hours-table-all-checks) tbody tr:nth-child(2) td{font-weight:500;}
-.clinic-booking-cta{position:relative;min-height:220px;padding:46px 48px;background-image:linear-gradient(rgba(30,30,30,.58),rgba(30,30,30,.58)),url('../img/bg-appointment.webp');background-size:cover;background-position:center;background-attachment:fixed;display:flex;align-items:center;}
+.clinic-booking-cta{position:relative;min-height:220px;padding:46px 48px;background-image:linear-gradient(rgba(30,30,30,.58),rgba(30,30,30,.58)),url('../img/hero/bg-appointment.webp');background-size:cover;background-position:center;background-attachment:fixed;display:flex;align-items:center;}
 .clinic-booking-cta-inner{width:100%;max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:28px;}
 .clinic-booking-cta .sec-label{color:rgba(255,255,255,.72);margin-bottom:12px;}
 .clinic-booking-cta .sec-label::before{background:rgba(200,168,130,.9);}
@@ -4650,10 +4648,11 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
 .know-article-meta span{position:relative;}
 .know-article-meta span:not(:last-child)::after{content:'';position:absolute;right:-10px;top:50%;width:3px;height:3px;border-radius:50%;background:rgba(168,136,90,.55);}
 .know-article-media{position:relative;margin:0;border:1px solid rgba(168,136,90,.2);background:#fff;overflow:hidden;box-shadow:0 18px 38px rgba(0,0,0,.08);}
-.know-article-media img{width:100%;aspect-ratio:4 / 3;object-fit:cover;display:block;}
+.know-article-media img{width:100%;height:auto;aspect-ratio:auto;object-fit:contain;display:block;}
+.know-article-hero .know-article-media img{aspect-ratio:3 / 2;object-fit:cover;}
 .know-article-media-wide{aspect-ratio:auto;}
 .know-article-media-wide img{height:auto;max-height:none;aspect-ratio:auto;object-fit:contain;}
-.know-article-media-placeholder{aspect-ratio:4 / 3;background:#E8D8C0;}
+.know-article-media-placeholder{aspect-ratio:3 / 2;background:#E8D8C0;}
 .know-article-media::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.02),rgba(42,111,168,.14));pointer-events:none;}
 .know-article-body{max-width:1040px;margin:0 auto;padding:58px 48px 82px;}
 .know-article-content{min-width:0;}
@@ -4676,9 +4675,10 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
 .know-doctor-note{margin-top:24px;padding:22px 26px;border:0;border-radius:28px;background:#fbf4ea;}
 .know-doctor-note span{display:block;margin-bottom:6px;font-size:20px;font-weight:500;letter-spacing:.14em;color:#D3C0A1;}
 .know-doctor-note p{font-size:18px;line-height:1.9;color:var(--dark);font-weight:400;margin:0;}
-.know-image-placeholder{width:100%;aspect-ratio:16 / 9;margin-top:26px;border-radius:8px;background:#E8D8C0;overflow:hidden;}
-.know-image-placeholder img{width:100%;height:100%;object-fit:cover;display:block;}
-.know-treatment-figure{width:80%;margin:15px auto;}
+.know-image-placeholder{width:100%;aspect-ratio:auto;margin-top:26px;border-radius:8px;background:#E8D8C0;overflow:hidden;}
+.know-image-placeholder img{width:100%;height:auto;aspect-ratio:auto;object-fit:contain;display:block;}
+.know-treatment-figure{width:80%;aspect-ratio:auto;margin:15px auto;}
+.know-treatment-figure img{height:auto;object-fit:contain;}
 .know-point-list{display:grid;gap:24px;margin-top:30px;}
 .know-point-item{padding-top:24px;border-top:1px dashed #D9D9D9;}
 .know-point-item h3{font-size:18px;line-height:1.45;color:#4f4f4f;font-weight:500;letter-spacing:.05em;margin-bottom:10px;}
@@ -4706,7 +4706,7 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
 .know-option-item{display:grid;grid-template-columns:54px minmax(0,1fr);gap:20px;align-items:start;background:#fff;border:1px solid rgba(168,136,90,.22);border-radius:8px;padding:24px 26px;box-shadow:0 10px 22px rgba(0,0,0,.045);}
 .know-option-num{width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--gold-dark);color:#fff;font-family:'Cormorant Garamond',serif;font-size:28px;line-height:1;}
 .know-image-callout{display:grid;grid-template-columns:minmax(300px,.92fr) minmax(0,1.08fr);gap:34px;align-items:center;background:#262626;color:#fff;margin:18px 0 0;padding:34px;}
-.know-image-callout img{width:100%;aspect-ratio:4 / 3;object-fit:cover;}
+.know-image-callout img{width:100%;height:auto;aspect-ratio:auto;object-fit:contain;display:block;}
 .know-image-callout h2{color:#fff;}
 .know-image-callout p{color:rgba(255,255,255,.72);}
 .know-check-list{list-style:none;display:block;margin-top:24px;background:var(--warm-white);border:0;border-radius:8px;padding:6px 26px;}
@@ -4811,6 +4811,7 @@ a.news-notice-action-text:hover{color:#A8885A;}
 
 @media(max-width:760px){
   .know-article-hero{padding:42px 24px 48px;}
+  .knowledge-article-page .know-article-hero{padding-bottom:0;}
   .know-article-media{width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);border-left:0;border-right:0;}
   .know-article-body{padding:42px 24px 62px;}
   .news-article-page .know-article-body{padding-top:12px;}
@@ -5188,7 +5189,7 @@ a.news-notice-action-text:hover{color:#A8885A;}
 .implant-center-environment{background:var(--ivory);}
 .implant-center-env-grid{gap:5px;max-width:992px;}
 .implant-center-env-grid figure{border-radius:4px;box-shadow:0 14px 30px rgba(0,0,0,.08);}
-.implant-center-cta{min-height:220px;padding:46px max(48px,calc((100vw - 1120px) / 2));background-image:linear-gradient(rgba(30,30,30,.58),rgba(30,30,30,.58)),url('../img/bg-appointment.webp');background-size:cover;background-position:center;background-attachment:fixed;}
+.implant-center-cta{min-height:220px;padding:46px max(48px,calc((100vw - 1120px) / 2));background-image:linear-gradient(rgba(30,30,30,.58),rgba(30,30,30,.58)),url('../img/hero/bg-appointment.webp');background-size:cover;background-position:center;background-attachment:fixed;}
 .implant-center-cta h2{color:#fff;}
 .implant-center-cta p{color:rgba(255,255,255,.78);}
 .implant-center-cta .implant-center-btn{border-color:#fff;background:#fff;color:var(--dark);}
@@ -5610,10 +5611,10 @@ a.news-notice-action-text:hover{color:#A8885A;}
   background:#B89A6A;
 }
 .clinics-sec .clinic-card-tc{
-  background-image:linear-gradient(90deg,#fff 0%,rgba(255,255,255,.95) 58%,rgba(255,255,255,.68) 100%),url('../img/clinicbg_tc.png');
+  background-image:linear-gradient(90deg,#fff 0%,rgba(255,255,255,.95) 58%,rgba(255,255,255,.68) 100%),url('../img/hero/taichung-clinic-background.png');
 }
 .clinics-sec .clinic-card-zs{
-  background-image:linear-gradient(90deg,#fff 0%,rgba(255,255,255,.95) 58%,rgba(255,255,255,.68) 100%),url('../img/clinicbg_zs.png');
+  background-image:linear-gradient(90deg,#fff 0%,rgba(255,255,255,.95) 58%,rgba(255,255,255,.68) 100%),url('../img/hero/zushan-clinic.webp');
 }
 .clinics-sec .home-clinic-card .c-name{
   font-size:30px;
