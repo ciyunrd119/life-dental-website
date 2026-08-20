@@ -505,3 +505,96 @@ document.querySelectorAll('.news-row[data-href]').forEach(row => {
   buildDots();
   goTo(0);
 })();
+/* ── Shared treatment page interactions ── */
+(function(){
+  const revealElements = Array.from(document.querySelectorAll('.reveal'));
+
+  if (revealElements.length) {
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+      revealElements.forEach(el => observer.observe(el));
+    } else {
+      revealElements.forEach(el => el.classList.add('visible'));
+    }
+  }
+
+  const processCards = Array.from(document.querySelectorAll('.process-step'));
+  processCards.forEach((el, index) => {
+    el.style.animationDelay = `${index * 0.12}s`;
+  });
+
+  const processSteps = document.querySelector('.process-steps');
+  const processDots = Array.from(document.querySelectorAll('.process-dot'));
+
+  function setActiveProcessDot(index) {
+    processDots.forEach((dot, dotIndex) => {
+      dot.classList.toggle('is-active', dotIndex === index);
+    });
+  }
+
+  if (processSteps && processDots.length && processCards.length) {
+    processDots.forEach((dot, index) => {
+      if (!processCards[index]) return;
+
+      dot.addEventListener('click', () => {
+        processCards[index].scrollIntoView({
+          behavior: 'smooth',
+          block: 'nearest',
+          inline: 'start'
+        });
+        setActiveProcessDot(index);
+      });
+    });
+
+    processSteps.addEventListener('scroll', () => {
+      const stepWidth = processCards[1]
+        ? processCards[1].offsetLeft - processCards[0].offsetLeft
+        : processCards[0].getBoundingClientRect().width;
+      if (!stepWidth) return;
+
+      const activeIndex = Math.max(0, Math.min(
+        processCards.length - 1,
+        Math.round(processSteps.scrollLeft / stepWidth)
+      ));
+      setActiveProcessDot(activeIndex);
+    }, { passive: true });
+  }
+
+  const teamTrack = document.querySelector('.ao4-team-grid');
+  const teamCards = Array.from(document.querySelectorAll('.ao4-team-card'));
+  const teamArrows = Array.from(document.querySelectorAll('.ao4-team-arrow'));
+
+  if (teamTrack && teamCards.length && teamArrows.length) {
+    const teamStepWidth = () => {
+      const gap = parseFloat(getComputedStyle(teamTrack).gap) || 0;
+      return teamCards[0].getBoundingClientRect().width + gap;
+    };
+
+    teamArrows.forEach((button) => {
+      button.addEventListener('click', () => {
+        const direction = Number(button.dataset.teamDir) || 1;
+        teamTrack.scrollBy({
+          left: direction * teamStepWidth(),
+          behavior: 'smooth'
+        });
+      });
+    });
+  }
+
+  document.querySelectorAll('.faq-question').forEach((button) => {
+    button.addEventListener('click', () => {
+      const item = button.closest('.faq-item');
+      if (!item) return;
+
+      const isOpen = item.classList.toggle('is-open');
+      button.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+  });
+})();

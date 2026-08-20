@@ -4675,8 +4675,10 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
 .know-doctor-note{margin-top:24px;padding:22px 26px;border:0;border-radius:28px;background:#fbf4ea;}
 .know-doctor-note span{display:block;margin-bottom:6px;font-size:20px;font-weight:500;letter-spacing:.14em;color:#D3C0A1;}
 .know-doctor-note p{font-size:18px;line-height:1.9;color:var(--dark);font-weight:400;margin:0;}
-.know-image-placeholder{width:100%;aspect-ratio:auto;margin-top:26px;border-radius:8px;background:#E8D8C0;overflow:hidden;}
+.know-image-placeholder{width:100%;aspect-ratio:auto;margin-top:26px;border-radius:8px;background:transparent;overflow:hidden;}
 .know-image-placeholder img{width:100%;height:auto;aspect-ratio:auto;object-fit:contain;display:block;}
+.know-article-body .know-article-media,.know-article-body .know-image-placeholder{border:0;background:transparent;box-shadow:none;}
+.know-article-body .know-article-media::after{display:none;}
 .know-treatment-figure{width:80%;aspect-ratio:auto;margin:15px auto;}
 .know-treatment-figure img{height:auto;object-fit:contain;}
 .know-point-list{display:grid;gap:24px;margin-top:30px;}
@@ -4693,7 +4695,7 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
 .know-related-link strong{font-size:16px;font-weight:500;letter-spacing:.04em;color:#4f4f4f;}
 .know-related-link:hover strong{text-decoration:underline;text-underline-offset:4px;}
 .know-related-link:hover{background:rgba(212,184,150,.34);}
-.know-card-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:26px;}
+.know-card-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:26px;margin-bottom:15px;}
 .know-info-card{position:relative;border:1px solid var(--border);background:var(--warm-white);border-radius:8px;padding:22px 24px 20px;box-shadow:0 12px 24px rgba(0,0,0,.05);}
 .know-info-card span{position:absolute;top:16px;right:18px;display:block;font-family:'Cormorant Garamond',serif;font-size:30px;line-height:1;color:rgba(168,136,90,.28);letter-spacing:.08em;margin:0;pointer-events:none;}
 .know-info-card h3{padding-right:48px;font-family:system-ui,sans-serif;font-size:18px;line-height:1.5;color:var(--dark);font-weight:400;letter-spacing:.05em;margin-bottom:10px;}
@@ -4746,6 +4748,7 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
 .news-offday-image-button{appearance:none;display:block;width:100%;aspect-ratio:1 / 1;padding:0;border:0;background:transparent;cursor:zoom-in;border-radius:8px;overflow:hidden;}
 .news-offday-image-button:focus-visible{outline:2px solid var(--gold);outline-offset:4px;}
 .news-offday-image{width:100%;height:100%;object-fit:cover;border:0;border-radius:8px;margin:0 auto;}
+.offday-page .news-offday-image-hint{margin:-12px 0 24px;text-align:center;color:var(--muted);font-size:12px;line-height:1.6;letter-spacing:.08em;}
 .image-lightbox{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;padding:72px 28px 28px;background:rgba(0,0,0,.82);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .22s,visibility .22s;}
 .image-lightbox.is-open{opacity:1;visibility:visible;pointer-events:auto;}
 .image-lightbox-img{max-width:min(94vw,980px);max-height:86vh;width:auto;height:auto;border-radius:8px;box-shadow:0 24px 80px rgba(0,0,0,.42);}
@@ -4819,7 +4822,7 @@ a.news-notice-action-text:hover{color:#A8885A;}
   .news-offday-image-grid,.news-card-image-grid{gap:8px;}
   .know-article-copy p,.know-lead-box p,.know-section p,.know-image-callout p,.know-consult-box p{font-size:16px;}
   .know-doctor-note span{font-size:16px;}
-  .know-doctor-note p{font-size:14px;}
+  .know-doctor-note p{font-size:16px;}
   .know-treatment-figure{width:100%;}
   .know-article-tags span{font-size:13px;}
   .news-clinic-notice{padding:28px 22px;}

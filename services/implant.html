@@ -483,67 +483,6 @@
 
 </main>
 
-<script>
-
-  // Intersection Observer for reveal animations
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-  // Stagger process steps
-  document.querySelectorAll('.process-step').forEach((el, i) => {
-    el.style.animationDelay = `${i * 0.12}s`;
-  });
-
-  const processSteps = document.querySelector('.process-steps');
-  const processDots = Array.from(document.querySelectorAll('.process-dot'));
-  const processCards = Array.from(document.querySelectorAll('.process-step'));
-
-  function setActiveProcessDot(index) {
-    processDots.forEach((dot, dotIndex) => {
-      dot.classList.toggle('is-active', dotIndex === index);
-    });
-  }
-
-  if (processSteps && processDots.length && processCards.length) {
-    processDots.forEach((dot, index) => {
-      dot.addEventListener('click', () => {
-        processCards[index].scrollIntoView({
-          behavior: 'smooth',
-          block: 'nearest',
-          inline: 'start'
-        });
-        setActiveProcessDot(index);
-      });
-    });
-
-    processSteps.addEventListener('scroll', () => {
-      const stepWidth = processCards[1]
-        ? processCards[1].offsetLeft - processCards[0].offsetLeft
-        : processCards[0].getBoundingClientRect().width;
-      const activeIndex = Math.max(0, Math.min(
-        processCards.length - 1,
-        Math.round(processSteps.scrollLeft / stepWidth)
-      ));
-      setActiveProcessDot(activeIndex);
-    }, { passive: true });
-  }
-
-  document.querySelectorAll('.faq-question').forEach((button) => {
-    button.addEventListener('click', () => {
-      const item = button.closest('.faq-item');
-      const isOpen = item.classList.toggle('is-open');
-      button.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-    });
-  });
-
-</script>
 
 <footer>
   <div class="ft-top">
@@ -553,7 +492,7 @@
       <p>📍 台中市南屯區公益路二段525號</p>
       <div class="ft-clinic-hours" aria-label="台中旗艦店門診時間">
         <strong>門診時間</strong>
-        <span>週一～週五</span>
+        <span>週一～週五（六日休診）</span>
         <ul>
           <li><span>早診</span><time>09:30–12:00</time></li>
           <li><span>午診</span><time>14:30–17:30</time></li>
@@ -573,7 +512,7 @@
       <p>📍 南投縣竹山鎮前山路一段99號</p>
       <div class="ft-clinic-hours" aria-label="南投竹山店門診時間">
         <strong>門診時間</strong>
-        <span>週一～週五</span>
+        <span>週一～週五（六日休診）</span>
         <ul>
           <li><span>早診</span><time>09:00–12:00</time></li>
           <li><span>午診</span><time>14:30–17:30</time></li>
