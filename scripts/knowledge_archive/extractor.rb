@@ -30,6 +30,9 @@ module KnowledgeArchive
           filename: File.basename(URI(absolute).path)
         )
       end
+      root.css('img[src]').zip(images).each do |img, image_ref|
+        img['src'] = image_ref.source_url
+      end
       summary = root.css('p').map { |p| p.text.strip }.find { |text| !text.empty? }
       ExtractedArticle.new(
         title: title,
