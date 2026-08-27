@@ -1,0 +1,30 @@
+know_20260409.html:
+  replacement: knowledge/20260624-microscope-root-canal-guide.html
+know_20260305.html:
+  replacement: knowledge/20260305-tooth-wear-restoration.html
+know_20260225.html:
+  replacement: knowledge/20260225-air-polishing-whitening.html
+know_20250827.html:
+  replacement: knowledge/20250827-guided-vs-freehand-implant.html
+know_20250821.html:
+  replacement: knowledge/20260626-front-tooth-gap-treatment.html
+know_20250212.html:
+  source_path: know_20250212.html
+know_20240426.html:
+  source_path: know_20240426.html
+know_20240104.html:
+  source_path: know_20240104.html
+know_20231115.html:
+  replacement: knowledge/20231115-isq-implant-stability.html
+know_20211022.html:
+  source_path: know_20211022.html
+know_20200204.html:
+  replacement: knowledge/20200204-zirkonzahn-zirconia-crown.html
+know_20170912.html:
+  replacement: knowledge/20240912-root-coverage-surgery.html
+台中冷光美白.html:
+  source_path: 台中冷光美白.html
+  local_path: knowledge/know_cold-light-whitening.html
+bestimplant.html:
+  source_path: bestimplant.html
+  local_path: knowledge/know_bestimplant.html
