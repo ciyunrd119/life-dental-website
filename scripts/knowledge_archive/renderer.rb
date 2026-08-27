@@ -1,6 +1,7 @@
 require 'fileutils'
 require 'nokogiri'
 require_relative 'catalog'
+require_relative 'categories'
 require_relative 'extractor'
 
 module KnowledgeArchive
@@ -21,12 +22,12 @@ module KnowledgeArchive
       doc.at_css('.know-article-hero h1').content = extracted.title
       tags = doc.at_css('.know-article-tags')
       tags.children.remove
-      ['牙醫知識', category_label(article.categories.first)].each do |label|
+      ['牙醫知識', Categories.label(article.categories.first)].each do |label|
         tags.add_child(Nokogiri::XML::Node.new('span', doc).tap { |node| node.content = label })
       end
       meta = doc.css('.know-article-meta span')
       meta[0].content = article.date.strftime('%Y.%m.%d')
-      meta[-1].content = category_label(article.categories.first)
+      meta[-1].content = Categories.label(article.categories.first)
       body = doc.at_css('.know-article-body')
       body.children.remove
       fragment = Nokogiri::HTML::DocumentFragment.parse(extracted.body_html)
@@ -60,18 +61,5 @@ module KnowledgeArchive
       :created
     end
 
-    private
-
-    def category_label(category)
-      {
-        'all-on-4' => 'All-on-4',
-        'prosthodontics' => '假牙贋復',
-        'implant' => '數位植牙',
-        'ortho' => '齒顎矯正',
-        'esthetic' => '美容牙科',
-        'periodontal' => '牙周治療',
-        'general' => '一般牙科'
-      }.fetch(category, '一般牙科')
-    end
   end
 end
