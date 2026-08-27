@@ -12,3 +12,4 @@ img/services/whitening/internal bleaching
 .idea/
 *.swp
 .vercel
+.worktrees/
