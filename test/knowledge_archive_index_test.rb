@@ -17,6 +17,32 @@ class KnowledgeArchiveIndexTest < Minitest::Test
     assert_equal migrated.uniq, migrated
   end
 
+  def test_card_summary_is_limited_to_42_characters_before_read_more
+    entry = fixture_entry('knowledge/know_20260506.html', Date.new(2026, 5, 6))
+    entry[:extracted].summary = '12345678901234567890123456789012345678901234567890'
+
+    card = KnowledgeArchive::IndexBuilder.new(path: 'knowledge.html').card(**entry)
+    description = card.at_css('.knowledge-card-desc')
+    summary = description.children.reject do |node|
+      node.element? && node['class'] == 'knowledge-card-more'
+    end.map(&:text).join
+
+    assert_equal '123456789012345678901234567890123456789012', summary
+    assert_equal '閱讀更多...', description.at_css('.knowledge-card-more').text
+  end
+
+  def test_rebuild_limits_existing_card_summaries_to_42_characters
+    html = KnowledgeArchive::IndexBuilder.new(path: 'knowledge.html').rebuild(entries: [])
+    descriptions = Nokogiri::HTML(html).css('.knowledge-card-desc')
+    lengths = descriptions.map do |description|
+      description.children.reject do |node|
+        node.element? && node['class'] == 'knowledge-card-more'
+      end.map(&:text).join.length
+    end
+
+    assert lengths.all? { |length| length <= 42 }, "summary lengths: #{lengths.inspect}"
+  end
+
   private
 
   def fixture_entry(path, date)
