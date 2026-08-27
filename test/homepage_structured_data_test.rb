@@ -30,7 +30,7 @@ class HomepageStructuredDataTest < Minitest::Test
   def test_organization_references_both_clinic_departments
     expected_departments = [
       { '@id' => 'https://www.gracelife.com.tw/taichung/#localbusiness' },
-      { '@id' => 'https://www.gracelife.com.tw/zushan/#localbusiness' }
+      { '@id' => 'https://www.gracelife.com.tw/zhushan/#localbusiness' }
     ]
 
     assert_equal expected_departments, @organization['department']
