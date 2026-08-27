@@ -14,6 +14,7 @@ module KnowledgeArchive
     def rebuild(entries:)
       doc = Nokogiri::HTML(File.read(@path))
       grid = doc.at_css('.knowledge-card-grid')
+      grid.css('a.knowledge-card[data-migrated-source]').remove
       entries.each do |entry|
         href = entry.fetch(:article).local_path
         next if grid.css('a.knowledge-card').any? { |node| node['href'] == href }
@@ -30,6 +31,7 @@ module KnowledgeArchive
     end
 
     def card(article:, extracted:, cover_path:)
+      summary = extracted.summary.to_s.gsub(/\s+/, ' ').strip
       fragment = Nokogiri::HTML::DocumentFragment.parse(<<~HTML)
         <a href="#{CGI.escapeHTML(article.local_path)}" class="knowledge-card"
            data-knowledge-category="#{CGI.escapeHTML(article.categories.join(' '))}"
@@ -40,7 +42,7 @@ module KnowledgeArchive
           <div class="knowledge-card-body">
             <span class="knowledge-card-tag">#{Categories.label(article.categories.first)}</span>
             <h3>#{CGI.escapeHTML(extracted.title)}</h3>
-            <p class="knowledge-card-desc">#{CGI.escapeHTML(extracted.summary)}<span class="knowledge-card-more">閱讀更多...</span></p>
+            <p class="knowledge-card-desc">#{CGI.escapeHTML(summary)}<span class="knowledge-card-more">閱讀更多...</span></p>
             <time datetime="#{article.date.iso8601}">#{article.date.strftime('%Y.%m.%d')}</time>
           </div>
         </a>

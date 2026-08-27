@@ -12,7 +12,9 @@ module KnowledgeArchive
 
     def call(html, base_url:)
       doc = Nokogiri::HTML(html)
-      root = doc.at_css('article.post.single > section') || doc.at_css('article.post.single')
+      root = doc.at_css('article.post.single > section.post-content') ||
+             doc.css('article.post.single > section').find { |node| !node['class'].to_s.split.include?('date') } ||
+             doc.at_css('article.post.single')
       raise 'article body not found' unless root
       root.css('script,style,iframe,form,nav,footer').remove
       title_node = root.at_css('h1,h2')
@@ -23,11 +25,11 @@ module KnowledgeArchive
       root.css('h1').each { |node| node.name = 'h2' }
       root.css('h2').drop(1).each { |node| node.name = 'h3' }
       images = root.css('img[src]').map do |img|
-        absolute = URI.join(base_url, img['src']).to_s
+        absolute = URI.join(base_url, URI::DEFAULT_PARSER.escape(img['src'])).to_s
         ImageRef.new(
           source_url: absolute,
           alt: img['alt'].to_s.strip,
-          filename: File.basename(URI(absolute).path)
+          filename: File.basename(URI.decode_www_form_component(URI(absolute).path))
         )
       end
       root.css('img[src]').zip(images).each do |img, image_ref|

@@ -30,6 +30,8 @@ class KnowledgeArchiveRendererTest < Minitest::Test
     assert_includes html, 'src="img/20260506/a.jpg"'
     assert_includes html, 'data-migrated-source="know_20260506.html"'
     refute_includes html, 'ISQ'
+    refute_match(/[ \t]+$/, html)
+    refute_includes html, "\t"
   end
 
   def test_refuses_to_overwrite_manual_file

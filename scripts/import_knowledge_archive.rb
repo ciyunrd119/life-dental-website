@@ -70,10 +70,11 @@ module KnowledgeArchive
     def resolve(article, list_url)
       errors = []
       article.candidates.each do |candidate|
-        url = URI.join(list_url, candidate).to_s
+        url = URI.join(list_url, URI::DEFAULT_PARSER.escape(candidate)).to_s
         begin
           extracted = Extractor.call(@fetcher.get(url), base_url: url)
-          return [extracted, url] if title_match?(article.title, extracted.title)
+          return [extracted, url] if article.allow_title_mismatch ||
+                                     title_match?(article.title, extracted.title)
           errors << "title mismatch: #{url}"
         rescue StandardError => error
           errors << error.message

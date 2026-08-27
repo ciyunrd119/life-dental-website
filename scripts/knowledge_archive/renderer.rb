@@ -47,7 +47,7 @@ module KnowledgeArchive
       cta.at_css('.cta-title').inner_html = '有牙齒問題，歡迎<em>預約諮詢</em>' if cta
       cta.at_css('.cta-desc').content = '由醫師依您的口腔狀況進行評估，說明合適的檢查與治療安排。' if cta
       doc.at_css('body')['data-migrated-source'] = article.source_path
-      doc.to_html
+      doc.to_html.each_line.map { |line| line.gsub("\t", '  ').rstrip }.join("\n") + "\n"
     end
 
     def self.write(path:, html:)

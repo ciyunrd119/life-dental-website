@@ -10,7 +10,8 @@ class KnowledgeArchiveCatalogTest < Minitest::Test
     },
     '台中冷光美白.html' => {
       'source_path' => '台中冷光美白.html',
-      'local_path' => 'knowledge/know_cold-light-whitening.html'
+      'local_path' => 'knowledge/know_cold-light-whitening.html',
+      'allow_title_mismatch' => true
     }
   }
 
@@ -29,5 +30,6 @@ class KnowledgeArchiveCatalogTest < Minitest::Test
   def test_honors_explicit_local_path
     article = KnowledgeArchive::Catalog.parse(FIXTURE, overrides: OVERRIDES)[3]
     assert_equal 'knowledge/know_cold-light-whitening.html', article.local_path
+    assert article.allow_title_mismatch
   end
 end

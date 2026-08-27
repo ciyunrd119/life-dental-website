@@ -5,7 +5,7 @@ require 'yaml'
 module KnowledgeArchive
   Article = Struct.new(
     :source_path, :title, :date, :candidates, :local_path,
-    :replacement, :categories, keyword_init: true
+    :replacement, :categories, :allow_title_mismatch, keyword_init: true
   )
 
   module Catalog
@@ -32,7 +32,8 @@ module KnowledgeArchive
           candidates: candidates,
           local_path: rule['local_path'] || "knowledge/#{source}",
           replacement: rule['replacement'],
-          categories: Array(rule['categories'])
+          categories: Array(rule['categories']),
+          allow_title_mismatch: rule['allow_title_mismatch'] == true
         )
       end
     end
