@@ -2256,11 +2256,7 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
     box-shadow: 0 10px 24px rgba(184, 154, 106, 0.24);
     transform: translateY(-2px);
   }
-  .ceramic-source-page .step-num {
-    font-family: var(--font-serif); font-size: 14px; font-weight: 400;
-    color: var(--gold); letter-spacing: 0.1em; line-height: 1;
-  }
-  .ceramic-source-page .step-icon { width: 54px; height: 54px; display: block; object-fit: contain; }
+  .ceramic-source-page .step-icon { width: 81px; height: 81px; display: block; object-fit: contain; }
   .ceramic-source-page .step-title { font-weight: 500; font-size: 14px; color: var(--charcoal); margin-bottom: 8px; }
   .ceramic-source-page .step-desc { font-size: 14px; color: var(--warm-gray); line-height: 1.7; }
   /* ── MATERIAL COMPARE ── */

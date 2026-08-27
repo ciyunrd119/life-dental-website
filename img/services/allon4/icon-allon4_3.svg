@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_圖層_1" data-name="圖層 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 110">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-1, .cls-2 {
+        stroke: #fff;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 3px;
+      }
+
+      .cls-2 {
+        fill: none;
+      }
+    </style>
+  </defs>
+  <line class="cls-1" x1="44.87" y1="72.08" x2="66.63" y2="64.22"/>
+  <g>
+    <path class="cls-2" d="M43.18,30.13h23.6l-2.21,41.13s-1.02,12.62-8.49,12.62-9.55-7.34-10.36-13.55c-.85-6.54-2.55-40.19-2.55-40.19Z"/>
+    <line class="cls-1" x1="43.47" y1="36.55" x2="66.25" y2="36.55"/>
+    <line class="cls-1" x1="42.84" y1="47.03" x2="67.33" y2="38.17"/>
+    <line class="cls-1" x1="42.93" y1="55.57" x2="67.32" y2="46.76"/>
+    <line class="cls-1" x1="43.52" y1="63.75" x2="66.87" y2="55.3"/>
+    <path class="cls-2" d="M41.98,30.01s-2.52-5.56-5.73,.77c-13.01,25.66-11.45,57.83-11.45,57.83"/>
+    <path class="cls-2" d="M68.02,30.01s2.52-5.56,5.73,.77c13.01,25.66,11.45,57.83,11.45,57.83"/>
+  </g>
+</svg>
