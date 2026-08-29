@@ -4643,6 +4643,8 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
 .know-article-meta{display:flex;flex-wrap:wrap;gap:10px 18px;color:var(--muted);font-size:14px;letter-spacing:.08em;}
 .know-article-meta span{position:relative;}
 .know-article-meta span:not(:last-child)::after{content:'';position:absolute;right:-10px;top:50%;width:3px;height:3px;border-radius:50%;background:rgba(168,136,90,.55);}
+.know-reviewer-link{color:inherit;text-decoration:underline;text-decoration-color:rgba(168,136,90,.55);text-underline-offset:.2em;transition:color .2s,text-decoration-color .2s;}
+.know-reviewer-link:hover,.know-reviewer-link:focus-visible{color:var(--gold-dark);text-decoration-color:currentColor;}
 .knowledge-article-page{overflow-x:hidden;}
 .know-article-media{position:relative;margin:0;border:1px solid rgba(168,136,90,.2);background:#fff;overflow:hidden;box-shadow:0 18px 38px rgba(0,0,0,.08);}
 .know-article-media img{width:100%;height:auto;aspect-ratio:auto;object-fit:contain;display:block;}
@@ -4676,6 +4678,15 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
 .know-image-placeholder img{width:100%;height:auto;aspect-ratio:auto;object-fit:contain;display:block;}
 .know-article-body .know-article-media,.know-article-body .know-image-placeholder{border:0;background:transparent;box-shadow:none;}
 .know-article-body .know-article-media::after{display:none;}
+.know-table-wrap{width:100%;max-width:100%;margin:26px 0;overflow-x:auto;border:1px solid rgba(168,136,90,.24);border-radius:8px;background:#fff;-webkit-overflow-scrolling:touch;}
+.know-table-wrap table{width:100%;min-width:620px;border-collapse:collapse;color:var(--text);font-size:16px;line-height:1.7;}
+.know-table-wrap th,.know-table-wrap td{padding:14px 16px;border-right:1px solid var(--border);border-bottom:1px solid var(--border);text-align:left;vertical-align:top;}
+.know-table-wrap th{background:var(--warm-white);color:var(--dark);font-weight:600;}
+.know-table-wrap tr:last-child > *{border-bottom:0;}
+.know-table-wrap tr > *:last-child{border-right:0;}
+.know-section > ul,.know-section > ol{margin:20px 0;padding-left:1.5em;}
+.know-section > ul li,.know-section > ol li{margin:8px 0;font-size:18px;line-height:1.9;color:var(--text);letter-spacing:.04em;}
+.know-section blockquote:not(.know-doctor-note){margin:22px 0;padding:18px 22px;border-left:4px solid #D3C0A1;background:#fbf8f3;color:var(--dark);font-size:17px;line-height:1.9;}
 .know-treatment-figure{width:80%;aspect-ratio:auto;margin:15px auto;}
 .know-treatment-figure img{height:auto;object-fit:contain;}
 .know-point-list{display:grid;gap:24px;margin-top:30px;}

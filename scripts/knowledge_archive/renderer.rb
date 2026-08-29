@@ -3,6 +3,8 @@ require 'nokogiri'
 require_relative 'catalog'
 require_relative 'categories'
 require_relative 'extractor'
+require_relative 'body_normalizer'
+require_relative 'reviewers'
 
 module KnowledgeArchive
   class ExistingManualFile < StandardError; end
@@ -27,7 +29,8 @@ module KnowledgeArchive
       end
       meta = doc.css('.know-article-meta span')
       meta[0].content = article.date.strftime('%Y.%m.%d')
-      meta[-1].content = Categories.label(article.categories.first)
+      reviewer_name, reviewer_path = Reviewers.profile(article.categories)
+      meta[-1].inner_html = "審閱醫師：<a class=\"know-reviewer-link\" href=\"#{reviewer_path}\">#{reviewer_name}</a>"
       body = doc.at_css('.know-article-body')
       body.children.remove
       fragment = Nokogiri::HTML::DocumentFragment.parse(extracted.body_html)
@@ -35,7 +38,7 @@ module KnowledgeArchive
         img['src'] = asset_map.fetch(img['src'])
         img['alt'] = extracted.title if img['alt'].to_s.strip.empty?
       end
-      body.add_child(fragment)
+      body.add_child(Nokogiri::HTML::DocumentFragment.parse(BodyNormalizer.call(fragment.to_html)))
       hero_image = doc.at_css('.know-article-media img')
       if hero_image && asset_map.any?
         hero_image['src'] = asset_map.values.first

@@ -221,7 +221,7 @@
                 <div class="know-article-eyebrow">醫療知識</div>
                 <h1>牙醫知識文章標題放在這裡</h1>
                 <div class="know-article-tags"><span>醫療知識</span><span>療程標籤</span></div>
-                <div class="know-article-meta"><span>2026.07.31</span><span>閱讀約 6 分鐘</span></div>
+                <div class="know-article-meta"><span>2026.07.31</span><span>閱讀約 6 分鐘</span><span>審閱醫師：<a class="know-reviewer-link" href="taichung/dr-chuang-li-chun.html">莊禮駿醫師</a></span></div>
               </div>
               <figure class="know-article-media know-article-media-placeholder"><div class="element-placeholder">文章主圖 3:2（1200×800）</div></figure>
             </div>
@@ -237,6 +237,7 @@
       &lt;/div&gt;
       &lt;div class="know-article-meta"&gt;
         &lt;span&gt;2026.07.31&lt;/span&gt;&lt;span&gt;閱讀約 6 分鐘&lt;/span&gt;
+        &lt;span&gt;審閱醫師：&lt;a class="know-reviewer-link" href="../taichung/dr-chuang-li-chun.html"&gt;莊禮駿醫師&lt;/a&gt;&lt;/span&gt;
       &lt;/div&gt;
     &lt;/div&gt;
     &lt;figure class="know-article-media"&gt;
@@ -278,6 +279,26 @@
   &lt;p&gt;一般內文，&lt;strong class="know-text-medium"&gt;中度強調&lt;/strong&gt;，
   &lt;strong class="know-text-emphasis"&gt;底色強調&lt;/strong&gt;。&lt;/p&gt;
 &lt;/section&gt;</code></pre></div></details>
+      </section>
+
+      <section class="element-panel" id="article-table">
+        <div class="element-panel-head"><div><h2>05A｜響應式文章表格</h2><p>舊文章或比較資料使用 table wrapper；手機版在容器內橫向捲動，不推寬整個頁面。</p></div><code class="element-class">know-table-wrap</code></div>
+        <div class="element-preview">
+          <div class="know-table-wrap">
+            <table>
+              <thead><tr><th>比較項目</th><th>說明</th></tr></thead>
+              <tbody><tr><td>治療規劃</td><td>由醫師依口腔檢查與影像資料評估。</td></tr><tr><td>後續追蹤</td><td>依個別治療狀況安排定期回診。</td></tr></tbody>
+            </table>
+          </div>
+        </div>
+        <details class="element-code"><summary>查看／複製語法</summary><div class="element-code-wrap"><button class="element-copy" type="button">複製</button><pre><code>&lt;div class="know-table-wrap"&gt;
+  &lt;table&gt;
+    &lt;thead&gt;&lt;tr&gt;&lt;th&gt;比較項目&lt;/th&gt;&lt;th&gt;說明&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;&lt;td&gt;治療規劃&lt;/td&gt;&lt;td&gt;由醫師依檢查資料評估。&lt;/td&gt;&lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/div&gt;</code></pre></div></details>
       </section>
 
       <section class="element-panel" id="cards">
@@ -483,12 +504,14 @@
               <tr><td>頁面模式</td><td><code>knowledge-article-page</code></td><td>加在 body</td></tr>
               <tr><td>首屏</td><td><code>know-article-hero</code><br><code>know-article-hero-inner</code></td><td>左右圖文；手機單欄且首圖貼齊底部</td></tr>
               <tr><td>首圖</td><td><code>know-article-media</code><br><code>know-article-media-wide</code></td><td>統一 3:2（建議 1200×800）；手機滿版且不產生橫向溢位</td></tr>
+              <tr><td>審閱醫師連結</td><td><code>know-reviewer-link</code></td><td>醫師姓名連至站內個人頁；文章頁使用 <code>../taichung/</code> 或 <code>../zhushan/</code> 路徑</td></tr>
               <tr><td>內容寬度</td><td><code>know-article-body</code><br><code>know-article-content</code></td><td>文章最大寬度 1040px</td></tr>
               <tr><td>目錄</td><td><code>know-article-toc</code><br><code>know-toc-label</code></td><td>自動編號</td></tr>
               <tr><td>前言／段落</td><td><code>know-lead-box</code><br><code>know-section</code></td><td>金色段落標題＋上分隔線</td></tr>
               <tr><td>文字強調</td><td><code>know-text-medium</code><br><code>know-text-emphasis</code></td><td>一般粗體／底色強調</td></tr>
               <tr><td>提醒</td><td><code>know-doctor-note</code></td><td>金色圓角框；桌機 18px／手機 16px</td></tr>
               <tr><td>內文圖片</td><td><code>know-image-placeholder</code><br><code>know-treatment-figure</code></td><td>原始色彩、透明底色、無框線陰影／置中 80%</td></tr>
+              <tr><td>響應式表格</td><td><code>know-table-wrap</code></td><td>手機於容器內橫向捲動，不造成頁面溢位</td></tr>
               <tr><td>深色圖文</td><td><code>know-image-callout</code></td><td>桌機雙欄、手機單欄</td></tr>
               <tr><td>資訊卡</td><td><code>know-card-grid</code><br><code>know-info-card</code></td><td>右上淡金編號，標題 18px，下方間距 15px</td></tr>
               <tr><td>圖示卡</td><td><code>know-surgery-grid</code><br><code>know-surgery-card</code></td><td>兩欄圖示卡</td></tr>

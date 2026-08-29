@@ -15,7 +15,12 @@ class KnowledgeArchiveRendererTest < Minitest::Test
     extracted = KnowledgeArchive::ExtractedArticle.new(
       title: '案例文章標題',
       summary: '文章摘要',
-      body_html: '<p>文章摘要</p><img src="https://www.gracelife.com.tw/a.jpg" alt="">',
+      body_html: <<~HTML,
+        <p>文章摘要</p>
+        <blockquote><h2>治療說明</h2></blockquote>
+        <p><img src="https://www.gracelife.com.tw/a.jpg" alt=""></p>
+        <div class="share-buttons">回到醫療新知</div>
+      HTML
       images: []
     )
     html = KnowledgeArchive::Renderer.new(
@@ -29,6 +34,14 @@ class KnowledgeArchiveRendererTest < Minitest::Test
     assert_includes html, '2026.05.06'
     assert_includes html, 'src="img/20260506/a.jpg"'
     assert_includes html, 'data-migrated-source="know_20260506.html"'
+    assert_includes html, 'class="know-article-toc"'
+    assert_includes html, 'class="know-article-content"'
+    assert_includes html, 'class="know-section" id="section-1"'
+    assert_includes html, 'href="#section-1"'
+    assert_includes html, 'class="know-reviewer-link" href="../taichung/dr-chuang-li-chun.html"'
+    assert_includes html, '審閱醫師：'
+    rendered = Nokogiri::HTML(html)
+    refute rendered.at_css('.know-article-body .share-buttons')
     refute_includes html, 'ISQ'
     refute_match(/[ \t]+$/, html)
     refute_includes html, "\t"
