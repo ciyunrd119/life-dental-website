@@ -29,8 +29,14 @@ module KnowledgeArchive
       end
       meta = doc.css('.know-article-meta span')
       meta[0].content = article.date.strftime('%Y.%m.%d')
+      reviewer_meta = meta[-1]
+      unless meta.any? { |node| node.text.strip == '內容整理：生活牙醫診所' }
+        organizer = Nokogiri::XML::Node.new('span', doc)
+        organizer.content = '內容整理：生活牙醫診所'
+        reviewer_meta.add_previous_sibling(organizer)
+      end
       reviewer_name, reviewer_path = Reviewers.profile(article.categories)
-      meta[-1].inner_html = "審閱醫師：<a class=\"know-reviewer-link\" href=\"#{reviewer_path}\">#{reviewer_name}</a>"
+      reviewer_meta.inner_html = "審閱醫師：<a class=\"know-reviewer-link\" href=\"#{reviewer_path}\">#{reviewer_name}</a>"
       body = doc.at_css('.know-article-body')
       body.children.remove
       fragment = Nokogiri::HTML::DocumentFragment.parse(extracted.body_html)

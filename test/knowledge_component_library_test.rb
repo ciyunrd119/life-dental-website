@@ -19,4 +19,10 @@ class KnowledgeComponentLibraryTest < Minitest::Test
     assert_match(/\.know-table-wrap\{[^}]*overflow-x:auto/, css)
     assert_match(/\.know-table-wrap table\{[^}]*min-width:/, css)
   end
+
+  def test_article_metadata_uses_compact_wrapped_row_spacing
+    css = File.read('css/style.css')
+
+    assert_match(/\.know-article-meta\{[^}]*gap:5px 18px/, css)
+  end
 end

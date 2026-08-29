@@ -15,8 +15,10 @@ class KnowledgeReviewerLinkTest < Minitest::Test
 
     pages.each do |page|
       doc = Nokogiri::HTML(File.read(page))
-      link = doc.at_css('.know-article-meta span:nth-child(3) a.know-reviewer-link')
+      organizer = doc.at_css('.know-article-meta span:nth-child(3)')
+      link = doc.at_css('.know-article-meta span:nth-child(4) a.know-reviewer-link')
 
+      assert_equal '內容整理：生活牙醫診所', organizer&.text&.strip, "missing content organizer: #{page}"
       refute_nil link, "missing reviewer link: #{page}"
       assert_equal REVIEWER_PATHS.fetch(link.text.strip), link['href'], page
       assert File.file?(File.expand_path(link['href'], File.dirname(page))), "missing reviewer page: #{page}"

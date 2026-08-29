@@ -4640,7 +4640,7 @@ footer{background:#1A1A1A;color:rgba(255,255,255,.7);}
 .know-article-copy p{font-size:18px;line-height:2;letter-spacing:.04em;color:var(--text);max-width:680px;margin-bottom:22px;}
 .know-article-tags{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:24px;}
 .know-article-tags span{display:inline-flex;align-items:center;justify-content:center;min-height:34px;padding:6px 14px;border:1px solid rgba(168,136,90,.36);background:#F6F6F6;color:#B89A6A;font-size:14px;font-weight:300;letter-spacing:.08em;}
-.know-article-meta{display:flex;flex-wrap:wrap;gap:10px 18px;color:var(--muted);font-size:14px;letter-spacing:.08em;}
+.know-article-meta{display:flex;flex-wrap:wrap;gap:5px 18px;color:var(--muted);font-size:14px;letter-spacing:.08em;}
 .know-article-meta span{position:relative;}
 .know-article-meta span:not(:last-child)::after{content:'';position:absolute;right:-10px;top:50%;width:3px;height:3px;border-radius:50%;background:rgba(168,136,90,.55);}
 .know-reviewer-link{color:inherit;text-decoration:underline;text-decoration-color:rgba(168,136,90,.55);text-underline-offset:.2em;transition:color .2s,text-decoration-color .2s;}

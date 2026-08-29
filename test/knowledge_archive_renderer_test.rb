@@ -39,6 +39,7 @@ class KnowledgeArchiveRendererTest < Minitest::Test
     assert_includes html, 'class="know-section" id="section-1"'
     assert_includes html, 'href="#section-1"'
     assert_includes html, 'class="know-reviewer-link" href="../taichung/dr-chuang-li-chun.html"'
+    assert_includes html, '<span>內容整理：生活牙醫診所</span>'
     assert_includes html, '審閱醫師：'
     rendered = Nokogiri::HTML(html)
     refute rendered.at_css('.know-article-body .share-buttons')
