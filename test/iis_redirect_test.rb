@@ -21,7 +21,11 @@ class IisRedirectTest < Minitest::Test
   end
 
   def redirect_rules
-    all_rules.select { |rule| REXML::XPath.first(rule, 'action').attributes['type'] == 'Redirect' }
+    named_rules('Legacy 301')
+  end
+
+  def named_rules(prefix)
+    all_rules.select { |rule| rule.attributes['name'].start_with?(prefix) }
   end
 
   def all_rules
@@ -64,7 +68,13 @@ class IisRedirectTest < Minitest::Test
 
   def test_redirect_destinations_exist_and_do_not_chain
     expanded_redirects.each do |source, destination|
-      destination_file = destination == '/' ? 'index.html' : destination.delete_prefix('/')
+      destination_file = if destination == '/'
+                           'index.html'
+                         elsif destination.end_with?('/')
+                           "#{destination.delete_prefix('/')}index.html"
+                         else
+                           destination.delete_prefix('/')
+                         end
       assert File.file?(File.join(PROJECT_ROOT, destination_file)), "missing target for #{source}: #{destination}"
       refute expanded_redirects.key?(destination), "redirect chain: #{source} -> #{destination}"
     end
@@ -86,8 +96,9 @@ class IisRedirectTest < Minitest::Test
   end
 
   def test_unchanged_paths_match_no_migration_rule
+    path_rules = named_rules('Canonical path') + named_rules('Legacy 301') + named_rules('Legacy 410')
     inventory.fetch('unchanged').each do |path|
-      assert_empty matching_rules(path, all_rules), path
+      assert_empty matching_rules(path, path_rules), path
     end
   end
 
@@ -95,5 +106,59 @@ class IisRedirectTest < Minitest::Test
     declared = expanded_redirects.keys + inventory.fetch('gone') + inventory.fetch('unchanged')
     assert_equal 136, declared.length
     assert_equal declared.length, declared.uniq.length
+  end
+
+  def test_canonical_path_redirects_are_exact_and_permanent
+    expected = {
+      '/index.html' => '/',
+      '/taichung' => '/taichung/',
+      '/taichung/index.html' => '/taichung/',
+      '/zhushan' => '/zhushan/',
+      '/zhushan/index.html' => '/zhushan/'
+    }
+    rules = named_rules('Canonical path') + named_rules('Legacy 301')
+    expected.each do |source, destination|
+      matches = matching_rules(source, rules)
+      assert_equal 1, matches.length, source
+      action = REXML::XPath.first(matches.first, 'action')
+      assert_equal destination, action.attributes['url'], source
+      assert_equal 'Permanent', action.attributes['redirectType'], source
+      assert_equal 'true', action.attributes['appendQueryString'], source
+    end
+  end
+
+  def test_host_rule_forces_https_www_but_excludes_appointment_app
+    rule = named_rules('Canonical host').fetch(0)
+    pattern = REXML::XPath.first(rule, 'match').attributes['url']
+    assert Regexp.new(pattern, Regexp::IGNORECASE).match?('services/implant.html')
+    refute Regexp.new(pattern, Regexp::IGNORECASE).match?('s/app/calendar.aspx')
+
+    conditions = REXML::XPath.first(rule, 'conditions')
+    assert_equal 'MatchAny', conditions.attributes['logicalGrouping']
+    https, host = REXML::XPath.match(conditions, 'add')
+    assert_equal ['{HTTPS}', '^OFF$', nil],
+                 [https.attributes['input'], https.attributes['pattern'], https.attributes['negate']]
+    assert_equal ['{HTTP_HOST}', '^www\.gracelife\.com\.tw$', 'true'],
+                 [host.attributes['input'], host.attributes['pattern'], host.attributes['negate']]
+
+    action = REXML::XPath.first(rule, 'action')
+    assert_equal 'https://www.gracelife.com.tw/{R:1}', action.attributes['url']
+    assert_equal 'Permanent', action.attributes['redirectType']
+    assert_equal 'true', action.attributes['appendQueryString']
+  end
+
+  def test_legacy_clinic_redirects_go_directly_to_directory_canonicals
+    assert_equal '/taichung/', expanded_redirects.fetch('/about-tc.html')
+    assert_equal '/zhushan/', expanded_redirects.fetch('/about-js.html')
+  end
+
+  def test_rule_order_is_host_then_path_then_legacy_then_gone
+    names = all_rules.map { |rule| rule.attributes['name'] }
+    assert_operator names.index { |name| name.start_with?('Canonical host') }, :<,
+                    names.index { |name| name.start_with?('Canonical path') }
+    assert_operator names.index { |name| name.start_with?('Canonical path') }, :<,
+                    names.index { |name| name.start_with?('Legacy 301') }
+    assert_operator names.index { |name| name.start_with?('Legacy 301') }, :<,
+                    names.index { |name| name.start_with?('Legacy 410') }
   end
 end

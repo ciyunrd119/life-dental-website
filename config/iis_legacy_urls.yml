@@ -1,9 +1,9 @@
 fixed_redirects:
   /index.html: /
-  /about-tc.html: /taichung/index.html
+  /about-tc.html: /taichung/
   /about-tc-dr.html: /taichung/team.html
   /about-tc-eq.html: /taichung/medical-equipment.html
-  /about-js.html: /zhushan/index.html
+  /about-js.html: /zhushan/
   /about-js-dr.html: /zhushan/team.html
   /about-js-eq.html: /zhushan/medical-equipment.html
   /about_news.html: /news.html
@@ -27,6 +27,12 @@ fixed_redirects:
   /case-implant.html: /cases/digital-implant.html
   /case-ortho.html: /cases/orthodontics.html
   /know.html: /knowledge.html
+
+canonical_redirects:
+  /taichung: /taichung/
+  /taichung/index.html: /taichung/
+  /zhushan: /zhushan/
+  /zhushan/index.html: /zhushan/
 
 same_date_knowledge:
   - '20150222'

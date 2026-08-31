@@ -15,15 +15,34 @@ module IisRedirectConfig
     inventory.fetch('fixed_redirects').merge(same_date).merge(inventory.fetch('renamed_knowledge'))
   end
 
-  def render(inventory)
-    rules = expanded_redirects(inventory).sort.map.with_index(1) do |(source, destination), index|
+  def render_redirect_rules(name_prefix, redirects)
+    redirects.sort.map.with_index(1) do |(source, destination), index|
       <<~XML.chomp
-              <rule name="Legacy 301 #{format('%03d', index)}" stopProcessing="true">
+              <rule name="#{name_prefix} #{format('%03d', index)}" stopProcessing="true">
                 <match url="^#{CGI.escapeHTML(Regexp.escape(source.delete_prefix('/')))}$" ignoreCase="true" />
                 <action type="Redirect" url="#{CGI.escapeHTML(destination)}" redirectType="Permanent" appendQueryString="true" />
               </rule>
       XML
     end
+  end
+
+  def render_host_rule
+    <<~XML.chomp
+            <rule name="Canonical host and scheme" stopProcessing="true">
+              <match url="^(?!s(?:/|$))(.*)$" ignoreCase="true" />
+              <conditions logicalGrouping="MatchAny">
+                <add input="{HTTPS}" pattern="^OFF$" ignoreCase="true" />
+                <add input="{HTTP_HOST}" pattern="^www\\.gracelife\\.com\\.tw$" negate="true" ignoreCase="true" />
+              </conditions>
+              <action type="Redirect" url="https://www.gracelife.com.tw/{R:1}" redirectType="Permanent" appendQueryString="true" />
+            </rule>
+    XML
+  end
+
+  def render(inventory)
+    rules = [render_host_rule]
+    rules.concat(render_redirect_rules('Canonical path', inventory.fetch('canonical_redirects')))
+    rules.concat(render_redirect_rules('Legacy 301', expanded_redirects(inventory)))
     gone_rules = inventory.fetch('gone').sort.map.with_index(1) do |source, index|
       <<~XML.chomp
               <rule name="Legacy 410 #{format('%03d', index)}" stopProcessing="true">
