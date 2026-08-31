@@ -45,7 +45,7 @@
 | `/about-js-eq.html` | `/zhushan/medical-equipment.html` |
 | `/about_news.html` | `/news.html` |
 | `/about_news_offday.html` | `/offday.html` |
-| `/about_news_appointment.html` | `/appointment.html` |
+| `/about_news_appointment.html` | `/offday.html` |
 | `/online-reservation.html` | `/appointment.html` |
 | `/contact.html` | `/appointment.html` |
 | `/idea.html` | 不轉址，維持 200 |
