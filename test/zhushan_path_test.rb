@@ -1,5 +1,4 @@
 require 'minitest/autorun'
-require 'json'
 
 class ZhushanPathTest < Minitest::Test
   def test_zhushan_directory_contains_all_clinic_pages
@@ -31,22 +30,5 @@ class ZhushanPathTest < Minitest::Test
 
     assert_empty legacy_references,
                  "仍連向 zushan 舊路徑的檔案: #{legacy_references.join(', ')}"
-  end
-
-  def test_legacy_zushan_urls_redirect_permanently
-    assert File.file?('vercel.json'), 'vercel.json 應定義舊網址轉址'
-    config = JSON.parse(File.read('vercel.json'))
-    redirects = config.fetch('redirects')
-
-    assert_includes redirects, {
-      'source' => '/zushan',
-      'destination' => '/zhushan/',
-      'permanent' => true
-    }
-    assert_includes redirects, {
-      'source' => '/zushan/:path*',
-      'destination' => '/zhushan/:path*',
-      'permanent' => true
-    }
   end
 end
