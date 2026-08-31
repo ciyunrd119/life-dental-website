@@ -15,6 +15,13 @@ module SeoMetadata
   PUBLIC_DIRECTORIES = %w[cases knowledge services taichung zhushan].freeze
   CANONICAL_TAG = /^[ \t]*<link\b[^>]*\brel=["']canonical["'][^>]*>\s*/i
   ROBOTS_TAG = /^[ \t]*<meta\b[^>]*\bname=["']robots["'][^>]*>\s*/i
+  INDEX_TARGET_DIRECTORIES = {
+    'index.html' => '.',
+    'taichung/index.html' => 'taichung',
+    'zhushan/index.html' => 'zhushan'
+  }.freeze
+  HREF_ATTRIBUTE = /(\bhref=)(["'])([^"']+)\2/i
+  NON_LOCAL_HREF = %r{\A(?:[a-z][a-z0-9+.-]*:|//|#)}i
 
   module_function
 
@@ -83,15 +90,42 @@ module SeoMetadata
     "User-agent: *\nAllow: /\n\nSitemap: #{ORIGIN}/sitemap.xml\n"
   end
 
+  def normalize_index_links(html, document_path)
+    document_directory = Pathname.new(File.dirname(document_path))
+
+    html.gsub(HREF_ATTRIBUTE) do |attribute|
+      prefix, quote, href = Regexp.last_match.captures
+      next attribute if href.match?(NON_LOCAL_HREF)
+
+      path, suffix = href.split(/(?=[?#])/, 2)
+      root_relative = path.start_with?('/')
+      resolved = if root_relative
+                   path.delete_prefix('/')
+                 else
+                   document_directory.join(path).cleanpath.to_s
+                 end
+      target_directory = INDEX_TARGET_DIRECTORIES[resolved]
+      next attribute unless target_directory
+
+      normalized_path = if root_relative
+                          target_directory == '.' ? '/' : "/#{target_directory}/"
+                        else
+                          relative = Pathname.new(target_directory)
+                                             .relative_path_from(document_directory).to_s
+                          relative == '.' ? './' : "#{relative}/"
+                        end
+      "#{prefix}#{quote}#{normalized_path}#{suffix}#{quote}"
+    end
+  end
+
   def sync(root, write:)
     desired = {}
 
     public_html_paths(root).each do |relative_path|
       absolute_path = File.join(root, relative_path)
-      desired[relative_path] = sync_canonical(
-        File.read(absolute_path),
-        canonical_url(relative_path)
-      )
+      html = File.read(absolute_path)
+      html = normalize_index_links(html, relative_path)
+      desired[relative_path] = sync_canonical(html, canonical_url(relative_path))
     end
 
     desired['element.html'] = sync_element_robots(File.read(File.join(root, 'element.html')))

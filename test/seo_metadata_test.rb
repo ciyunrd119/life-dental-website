@@ -1,10 +1,12 @@
 require 'minitest/autorun'
+require 'pathname'
 require 'rexml/document'
 require 'rexml/xpath'
 require_relative '../scripts/sync_seo_metadata'
 
 class SeoMetadataTest < Minitest::Test
   ROOT = File.expand_path('..', __dir__)
+  INDEX_DOCUMENTS = %w[index.html taichung/index.html zhushan/index.html].freeze
 
   def public_paths
     @public_paths ||= SeoMetadata.public_html_paths(ROOT)
@@ -14,6 +16,13 @@ class SeoMetadataTest < Minitest::Test
     File.read(File.join(ROOT, path)).scan(
       /<link\b(?=[^>]*\brel=["']canonical["'])(?=[^>]*\bhref=["']([^"']+)["'])[^>]*>/i
     ).flatten
+  end
+
+  def resolved_internal_href(document_path, href)
+    path = href.split(/[?#]/, 2).first
+    return path.delete_prefix('/') if path.start_with?('/')
+
+    Pathname.new(File.dirname(document_path)).join(path).cleanpath.to_s
   end
 
   def test_public_page_inventory_is_complete_and_excludes_internal_files
@@ -76,5 +85,30 @@ class SeoMetadataTest < Minitest::Test
 
     element_once = SeoMetadata.sync_element_robots(html)
     assert_equal element_once, SeoMetadata.sync_element_robots(element_once)
+  end
+
+  def test_public_pages_do_not_link_to_index_documents
+    public_paths.each do |document_path|
+      html = File.read(File.join(ROOT, document_path))
+      hrefs = html.scan(/\bhref=["']([^"']+)["']/i).flatten
+      duplicate_links = hrefs.select do |href|
+        next false if href.match?(%r{\A(?:[a-z][a-z0-9+.-]*:|//|#)}i)
+
+        INDEX_DOCUMENTS.include?(resolved_internal_href(document_path, href))
+      end
+      assert_empty duplicate_links, "#{document_path}: #{duplicate_links.join(', ')}"
+    end
+  end
+
+  def test_index_link_normalization_preserves_query_and_fragment
+    html = '<a href="../taichung/index.html?src=nav#team">Clinic</a>'
+    expected = '<a href="../taichung/?src=nav#team">Clinic</a>'
+    assert_equal expected, SeoMetadata.normalize_index_links(html, 'services/implant.html')
+  end
+
+  def test_index_link_normalization_keeps_root_relative_style
+    html = '<a href="/zhushan/index.html#team">Clinic</a>'
+    expected = '<a href="/zhushan/#team">Clinic</a>'
+    assert_equal expected, SeoMetadata.normalize_index_links(html, 'services/implant.html')
   end
 end
