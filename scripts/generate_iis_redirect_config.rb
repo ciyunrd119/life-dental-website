@@ -24,6 +24,14 @@ module IisRedirectConfig
               </rule>
       XML
     end
+    gone_rules = inventory.fetch('gone').sort.map.with_index(1) do |source, index|
+      <<~XML.chomp
+              <rule name="Legacy 410 #{format('%03d', index)}" stopProcessing="true">
+                <match url="^#{CGI.escapeHTML(Regexp.escape(source.delete_prefix('/')))}$" ignoreCase="true" />
+                <action type="CustomResponse" statusCode="410" statusReason="Gone" statusDescription="The requested legacy content has been removed." />
+              </rule>
+      XML
+    end
 
     <<~XML
       <?xml version="1.0" encoding="utf-8"?>
@@ -31,7 +39,7 @@ module IisRedirectConfig
         <system.webServer>
           <rewrite>
             <rules>
-      #{rules.join("\n")}
+      #{(rules + gone_rules).join("\n")}
             </rules>
           </rewrite>
         </system.webServer>

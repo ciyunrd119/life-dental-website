@@ -21,10 +21,12 @@ class IisRedirectTest < Minitest::Test
   end
 
   def redirect_rules
+    all_rules.select { |rule| REXML::XPath.first(rule, 'action').attributes['type'] == 'Redirect' }
+  end
+
+  def all_rules
     document = REXML::Document.new(File.read(WEB_CONFIG_PATH))
-    REXML::XPath.match(document, '//system.webServer/rewrite/rules/rule').select do |rule|
-      REXML::XPath.first(rule, 'action').attributes['type'] == 'Redirect'
-    end
+    REXML::XPath.match(document, '//system.webServer/rewrite/rules/rule')
   end
 
   def matching_rules(path, rules)
@@ -66,5 +68,32 @@ class IisRedirectTest < Minitest::Test
       assert File.file?(File.join(PROJECT_ROOT, destination_file)), "missing target for #{source}: #{destination}"
       refute expanded_redirects.key?(destination), "redirect chain: #{source} -> #{destination}"
     end
+  end
+
+  def test_each_removed_url_has_one_gone_rule
+    gone_rules = all_rules.select do |rule|
+      action = REXML::XPath.first(rule, 'action')
+      action.attributes['type'] == 'CustomResponse' && action.attributes['statusCode'] == '410'
+    end
+    assert_equal 34, gone_rules.length
+
+    inventory.fetch('gone').each do |source|
+      rules = matching_rules(source, gone_rules)
+      assert_equal 1, rules.length, source
+      action = REXML::XPath.first(rules.first, 'action')
+      assert_equal 'Gone', action.attributes['statusReason'], source
+    end
+  end
+
+  def test_unchanged_paths_match_no_migration_rule
+    inventory.fetch('unchanged').each do |path|
+      assert_empty matching_rules(path, all_rules), path
+    end
+  end
+
+  def test_all_audited_urls_have_one_declared_outcome
+    declared = expanded_redirects.keys + inventory.fetch('gone') + inventory.fetch('unchanged')
+    assert_equal 136, declared.length
+    assert_equal declared.length, declared.uniq.length
   end
 end
