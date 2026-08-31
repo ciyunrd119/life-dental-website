@@ -1,5 +1,7 @@
 require 'fileutils'
+require 'json'
 require 'nokogiri'
+require 'uri'
 require_relative 'catalog'
 require_relative 'categories'
 require_relative 'extractor'
@@ -16,6 +18,8 @@ module KnowledgeArchive
 
     def render(article:, extracted:, asset_map:)
       doc = Nokogiri::HTML(File.read(@shell_path))
+      canonical = "https://www.gracelife.com.tw/#{article.local_path}"
+      doc.at_css('link[rel="canonical"]')['href'] = canonical
       doc.at_css('title').content = "#{extracted.title}｜生活牙醫診所"
       doc.at_css('meta[name="description"]')['content'] = extracted.summary.to_s
       breadcrumb = doc.at_css('.page-breadcrumb-inner')
@@ -24,7 +28,8 @@ module KnowledgeArchive
       doc.at_css('.know-article-hero h1').content = extracted.title
       tags = doc.at_css('.know-article-tags')
       tags.children.remove
-      ['牙醫知識', Categories.label(article.categories.first)].each do |label|
+      tag_labels = ['牙醫知識', Categories.label(article.categories.first)]
+      tag_labels.each do |label|
         tags.add_child(Nokogiri::XML::Node.new('span', doc).tap { |node| node.content = label })
       end
       meta = doc.css('.know-article-meta span')
@@ -52,6 +57,16 @@ module KnowledgeArchive
       else
         doc.at_css('.know-article-media')&.remove
       end
+      sync_structured_data(
+        doc: doc,
+        canonical: canonical,
+        extracted: extracted,
+        article: article,
+        tag_labels: tag_labels,
+        reviewer_name: reviewer_name,
+        reviewer_path: reviewer_path,
+        image_path: asset_map.values.first
+      )
       cta = doc.at_css('.cta-section')
       cta.at_css('.cta-title').inner_html = '有牙齒問題，歡迎<em>預約諮詢</em>' if cta
       cta.at_css('.cta-desc').content = '由醫師依您的口腔狀況進行評估，說明合適的檢查與治療安排。' if cta
@@ -68,6 +83,73 @@ module KnowledgeArchive
       FileUtils.mkdir_p(File.dirname(path))
       File.write(path, html)
       :created
+    end
+
+    private
+
+    def sync_structured_data(doc:, canonical:, extracted:, article:, tag_labels:,
+                             reviewer_name:, reviewer_path:, image_path:)
+      organization = {
+        '@type' => 'Organization',
+        '@id' => 'https://www.gracelife.com.tw/#organization',
+        'name' => '生活牙醫診所',
+        'url' => 'https://www.gracelife.com.tw/'
+      }
+      article_id = "#{canonical}#article"
+      article_schema = {
+        '@type' => 'Article',
+        '@id' => article_id,
+        'url' => canonical,
+        'headline' => extracted.title,
+        'description' => extracted.summary.to_s,
+        'datePublished' => article.date.iso8601,
+        'mainEntityOfPage' => { '@id' => canonical },
+        'articleSection' => tag_labels,
+        'keywords' => tag_labels,
+        'author' => organization,
+        'publisher' => organization.merge(
+          'logo' => {
+            '@type' => 'ImageObject',
+            'url' => 'https://www.gracelife.com.tw/img/logo.png'
+          }
+        )
+      }
+      article_schema['image'] = URI.join(canonical, image_path).to_s if image_path
+      reviewer_url = URI.join(canonical, reviewer_path).to_s
+      data = {
+        '@context' => 'https://schema.org',
+        '@graph' => [
+          {
+            '@type' => 'WebPage',
+            '@id' => canonical,
+            'url' => canonical,
+            'mainEntity' => { '@id' => article_id },
+            'reviewedBy' => {
+              '@type' => 'Person',
+              '@id' => "#{reviewer_url}#person",
+              'name' => reviewer_name.sub(/醫師\z/, ''),
+              'url' => reviewer_url
+            }
+          },
+          article_schema
+        ]
+      }
+
+      script = doc.css('script[type="application/ld+json"]').find do |candidate|
+        parsed = JSON.parse(candidate.text)
+        parsed.fetch('@graph', [parsed]).any? do |item|
+          Array(item['@type']).include?('Article')
+        end
+      rescue JSON::ParserError
+        false
+      end
+      unless script
+        script = Nokogiri::XML::Node.new('script', doc)
+        script['type'] = 'application/ld+json'
+        main_script = doc.at_css('script[src$="js/main.js"]')
+        main_script ? main_script.add_previous_sibling(script) : doc.at_css('head').add_child(script)
+      end
+      script.content = "\n#{JSON.pretty_generate(data)}\n"
     end
 
   end
