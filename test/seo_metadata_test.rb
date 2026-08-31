@@ -1,4 +1,6 @@
 require 'minitest/autorun'
+require 'rexml/document'
+require 'rexml/xpath'
 require_relative '../scripts/sync_seo_metadata'
 
 class SeoMetadataTest < Minitest::Test
@@ -6,6 +8,12 @@ class SeoMetadataTest < Minitest::Test
 
   def public_paths
     @public_paths ||= SeoMetadata.public_html_paths(ROOT)
+  end
+
+  def canonical_hrefs(path)
+    File.read(File.join(ROOT, path)).scan(
+      /<link\b(?=[^>]*\brel=["']canonical["'])(?=[^>]*\bhref=["']([^"']+)["'])[^>]*>/i
+    ).flatten
   end
 
   def test_public_page_inventory_is_complete_and_excludes_internal_files
@@ -31,5 +39,42 @@ class SeoMetadataTest < Minitest::Test
     assert_raises(ArgumentError) { SeoMetadata.canonical_url('element.html') }
     assert_raises(ArgumentError) { SeoMetadata.canonical_url('docs/plan.html') }
     assert_raises(ArgumentError) { SeoMetadata.canonical_url('services/implant') }
+  end
+
+  def test_every_public_page_has_one_self_referencing_canonical
+    public_paths.each do |path|
+      assert_equal [SeoMetadata.canonical_url(path)], canonical_hrefs(path), path
+    end
+  end
+
+  def test_element_is_noindex_and_has_no_canonical
+    html = File.read(File.join(ROOT, 'element.html'))
+    assert_empty html.scan(/<link\b[^>]*\brel=["']canonical["'][^>]*>/i)
+    robots = /<meta\b(?=[^>]*\bname=["']robots["'])(?=[^>]*\bcontent=["']noindex, nofollow["'])[^>]*>/i
+    assert_equal 1, html.scan(robots).length
+  end
+
+  def test_sitemap_exactly_matches_public_canonicals
+    document = REXML::Document.new(File.read(File.join(ROOT, 'sitemap.xml')))
+    namespaces = { 'sitemap' => 'http://www.sitemaps.org/schemas/sitemap/0.9' }
+    urls = REXML::XPath.match(document, '//sitemap:loc', namespaces).map(&:text)
+    expected = public_paths.map { |path| SeoMetadata.canonical_url(path) }.sort
+    assert_equal expected, urls.sort
+    assert_equal 127, urls.uniq.length
+    assert_empty REXML::XPath.match(document, '//sitemap:lastmod', namespaces)
+  end
+
+  def test_robots_declares_the_canonical_sitemap
+    expected = "User-agent: *\nAllow: /\n\nSitemap: https://www.gracelife.com.tw/sitemap.xml\n"
+    assert_equal expected, File.read(File.join(ROOT, 'robots.txt'))
+  end
+
+  def test_metadata_synchronization_is_idempotent
+    html = "<html>\n<head>\n</head>\n</html>\n"
+    once = SeoMetadata.sync_canonical(html, 'https://www.gracelife.com.tw/test.html')
+    assert_equal once, SeoMetadata.sync_canonical(once, 'https://www.gracelife.com.tw/test.html')
+
+    element_once = SeoMetadata.sync_element_robots(html)
+    assert_equal element_once, SeoMetadata.sync_element_robots(element_once)
   end
 end
