@@ -26,7 +26,7 @@ class SeoMetadataTest < Minitest::Test
   end
 
   def test_public_page_inventory_is_complete_and_excludes_internal_files
-    assert_equal 127, public_paths.length
+    assert_equal 125, public_paths.length
     assert_includes public_paths, 'index.html'
     assert_includes public_paths, 'knowledge/know_20150222.html'
     assert_includes public_paths, 'services/implant.html'
@@ -76,7 +76,7 @@ class SeoMetadataTest < Minitest::Test
     urls = REXML::XPath.match(document, '//sitemap:loc', namespaces).map(&:text)
     expected = public_paths.map { |path| SeoMetadata.canonical_url(path) }.sort
     assert_equal expected, urls.sort
-    assert_equal 127, urls.uniq.length
+    assert_equal 125, urls.uniq.length
     assert_empty REXML::XPath.match(document, '//sitemap:lastmod', namespaces)
   end
 

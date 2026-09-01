@@ -61,7 +61,7 @@ class MigratedKnowledgeFormatTest < Minitest::Test
 
   def test_all_migrated_articles_use_current_body_components
     pages = Dir['knowledge/know_*.html'].sort
-    assert_equal 67, pages.length
+    assert_equal 65, pages.length
 
     pages.each do |page|
       doc = Nokogiri::HTML(File.read(page))

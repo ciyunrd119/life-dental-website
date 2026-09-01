@@ -11,7 +11,7 @@ class KnowledgeReviewerLinkTest < Minitest::Test
 
   def test_every_knowledge_article_links_its_reviewer_to_the_profile_page
     pages = Dir['knowledge/*.html'].sort
-    assert_equal 79, pages.length
+    assert_equal 77, pages.length
 
     pages.each do |page|
       doc = Nokogiri::HTML(File.read(page))

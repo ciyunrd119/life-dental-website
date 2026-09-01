@@ -38,6 +38,15 @@ class HomepageStructuredDataTest < Minitest::Test
     refute @organization.key?('subOrganization')
   end
 
+  def test_taichung_local_business_uses_the_clinic_environment_image
+    taichung = @graph.find do |item|
+      item['@id'] == 'https://www.gracelife.com.tw/taichung/#localbusiness'
+    end
+
+    refute_nil taichung, '首頁 JSON-LD 應包含台中 LocalBusiness'
+    assert_equal 'https://www.gracelife.com.tw/img/clinic/tc/env02.jpg', taichung['image']
+  end
+
   def test_website_publishes_the_official_site_name
     website = @graph.find { |item| item['@id'] == 'https://www.gracelife.com.tw/#website' }
 

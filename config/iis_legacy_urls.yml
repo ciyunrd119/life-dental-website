@@ -44,7 +44,6 @@ same_date_knowledge:
   - '20150424'
   - '20170314'
   - '20170705'
-  - '20170717'
   - '20170718'
   - '20170814'
   - '20170816'
@@ -52,7 +51,6 @@ same_date_knowledge:
   - '20170908'
   - '20171020'
   - '20171127'
-  - '20171207'
   - '20171212'
   - '20180112'
   - '20180126'
@@ -111,6 +109,8 @@ renamed_knowledge:
   /know_20260409.html: /knowledge/20260624-microscope-root-canal-guide.html
 
 gone:
+  - /know_20170717.html
+  - /know_20171207.html
   - /about_news_20160106.html
   - /about_news_20160122.html
   - /about_news_20160224.html
