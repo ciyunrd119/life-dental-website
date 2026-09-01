@@ -7,6 +7,7 @@ require_relative 'categories'
 require_relative 'extractor'
 require_relative 'body_normalizer'
 require_relative 'reviewers'
+require_relative '../breadcrumb_structured_data'
 
 module KnowledgeArchive
   class ExistingManualFile < StandardError; end
@@ -71,7 +72,8 @@ module KnowledgeArchive
       cta.at_css('.cta-title').inner_html = '有牙齒問題，歡迎<em>預約諮詢</em>' if cta
       cta.at_css('.cta-desc').content = '由醫師依您的口腔狀況進行評估，說明合適的檢查與治療安排。' if cta
       doc.at_css('body')['data-migrated-source'] = article.source_path
-      doc.to_html.each_line.map { |line| line.gsub("\t", '  ').rstrip }.join("\n") + "\n"
+      html = doc.to_html.each_line.map { |line| line.gsub("\t", '  ').rstrip }.join("\n") + "\n"
+      BreadcrumbStructuredData.sync(html: html, canonical: canonical)
     end
 
     def self.write(path:, html:)

@@ -8,7 +8,8 @@ class HomepageStructuredDataTest < Minitest::Test
 
     refute_nil json, '首頁應包含 JSON-LD'
     data = JSON.parse(json[1])
-    @organization = data.fetch('@graph').find do |item|
+    @graph = data.fetch('@graph')
+    @organization = @graph.find do |item|
       item['@id'] == 'https://www.gracelife.com.tw/#organization'
     end
     refute_nil @organization, '首頁 JSON-LD 應包含生活牙醫組織'
@@ -35,5 +36,16 @@ class HomepageStructuredDataTest < Minitest::Test
 
     assert_equal expected_departments, @organization['department']
     refute @organization.key?('subOrganization')
+  end
+
+  def test_website_publishes_the_official_site_name
+    website = @graph.find { |item| item['@id'] == 'https://www.gracelife.com.tw/#website' }
+
+    refute_nil website, '首頁 JSON-LD 應包含 WebSite'
+    assert_equal 'WebSite', website['@type']
+    assert_equal 'https://www.gracelife.com.tw/', website['url']
+    assert_equal '生活牙醫診所', website['name']
+    assert_equal 'Grace Life Dental Clinic', website['alternateName']
+    assert_equal({ '@id' => 'https://www.gracelife.com.tw/#organization' }, website['publisher'])
   end
 end

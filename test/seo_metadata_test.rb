@@ -56,6 +56,13 @@ class SeoMetadataTest < Minitest::Test
     end
   end
 
+  def test_homepage_publishes_the_approved_search_title
+    html = File.read(File.join(ROOT, 'index.html'))
+    title = html.match(%r{<title>([^<]+)</title>}).captures.first
+
+    assert_equal '生活牙醫診所｜台中南屯・南投竹山牙醫｜植牙・全瓷冠・矯正', title
+  end
+
   def test_element_is_noindex_and_has_no_canonical
     html = File.read(File.join(ROOT, 'element.html'))
     assert_empty html.scan(/<link\b[^>]*\brel=["']canonical["'][^>]*>/i)

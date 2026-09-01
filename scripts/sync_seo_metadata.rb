@@ -1,5 +1,6 @@
 require 'cgi'
 require 'pathname'
+require_relative 'breadcrumb_structured_data'
 
 module SeoMetadata
   ORIGIN = 'https://www.gracelife.com.tw'.freeze
@@ -125,7 +126,12 @@ module SeoMetadata
       absolute_path = File.join(root, relative_path)
       html = File.read(absolute_path)
       html = normalize_index_links(html, relative_path)
-      desired[relative_path] = sync_canonical(html, canonical_url(relative_path))
+      canonical = canonical_url(relative_path)
+      html = sync_canonical(html, canonical)
+      unless relative_path == 'index.html'
+        html = BreadcrumbStructuredData.sync(html: html, canonical: canonical)
+      end
+      desired[relative_path] = html
     end
 
     desired['element.html'] = sync_element_robots(File.read(File.join(root, 'element.html')))
