@@ -29,3 +29,5 @@ know_20170912.html:
 bestimplant.html:
   source_path: bestimplant.html
   local_path: knowledge/know_bestimplant.html
+know_20210317.html:
+  local_path: knowledge/know_20200317.html

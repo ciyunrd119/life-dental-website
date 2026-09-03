@@ -42,8 +42,8 @@ class IisRedirectTest < Minitest::Test
   end
 
   def test_inventory_has_complete_audited_counts
-    assert_equal 98, expanded_redirects.length
-    assert_equal 36, inventory.fetch('gone').length
+    assert_equal 96, expanded_redirects.length
+    assert_equal 41, inventory.fetch('gone').length
     assert_equal ['/', '/idea.html'], inventory.fetch('unchanged')
     assert_empty expanded_redirects.keys & inventory.fetch('gone')
     assert_empty expanded_redirects.keys & inventory.fetch('unchanged')
@@ -54,7 +54,7 @@ class IisRedirectTest < Minitest::Test
   end
 
   def test_each_audited_redirect_has_one_permanent_direct_rule
-    assert_equal 98, redirect_rules.length
+    assert_equal 96, redirect_rules.length
 
     expanded_redirects.each do |source, destination|
       rules = matching_rules(source, redirect_rules)
@@ -85,7 +85,7 @@ class IisRedirectTest < Minitest::Test
       action = REXML::XPath.first(rule, 'action')
       action.attributes['type'] == 'CustomResponse' && action.attributes['statusCode'] == '410'
     end
-    assert_equal 36, gone_rules.length
+    assert_equal 41, gone_rules.length
 
     inventory.fetch('gone').each do |source|
       rules = matching_rules(source, gone_rules)
@@ -104,7 +104,7 @@ class IisRedirectTest < Minitest::Test
 
   def test_all_audited_urls_have_one_declared_outcome
     declared = expanded_redirects.keys + inventory.fetch('gone') + inventory.fetch('unchanged')
-    assert_equal 136, declared.length
+    assert_equal 139, declared.length
     assert_equal declared.length, declared.uniq.length
   end
 

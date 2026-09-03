@@ -3,6 +3,9 @@ require 'nokogiri'
 
 class KnowledgeReviewerLinkTest < Minitest::Test
   REVIEWER_PATHS = {
+    '曾吉杉醫師' => '../taichung/dr-tseng-ji-san.html',
+    '薛青坡醫師' => '../taichung/dr-hsueh-ching-po.html',
+    '陳嘉豪醫師' => '../taichung/dr-chen-chia-hao.html',
     '莊禮駿醫師' => '../taichung/dr-chuang-li-chun.html',
     '許瑛祺醫師' => '../taichung/dr-hsu-ying-chi.html',
     '朱明輝醫師' => '../taichung/dr-chu-ming-hui.html',
@@ -11,7 +14,7 @@ class KnowledgeReviewerLinkTest < Minitest::Test
 
   def test_every_knowledge_article_links_its_reviewer_to_the_profile_page
     pages = Dir['knowledge/*.html'].sort
-    assert_equal 77, pages.length
+    assert_equal 74, pages.length
 
     pages.each do |page|
       doc = Nokogiri::HTML(File.read(page))

@@ -29,6 +29,7 @@ fixed_redirects:
   /know.html: /knowledge.html
 
 canonical_redirects:
+  /knowledge/know_20210317.html: /knowledge/know_20200317.html
   /taichung: /taichung/
   /taichung/index.html: /taichung/
   /zhushan: /zhushan/
@@ -62,7 +63,6 @@ same_date_knowledge:
   - '20180604'
   - '20180611'
   - '20180704'
-  - '20180711'
   - '20180731'
   - '20180920'
   - '20181204'
@@ -71,14 +71,12 @@ same_date_knowledge:
   - '20190613'
   - '20190702'
   - '20190918'
-  - '20191003'
   - '20191226'
   - '20191227'
   - '20200414'
   - '20200709'
   - '20200908'
   - '20201027'
-  - '20210317'
   - '20210611'
   - '20211001'
   - '20211201'
@@ -98,6 +96,7 @@ same_date_knowledge:
   - '20260506'
 
 renamed_knowledge:
+  /know_20210317.html: /knowledge/know_20200317.html
   /know_20170912.html: /knowledge/20240912-root-coverage-surgery.html
   /know_20170913.html: /services/teeth-whitening.html
   /know_20200204.html: /knowledge/20200204-zirkonzahn-zirconia-crown.html
@@ -109,6 +108,11 @@ renamed_knowledge:
   /know_20260409.html: /knowledge/20260624-microscope-root-canal-guide.html
 
 gone:
+  - /know_20191003.html
+  - /know_20180711.html
+  - /knowledge/know_bestimplant.html
+  - /knowledge/know_20191003.html
+  - /knowledge/know_20180711.html
   - /know_20170717.html
   - /know_20171207.html
   - /about_news_20160106.html

@@ -64,7 +64,7 @@ class KnowledgeArticleStructuredDataTest < Minitest::Test
   end
 
   def test_all_knowledge_pages_publish_article_schema_matching_visible_content
-    assert_equal 77, ARTICLE_PAGES.length
+    assert_equal 74, ARTICLE_PAGES.length
     assert_equal 'https', URI.parse(PUBLISHER.dig('logo', 'url')).scheme
     assert File.file?(File.join(ROOT, 'img', 'logo.png')), 'publisher logo 資產不存在'
 
