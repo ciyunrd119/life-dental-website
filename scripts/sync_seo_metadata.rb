@@ -13,7 +13,7 @@ module SeoMetadata
     offday.html
     videos.html
   ].freeze
-  PUBLIC_DIRECTORIES = %w[cases knowledge services taichung zhushan].freeze
+  PUBLIC_DIRECTORIES = %w[cases knowledge news services taichung zhushan].freeze
   CANONICAL_TAG = /^[ \t]*<link\b[^>]*\brel=["']canonical["'][^>]*>\s*/i
   ROBOTS_TAG = /^[ \t]*<meta\b[^>]*\bname=["']robots["'][^>]*>\s*/i
   INDEX_TARGET_DIRECTORIES = {

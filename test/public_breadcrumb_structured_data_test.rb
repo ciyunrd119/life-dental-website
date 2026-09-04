@@ -18,7 +18,7 @@ class PublicBreadcrumbStructuredDataTest < Minitest::Test
 
   def test_every_public_non_home_page_publishes_one_valid_breadcrumb_list
     paths = SeoMetadata.public_html_paths(ROOT) - ['index.html']
-    assert_equal 121, paths.length
+    assert_equal 125, paths.length
 
     paths.each do |path|
       html = File.read(File.join(ROOT, path))
