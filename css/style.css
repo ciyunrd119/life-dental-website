@@ -660,7 +660,7 @@ a[href^="tel:"],a[x-apple-data-detectors]{text-decoration:none!important;}
   text-transform:uppercase;margin-bottom:8px;font-weight:400;
 }
 .doctor-name{
-  font-family:'Noto Serif TC',serif;font-size:40px;font-weight:400;
+  font-family:'Noto Serif TC',serif;font-size:32px;font-weight:400;
   color:var(--dark);letter-spacing:.06em;margin-bottom:4px;
 }
 .doctor-title{font-size:16px;color:var(--muted);letter-spacing:.15em;margin-bottom:36px;}
